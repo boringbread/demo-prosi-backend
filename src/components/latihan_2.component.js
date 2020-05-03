@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from 'react-router';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
+import IndexJs from "./main.component";
 export default class Latihan_2 extends Component{
 	constructor(props) {
     super(props);
@@ -18,7 +18,7 @@ export default class Latihan_2 extends Component{
   }
 
 	componentDidMount() {
-		fetch('http://localhost/demo-prosi-ci/index.php/websiterestcontroller/getAllUser')
+		fetch('http://localhost/Demo-Prosi/demo-prosi-backend/index.php/websiterestcontroller/getAllUser')
 			.then(response => {
 				return response.json();
 			}).then(result => {
@@ -31,12 +31,12 @@ export default class Latihan_2 extends Component{
 
   deleteUser(id) {
 		if(window.confirm("Are you sure want to delete?")) {
-			fetch('http://localhost/demo-prosi-ci/index.php/websiterestcontroller/deleteUser/' + id, {
+			fetch('http://localhost/Demo-Prosi/demo-prosi-backend/index.php/websiterestcontroller/deleteUser/' + id, {
 	                method : 'DELETE'
 				}).then(response => { 
 					if(response.status === 200) {
 						alert("User sudah dihapus");
-                            fetch('http://localhost/demo-prosi-ci/index.php/websiterestcontroller/getAllUser')
+                            fetch('http://localhost/Demo-Prosi/demo-prosi-backend/index.php/websiterestcontroller/getAllUser')
 						.then(response => {
 							return response.json();
 						}).then(result => {
@@ -52,7 +52,12 @@ export default class Latihan_2 extends Component{
 
 
 	render() {
+		if(localStorage.getItem("loginState")!="1"){
+			return <Redirect to="/" />
+		}
 		return (
+			<div>
+			<IndexJs />
 			<div id="container">
 				<Link to="/adduser">&#43; Tambah Pengguna</Link>
 				<p/>
@@ -88,6 +93,7 @@ export default class Latihan_2 extends Component{
 						}
 					</tbody>
 				</table>
+			</div>
 			</div>
 		)
 	}
