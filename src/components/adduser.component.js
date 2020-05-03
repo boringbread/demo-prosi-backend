@@ -58,11 +58,23 @@ export default class adduser extends Component{
 			  <form onSubmit={this.handleSubmit}>
 				<p>
 					<label>Username:</label>
-					<input type="text" name="Username" value={this.state.Username} onChange={this.handleChange} placeholder="Username" />
+					<input 
+					type="email" 
+					name="Username" 
+					value={this.state.Username} 
+					onChange={this.handleChange} 
+					placeholder="Username" 
+					required/>
 				</p>
 				<p>
 					<label>Password:</label>
-					<input type="text" name="Password" value={this.state.Password} onChange={this.handleChange} placeholder="Password" />
+					<input 
+					type="password" 
+					name="Password" 
+					value={this.state.Password} 
+					onChange={this.handleChange} 
+					placeholder="Password" 
+					required />
 				</p>
 				<p>
 					<a href="/latihan_2"><input type="submit" value="Submit" /></a>
