@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from 'react-router';
+import IndexJs from "./main.component";
 
 export default class Update extends Component{
 	constructor(props){
@@ -16,7 +17,7 @@ export default class Update extends Component{
 	}
 
 	componentDidMount(){
-		fetch('http://localhost/demo-prosi-ci/index.php/websiterestcontroller/getUser/'+this.props.match.params.ID)
+		fetch('http://localhost/Demo-Prosi/demo-prosi-backend/index.php/websiterestcontroller/getUser/'+this.props.match.params.ID)
 		.then(response => {
 			return response.json();
 		}).then(result => {
@@ -36,7 +37,7 @@ export default class Update extends Component{
 
 	handleSubmit(event){
 		event.preventDefault();
-		fetch('http://localhost/demo-prosi-ci/index.php/websiterestcontroller/update', {
+		fetch('http://localhost/Demo-Prosi/demo-prosi-backend/index.php/websiterestcontroller/update', {
 			METHOD: 'PUT',
 			Body: JSON.stringify({
 		        ID: this.state.ID,
@@ -53,7 +54,14 @@ export default class Update extends Component{
 	}
 
 	render() {
+		if(localStorage.getItem("loginState")!="1"){
+			return <Redirect to="/" />
+		}
 		return (
+			<div>
+				<IndexJs />
+			<div className="auth-wrapper">
+			<div className="auth-inner">
 			<form onSubmit={this.handleSubmit} method="POST">
 
 				<h3>Updating Password {this.state.Username}</h3>
@@ -65,6 +73,9 @@ export default class Update extends Component{
 
 		        <input className="d-block btn btn-info" type="submit" value="Submit" />
       		</form>
+			  </div>
+			  </div>
+			</div>
 		)
 	}
 }

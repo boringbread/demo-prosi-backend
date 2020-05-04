@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from 'react-router';
+import "../index.css";
+import IndexJs from "./main.component";
 
 export default class Latihan extends Component {
   constructor(props) {
@@ -24,7 +26,7 @@ export default class Latihan extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    fetch('http://localhost/demo-prosi-ci/index.php/websiterestcontroller/login', {
+    fetch('http://localhost/Demo-Prosi/demo-prosi-backend/index.php/websiterestcontroller/login', {
       method: 'POST',
       body: JSON.stringify({
         Username: this.state.Username,
@@ -38,6 +40,7 @@ export default class Latihan extends Component {
           this.setState({
             redirect: true
           });
+          localStorage.setItem("loginState","1");
         } else {
           alert("Username atau Password anda salah");
         }
@@ -45,26 +48,60 @@ export default class Latihan extends Component {
   }
 
   render() {
-      if (this.state.redirect) {
+      if (localStorage.getItem("loginState")=="1") {
         return <Redirect push to="/welcome" />;
       }
+
     return (
-      <form onSubmit={this.handleSubmit} method="POST">
-
-        <h3>LOGIN</h3>
-
-        <div className="form-group">
-          <label className="d-block">Name:</label>
-          <input required type="text" className="form-control w-100" name="Username" value={this.state.Username} onChange={this.handleChange} />
+      <div>
+        <IndexJs />
+        <div className="auth-wrapper">
+          <div className="auth-inner">
+          <form onSubmit={this.handleSubmit} method="POST">
+              <h3>Sign In</h3>
+  
+              <div className="form-group">
+                <label>Email address</label>
+                <input 
+                  required type="email" 
+                  className="form-control"
+                  name="Username" 
+                  value={this.state.Username} 
+                  onChange={this.handleChange} 
+                />
+              </div>
+  
+              <div className="form-group">
+                <label>Password</label>
+                <input 
+                  required type="Password" 
+                  className="form-control"
+                  name="Password" 
+                  value={this.state.Password} 
+                  onChange={this.handleChange} 
+                />
+              </div>
+  
+              <div className="form-group">
+                <div className="custom-control custom-checkbox">
+                  <input
+                    type="checkbox"
+                    className="custom-control-input"
+                    id="customCheck1"
+                  />
+                  <label className="custom-control-label" htmlFor="customCheck1">
+                    Remember me
+                  </label>
+                </div>
+              </div>
+              <input className="d-block btn btn-info" type="submit" value="Submit" />
+              <p className="forgot-password text-right">
+                Forgot <a href="#">password?</a>
+              </p>
+            </form>
+          </div>
         </div>
-
-        <div className="form-group">
-          <label className="d-block">Password :</label>
-          <input required type="Password" className="form-control w-100" name="Password" value={this.state.Password} onChange={this.handleChange} />
-        </div>
-
-        <input className="d-block btn btn-info" type="submit" value="Submit" />
-      </form>
+      </div>
     );
   }
 }
