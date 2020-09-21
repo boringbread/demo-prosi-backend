@@ -52,7 +52,7 @@ function App() {
         <Router>
           <PrivateRoute exact path="/welcome" component={Welcome} />
           <PrivateRoute exact path="/goodbye" component={Goodbye} />
-          <PrivateRoute exact path="/" component={Welcome} />
+          <PrivateRoute exact path="/" component={Login} />
           <PrivateRoute exact path="/sign-in" component={Login} />
           <PrivateRoute exact path="/sign-up" component={SignUp} />
           <Route path="/upload">
