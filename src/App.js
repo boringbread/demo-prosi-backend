@@ -39,21 +39,21 @@ function App() {
         return state;
     }
   };
-  
+
   const [data, dispatch] = React.useReducer(reducer, {
     dropDepth: 0,
     inDropZone: false,
     fileList: [],
   });
-  
+
   return (
     <div className="App">
       <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
         <Router>
           <PrivateRoute exact path="/welcome" component={Welcome} />
           <PrivateRoute exact path="/goodbye" component={Goodbye} />
-          <PrivateRoute exact path="/" component={Login} />
-          <PrivateRoute exact path="/sign-in" component={Login} />
+          <PrivateRoute exact path="/" component={Latihan} />
+          <PrivateRoute exact path="/sign-in" component={Latihan} />
           <PrivateRoute exact path="/sign-up" component={SignUp} />
           <Route path="/upload">
             <DragAndDrop data={data} dispatch={dispatch} />
