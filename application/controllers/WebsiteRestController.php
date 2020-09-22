@@ -41,11 +41,15 @@ class WebsiteRestController extends REST_Controller
             $this->response(array(), 200);
         }
     }
+    private function hash_password($password)
+    {
+        return password_hash($password, PASSWORD_BCRYPT);
+    }
 
     function login_post()
     {
         $username = htmlspecialchars($this->post('Username'));
-        $password = htmlspecialchars($this->post('Password'));
+        $password = $this->hash_password(htmlspecialchars($this->post('Password')));
         $result = $this->user->login($username, $password);
         if ($result) {
             $this->response($result, 200);
