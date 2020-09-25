@@ -74,12 +74,11 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'demoku',
-	'dbdriver' => 'mysqli',
+	'hostname' => 'AS',
+	'username' => 'PRASASTA',
+	'password' => 'test123',
+	'database' => 'Akreditasi2020',
+	'dbdriver' => 'sqlsrv',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
