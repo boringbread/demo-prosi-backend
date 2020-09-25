@@ -1,61 +1,109 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Redirect } from 'react-router';
+import "../index.css";
+import IndexJs from "./main.component";
+import axios from "axios";
 
-export default class Login extends Component {
+export default class Latihan extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: '',
+      Username: '',
+      Password: '',
+      users: [],
+      redirect: false
+    };
 
-    constructor(props) {
-        super(props);
-        this.state = {users: []};
-        this.headers = [
-            {key: 'ID', label: 'ID'},
-            {key: 'Username', label: 'Username'},
-            {key: 'Password', label: 'Password'}
-        ];
-    }
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
-    componentDidMount() {
-        fetch('http://localhost/Demo-Prosi-ci/index.php/websiterestcontroller/getUser')
-        .then(response => {
-            return response.json();
-        }).then(result => {
-            console.log(result);
-            this.setState({
-                users:result
-            });
-        });
-    }
+  handleChange(event) {
+      const state = this.state;
+      state[event.target.name] = event.target.value;
+      this.setState(state);
+  }
 
-    handleSubmit(event){
-        
-    }
+  handleSubmit(event) {
+    event.preventDefault();
+    fetch('http://localhost:3000/demo-prosi-backend/index.php/C_Login/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        Username: this.state.Username,
+        Password: this.state.Password
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      }
+    })
+    .then(response => {
+        if(response.status === 200) {
+          this.setState({
+            redirect: true
+          });
+          localStorage.setItem("loginState","1");
+        } else {
+          alert("Username atau Password anda salah");
+        }
+      });
+  }
 
-    render() {
-        return (
-            <form>
-                <h3>Sign In</h3>
+  render() {
+      if (localStorage.getItem("loginState")=="1") {
+        return <Redirect push to="/welcome" />;
+      }
 
-                <div className="form-group">
-                    <label>Email address</label>
-                    <input type="email" className="form-control" placeholder="Enter email" />
+    return (
+      <div>
+        <IndexJs />
+        <div className="auth-wrapper">
+          <div className="auth-inner">
+          <form onSubmit={this.handleSubmit} method="POST">
+              <h3>Sign In</h3>  
+  
+              <div className="form-group">
+                <label>Username</label>
+                <input 
+                  required type="username" 
+                  className="form-control"
+                  name="Username" 
+                  value={this.state.Username} 
+                  onChange={this.handleChange} 
+                />
+              </div>
+  
+              <div className="form-group">
+                <label>Password</label>
+                <input 
+                  required type="Password" 
+                  className="form-control"
+                  name="Password" 
+                  value={this.state.Password} 
+                  onChange={this.handleChange} 
+                />
+              </div>
+  
+              <div className="form-group">
+                <div className="custom-control custom-checkbox">
+                  <input
+                    type="checkbox"
+                    className="custom-control-input"
+                    id="customCheck1"
+                  />
+                  <label className="custom-control-label" htmlFor="customCheck1">
+                    Remember me
+                  </label>
                 </div>
-
-                <div className="form-group">
-                    <label>Password</label>
-                    <input type="password" className="form-control" placeholder="Enter password" />
-                </div>
-
-                <div className="form-group">
-                    <div className="custom-control custom-checkbox">
-                        <input type="checkbox" className="custom-control-input" id="customCheck1" />
-                        <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
-                    </div>
-                </div>
-
-                <Link className="nav-link" to={"/welcome"}> <button type="submit" className="btn btn-primary btn-block">Submit</button></Link>
-                <p className="forgot-password text-right">
-                    Forgot <a href="#">password?</a>
-                </p>
+              </div>
+              <input className="d-block btn btn-info" type="submit" value="Submit" />
+              <p className="forgot-password text-right">
+                Forgot <a href="#">password?</a>
+              </p>
             </form>
-        );
-    }
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
