@@ -5,19 +5,39 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 //import components to make content of a page
 import React, { useState } from "react";
-import Login from "./components/login.component";
-import DragAndDrop from "./components/dragAndDrop.component";
 import SignUp from "./components/signup.component";
-import Welcome from "./components/welcome.component";
-import Latihan from "./components/latihan.component";
-import Latihan_2 from "./components/latihan_2.component";
-import AddUser from "./components/adduser.component";
-import Update from "./components/update.component";
-import registerServiceWorker from "./registerServiceWorker";
-import Goodbye from "./components/goodbye.component";
+import Login from "./components/login.component";
+import Header from './components/header/Header';
+import Tamong from './components/pages/tataPamong/TataPamong';
+import Home from './components/pages/home/Home';
+import Input from './components/pages/mahasiwa/Input/Input';
+import Asing from './components/pages/mahasiwa/Asing/Asing';
+import Profil from './components/pages/SDM/Profil/Profil';
+import Kinerja from './components/pages/SDM/Kinerja/Kinerja';
+import Sarana from './components/pages/sarana/Sarana';
+import Kepuasan from './components/pages/pendidikan/Kepuasan/Kepuasan';
+import Kurikulum from './components/pages/pendidikan/Kurikulum/Kurikulum';
+import Penelitian from './components/pages/pendidikan/Penelitian/Penelitian';
+import Mahasiswa from './components/pages/penelitian/Mahasiswa/Mahasiswa';
+import PengabdianMasyarakat from './components/pages/pengabdianMasyarakat/PengabdianMasyarakat';
+import CapaianPembelajaran from './components/pages/capaian/capaianPembelajaran/CapaianPembelajaran';
+import DayaSaing from './components/pages/capaian/DayaSaing/DayaSaing';
+import KinerjaLulusan from './components/pages/capaian/KinerjaLulusan/KinerjaLulusan';
+import PrestasiMahasiswa from './components/pages/capaian/prestasiMahasiswa/PrestasiMahasiswa';
+import Produktivitas from './components/pages/capaian/Produktivitas/Produktivitas';
+import PenelitianPkm from './components/pages/capaian/PenelitianPkM/PenelitianPkM';
+import DragAndDrop from './components/pages/dragAndDrop/TarikBuang';
 import { AuthContext } from "./Auth_Context";
-import IndexJs from "./components/main.component";
 import PrivateRoute from "./Private_Route";
+// import DragAndDrop from "./components/dragAndDrop.component";
+// import Login from "./components/login.component";
+// import Welcome from "./components/welcome.component";
+// import Latihan_2 from "./components/latihan_2.component";
+// import AddUser from "./components/adduser.component";
+// import Update from "./components/update.component";
+// import Goodbye from "./components/goodbye.component";
+// import IndexJs from "./components/main.component";
+// import registerServiceWorker from "./registerServiceWorker";
 
 function App() {
   const [authTokens, setAuthTokens] = useState(
@@ -49,22 +69,31 @@ function App() {
   return (
     <div className="App">
       <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
+        <Header />
+        {/* <AuthButton /> */}
         <Router>
-          <PrivateRoute exact path="/welcome" component={Welcome} />
-          <PrivateRoute exact path="/goodbye" component={Goodbye} />
-          <PrivateRoute exact path="/" component={Latihan} />
-          <PrivateRoute exact path="/sign-in" component={Latihan} />
+          <PrivateRoute exact path="/login" component={Login} />
+          <PrivateRoute exact path="/sign-in" component={Login} />
           <PrivateRoute exact path="/sign-up" component={SignUp} />
-          <Route path="/upload">
-            <DragAndDrop data={data} dispatch={dispatch} />
-          </Route>
-          <PrivateRoute exact path="/latihan" component={Latihan} />
-          <PrivateRoute exact path="/latihan_2" component={Latihan_2} />
-          <Route path="/adduser" component={AddUser} />
-          <Route path="/update/:ID" component={Update} />
-          <div className="welcomeP">
-            <Route path="/welcome" component={Welcome} />
-          </div>
+          <Route path="/" exact component={Home} />
+          <Route path="/tataPamong" component={Tamong} />
+          <Route path="/inputMahasiswa" component={Input} />
+          <Route path="/mahasiswaAsing" component={Asing} />
+          <Route path="/profilDosen" component={Profil} />
+          <Route path="/kinerjaDosen" component={Kinerja} />
+          <Route path="/keuanganSarana" component={Sarana} />
+          <Route path="/kepuasanMahasiswa" component={Kepuasan} />
+          <Route path="/penelitianPendidikan" component={Penelitian} />
+          <Route path="/kurikulum" component={Kurikulum} />
+          <Route path="/melibatkanMahasiswa" component={Mahasiswa} />
+          <Route path="/pengabdianMasyarakat" component={PengabdianMasyarakat} />
+          <Route path="/capaianPembelajaran" component={CapaianPembelajaran} />
+          <Route path="/kinerjaLulusan" component={KinerjaLulusan} />
+          <Route path="/dayaSaing" component={DayaSaing} />
+          <Route path="/prestasiMahasiswa" component={PrestasiMahasiswa} />
+          <Route path="/produktivitas" component={Produktivitas} />
+          <Route path="/penelitianPkm" component={PenelitianPkm} />
+          <Route path="/draganddrop" component={DragAndDrop} />
         </Router>
       </AuthContext.Provider>
     </div>

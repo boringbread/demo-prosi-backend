@@ -12,12 +12,10 @@
 
             // Load Model
             $this->load->model('M_User');
-            
-            
+                        
             // Check users whether it is available or not
             if($this->M_User->getUserData($username) == NULL){
-                redirect('/','refresh');
-                exit();
+                $this->response(array(), 400);
             }
             
             // Getting data
@@ -25,7 +23,7 @@
 
             // Check passwords, go through if match
             if (password_verify($password, $user_data->Passwords) == 1){
-                redirect('/dashboard','refresh');
+                $this->response(array(), 400);
             } else {
                 $this->session->set_flashdata('error', 'Mohon maaf, username atau password anda salah.');
                 redirect('/','refresh');

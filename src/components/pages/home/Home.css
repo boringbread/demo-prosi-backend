@@ -1,0 +1,13 @@
+.card-row {
+    display: flex;
+}
+
+.card- {
+    width: 20%;
+    text-align: center;
+    margin: 3%;
+}
+
+.card-:hover {
+    background-color: beige;
+}
