@@ -70,7 +70,6 @@ function App() {
     <div className="App">
       <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
         <Header />
-        {/* <AuthButton /> */}
         <Router>
           <PrivateRoute exact path="/login" component={Login} />
           <PrivateRoute exact path="/sign-in" component={Login} />

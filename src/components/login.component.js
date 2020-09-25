@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Redirect } from 'react-router';
-import "../index.css";
 import IndexJs from "./main.component";
 import axios from "axios";
 
