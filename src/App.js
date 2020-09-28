@@ -72,12 +72,12 @@ function App() {
       <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
         <Header />
         {/* <AuthButton /> */}
-        <Router>
+        <Switch>
           <PrivateRoute exact path="/login" component={Login} />
           <PrivateRoute exact path="/sign-in" component={Login} />
           <PrivateRoute exact path="/sign-up" component={SignUp} />
           <Route path="/" exact component={Home} />
-          <Route path="/dashPenelitian" exact component={} />
+          {/* <Route path="/dashPenelitian" exact component={} /> */}
           <Route path="/tataPamong" component={Tamong} />
           <Route path="/inputMahasiswa" component={Input} />
           <Route path="/mahasiswaAsing" component={Asing} />
@@ -97,7 +97,7 @@ function App() {
           <Route path="/produktivitas" component={Produktivitas} />
           <Route path="/penelitianPkm" component={PenelitianPkm} />
           <Route path="/draganddrop" component={DragAndDrop} />
-        </Router>
+          </Switch>
       </AuthContext.Provider>
     </div>
   );

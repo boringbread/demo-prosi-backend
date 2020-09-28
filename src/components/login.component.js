@@ -11,7 +11,8 @@ export default class Latihan extends Component {
       Username: '',
       Password: '',
       users: [],
-      redirect: false
+      redirect: false,
+      testUname: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -26,37 +27,34 @@ export default class Latihan extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    fetch('http://localhost:3000/demo-prosi-backend/index.php/C_Login/login', {
-      method: 'POST',
-      body: JSON.stringify({
-        Username: this.state.Username,
-        Password: this.state.Password
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
+
+    axios.post('/demo-prosi-backend/index.php/C_Login/login', {
+      Username: this.state.Username,
+      Password: this.state.Password
+    }).then((data) => {
+      // console.log(data.data.result);
+      this.setState({ testUname: data.data.result});
+      console.log(this.state.testUname);
+    }).then((response) => {
+      if(this.state.testUname == true) {
+        this.setState({redirect: true});
+        localStorage.setItem("loginState","1");
+        return <Redirect push to="/welcome" />;
+      } else {
+        alert("Username atau password anda salah");
       }
-    })
-    .then(response => {
-        if(response.status === 200) {
-          this.setState({
-            redirect: true
-          });
-          localStorage.setItem("loginState","1");
-        } else {
-          alert("Username atau Password anda salah");
-        }
-      });
+    });
   }
 
   render() {
       if (localStorage.getItem("loginState")=="1") {
-        return <Redirect push to="/welcome" />;
+        return <Redirect push to="/" />;
       }
 
     return (
       <div>
         <IndexJs />
-        <div className="auth-wrapper">
+        <div className="container">
           <div className="auth-inner">
           <form onSubmit={this.handleSubmit} method="POST">
               <h3>Sign In</h3>  
