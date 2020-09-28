@@ -15,7 +15,7 @@ class Mahasiswa extends Component {
       tabel6: [],
       modal: false,
       dad: false,
-      modalBukti:false,
+      modalBukti: false,
     };
     this.toggleModal = this.toggleModal.bind(this);
     this.toggleModalBukti = this.toggleModalBukti.bind(this);
@@ -220,7 +220,7 @@ class Mahasiswa extends Component {
             </ModalHeader>
             <ModalBody>
               <Container>
-              <Table striped bordered responsive className="text-center">
+                <Table striped bordered responsive className="text-center">
                   <thead>
                     <tr>
                       <th style={{ width: 10 }} className="align-middle">
