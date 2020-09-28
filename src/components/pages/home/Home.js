@@ -13,6 +13,7 @@ import Table5 from '../pendidikan/list_tabel_5.js';
 import Table6 from '../penelitian/list_tabel_6.js';
 import Table7 from '../pengabdianMasyarakat/list_tabel_7.js';
 import Table8 from '../capaian/list_tabel_8.js';
+import Header from '../../header/Header'
 
 
 class Home extends Component {
@@ -29,7 +30,6 @@ class Home extends Component {
   render() {
 
     const toggle = () => { this.setState({ modal: false }) }
-
     return (
       <>
         <div>

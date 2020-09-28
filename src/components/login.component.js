@@ -40,7 +40,7 @@ export default class Latihan extends Component {
       if(this.state.testUname == true) {
         this.setState({redirect: true});
         localStorage.setItem("loginState","1");
-        return <Redirect push to="/welcome" />;
+        this.forceUpdate();
       } else {
         alert("Username atau password anda salah");
       }
@@ -49,13 +49,14 @@ export default class Latihan extends Component {
 
   render() {
       if (localStorage.getItem("loginState")=="1") {
+        this.forceUpdate();
         return <Redirect push to="/" />;
       }
 
     return (
       <div>
         <IndexJs />
-        <div className="container">
+        <div className="auth-wrapper">
           <div className="auth-inner">
           <form onSubmit={this.handleSubmit} method="POST">
               <h3>Sign In</h3>  

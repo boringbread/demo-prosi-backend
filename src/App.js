@@ -70,8 +70,9 @@ function App() {
   return (
     <div className="App">
       <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
-        <Header />
+        {/* <Header /> */}
         {/* <AuthButton /> */}
+        {window.location.pathname == "/login" ? null : <Header />} 
         <Switch>
           <PrivateRoute exact path="/login" component={Login} />
           <PrivateRoute exact path="/sign-in" component={Login} />
