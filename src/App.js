@@ -77,7 +77,6 @@ function App() {
           <PrivateRoute exact path="/sign-in" component={Login} />
           <PrivateRoute exact path="/sign-up" component={SignUp} />
           <Route path="/" exact component={Home} />
-          <Route path="/dashPenelitian" exact component={} />
           <Route path="/tataPamong" component={Tamong} />
           <Route path="/inputMahasiswa" component={Input} />
           <Route path="/mahasiswaAsing" component={Asing} />
