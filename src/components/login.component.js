@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Redirect } from 'react-router';
 import IndexJs from "./main.component";
 import axios from "axios";
+import "./login.css";
 
 export default class Latihan extends Component {
   constructor(props) {
