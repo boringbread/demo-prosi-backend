@@ -18,6 +18,7 @@ import Sarana from './components/pages/sarana/Sarana';
 import Kepuasan from './components/pages/pendidikan/Kepuasan/Kepuasan';
 import Kurikulum from './components/pages/pendidikan/Kurikulum/Kurikulum';
 import Penelitian from './components/pages/pendidikan/Penelitian/Penelitian';
+import penelitianMHS from './components/pages/penelitian/Mahasiswa/Mahasiswa';
 import Mahasiswa from './components/pages/penelitian/Mahasiswa/Mahasiswa';
 import PengabdianMasyarakat from './components/pages/pengabdianMasyarakat/PengabdianMasyarakat';
 import CapaianPembelajaran from './components/pages/capaian/capaianPembelajaran/CapaianPembelajaran';
@@ -76,6 +77,7 @@ function App() {
           <PrivateRoute exact path="/sign-in" component={Login} />
           <PrivateRoute exact path="/sign-up" component={SignUp} />
           <Route path="/" exact component={Home} />
+          <Route path="/dashPenelitian" exact component={} />
           <Route path="/tataPamong" component={Tamong} />
           <Route path="/inputMahasiswa" component={Input} />
           <Route path="/mahasiswaAsing" component={Asing} />
@@ -84,6 +86,7 @@ function App() {
           <Route path="/keuanganSarana" component={Sarana} />
           <Route path="/kepuasanMahasiswa" component={Kepuasan} />
           <Route path="/penelitianPendidikan" component={Penelitian} />
+          <Route path="/dashPeneliatian" component={penelitianMHS} />
           <Route path="/kurikulum" component={Kurikulum} />
           <Route path="/melibatkanMahasiswa" component={Mahasiswa} />
           <Route path="/pengabdianMasyarakat" component={PengabdianMasyarakat} />
