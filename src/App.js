@@ -70,7 +70,7 @@ function App() {
   return (
     <div className="App">
       <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
-        <Header />
+        {/* <Header /> */}
         {/* <AuthButton /> */}
         {window.location.pathname == "/login"||"/sign-up" ? null : <Header />} 
         <Switch>
