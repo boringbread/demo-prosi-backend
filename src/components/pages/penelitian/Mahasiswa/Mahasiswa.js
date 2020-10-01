@@ -141,7 +141,7 @@ class Mahasiswa extends Component {
                     </tr>
                   </thead>
                   <tbody>
-                    {/* {tabel_6_a} */}
+                    {tabel_6_a}
                     <tr>
                       <td>1</td>
                       <td>Elisati Hulu</td>
