@@ -15,6 +15,7 @@ function Mahasiswa (props) {
   //   this.state = {
       tabel6a: [],
       tabel6: [],
+      tabelBukti6a: [],
       modal: false,
       dad: false,
       modalBukti: false,
@@ -162,9 +163,46 @@ function Mahasiswa (props) {
           <td>{d.namaMahasiswa}</td>
           <td className="text-left">{d.judulKegiatan}</td>
           <td>{d.tahun}</td>
+          <td>
+          <Button
+            color="primary"
+            onClick={() => {
+
+              axios.get('demo-prosi-backend/index.php/C_Tabel6/getBukti/'+d.idPenelitian)
+                .then((data)=>{
+                  this.setState({ tabelBukti6a:data.data.result });
+                  // console.log(this.state.tabelBukti6a);
+                })
+              this.setState({
+                modalBukti: true,
+              });
+            }}
+          >
+            Lihat Bukti
+          </Button>
+          </td>
         </tr>
       );
     });
+
+    // if(this.state.tabelBukti6a!=null){
+      let tabel_bukti_6_a = this.state.tabelBukti6a.map((d, i) => {
+        if(this.state.tabelBukti6a!=null){
+          return (
+            <tr>
+              <td>{i + 1}</td>
+              <td style={{ textAlign: "left", width: 250 }}>{d.deskripsi}</td>
+              <td>
+                <a href={d.pathFile} target="_blank">{d.namaBukti}</a>  
+              </td>
+            </tr>
+          )
+        } else {
+          return (
+            <h4>Belum ada bukti</h4>
+          )
+        }
+      })
 
     return (
       <>
@@ -335,12 +373,12 @@ function Mahasiswa (props) {
                     </tr>
                   </thead>
                   <tbody>
-                    {/* {tabel_6_a} */}
-                    <tr>
+                    {/* <tr>
                       <td>1</td>
                       <td>Sertifikat Smart Mirror menggunakan Arduiono</td>
                       <td><a href="facebook.com">Sertifikat.pdf</a></td>
-                    </tr>
+                    </tr> */}
+                    {tabel_bukti_6_a}
                   </tbody>
                 </Table>
               </Container>
