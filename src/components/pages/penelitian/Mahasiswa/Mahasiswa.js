@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import { Table, Col, Row } from "reactstrap";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { Chart } from "react-google-charts";
@@ -6,63 +6,143 @@ import { Container } from "reactstrap";
 import "./Mahasiswa.css";
 import { Input, FormGroup } from "reactstrap";
 import axios from "axios";
+import DragDrop from "../../TarikBuang";
 
-class Mahasiswa extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+function Mahasiswa (props) {
+  const [state,setState] = useState({
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
       tabel6a: [],
       tabel6: [],
       modal: false,
       dad: false,
       modalBukti: false,
-    };
-    this.toggleModal = this.toggleModal.bind(this);
-    this.toggleModalBukti = this.toggleModalBukti.bind(this);
-  }
+      unggahBukti: false,
+    // };
+  })
+    // this.toggleModal = this.toggleModal.bind(this);
+    // this.toggleModalBukti = this.toggleModalBukti.bind(this);
+    // this.toggleModalUnggahBukti = this.toggleModalUnggahBukti.bind(this);
+  // }
 
-  update(e) {
-    var x = this.state.tabel3a;
+  const updateA = (e) => {
+     var x = state.tabel3a;
+    // var x = this.state.tabel3a;
     let searchQuery = e.target.value;
     let regexer = new RegExp(searchQuery, "i");
-    this.setState({
+    setState({
+    ...state,
+    // this.setState({
       tabel6: this.state.tabel6a.filter(
         (d) => searchQuery.length == 0 || d.namaDosen.match(regexer)
       ),
     });
   }
 
-  toggleModal() {
-    if (this.state.modal == true) {
-      this.setState({ modal: false });
-    } else {
-      this.setState({ modal: true });
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case "SET_DROP_DEPTH":
+        return { ...state, dropDepth: action.dropDepth };
+      case "SET_IN_DROP_ZONE":
+        return { ...state, inDropZone: action.inDropZone };
+      case "ADD_FILE_TO_LIST":
+        return { ...state, fileList: state.fileList.concat(action.files) };
+      default:
+        return state;
     }
-  }
-  toggleModalBukti() {
-    if (this.state.modalBukti == true) {
-      this.setState({ modalBukti: false });
+  };
+
+  const [data, dispatch] = React.useReducer(reducer, {
+    dropDepth: 0,
+    inDropZone: false,
+    fileList: [],
+  });
+
+  const toggleModal = () => {
+    // if (this.state.modal == true) {
+    //   this.setState({ modal: false });
+    // } else {
+    //   this.setState({ modal: true });
+    // }
+    if (state.modal == true) {
+      setState({ 
+        ...state,
+        modal: false });
     } else {
-      this.setState({ modalBukti: true });
+      setState({ 
+        ...state,
+        modal: true });
     }
-  }
-  componentDidMount() {
-    axios
-      .get("website-akreditasi-front-end/index.php/api/tabel6a")
-      .then((data) => {
-        this.setState({ tabel6a: data.data.result, tabel6: data.data.result });
-      });
-    console.log(this.state.tabel6);
   }
 
-  render() {
-    const { tabel6a, tabel6 } = this.state;
+  const toggleModalBukti = () => {
+    // if (this.state.modalBukti == true) {
+    //   this.setState({ modalBukti: false });
+    // } else {
+    //   this.setState({ modalBukti: true });
+    // }
+    if (state.modalBukti == true) {
+      setState({ 
+        ...state,
+        modalBukti: false });
+    } else {
+      setState({ 
+        ...state,
+        modalBukti: true });
+    }
+  }
+
+  const toggleModalUnggahBukti = () => {
+    // if (this.state.unggahBukti == true) {
+    //   this.setState({ unggahBukti: false});
+    // } else {
+    //   this.setState({ unggahBukti: true});
+    // }
+    if (state.unggahBukti == true) {
+      setState({ 
+        ...state,
+        unggahBukti: false});
+    } else {
+      setState({ 
+        ...state,
+        unggahBukti: true});
+    }
+  }
+
+
+  useEffect(() => {
+    axios
+    .get("website-akreditasi-front-end/index.php/api/tabel6a")
+    .then((data) => {
+      setState({ 
+        ...state,
+        tabel6a: data.data.result, tabel6: data.data.result });
+    }).catch((error) => {});
+    // console.log(state.tabel6);
+  }, []);
+
+
+  // componentDidMount() {
+  //   axios
+  //     .get("website-akreditasi-front-end/index.php/api/tabel6a")
+  //     .then((data) => {
+  //       this.setState({ tabel6a: data.data.result, tabel6: data.data.result });
+  //     });
+  //   console.log(this.state.tabel6);
+  // }
+
+  // render() {
+  
+    // const { tabel6a, tabel6 } = this.state;
+    // const { tabel6a, tabel6 } = state;
     let jml2016 = 0;
     let jml2017 = 0;
     let jml2018 = 0;
     let jml2019 = 0;
     let jml2020 = 0;
-    let tabel_6_a = tabel6.map((d, i) => {
+    // console.log(state);
+    let tabel_6_a = state.tabel6.map((d, i) => {
       if (d.tahun == 2016) {
         jml2016++;
       } else if (d.tahun == 2017) {
@@ -101,14 +181,25 @@ class Mahasiswa extends Component {
                   color="primary"
                   className="grafik"
                   onClick={() => {
-                    this.setState({
+                    // this.setState({
+                    setState({
+                      ...state,
                       modal: true,
                     });
                   }}
                 >
                   Grafik
                 </Button>
-                <Button color="primary" className="unggahBukti">
+                <Button color="primary" 
+                className="unggahBukti"
+                onClick={() => {
+                  // this.setState({
+                  setState({
+                    ...state,
+                    unggahBukti: true,
+                  });
+                }}
+                >
                   Unggah Bukti
                 </Button>
               </Col>
@@ -116,7 +207,8 @@ class Mahasiswa extends Component {
                 <FormGroup className="input">
                   <Input
                     type="text"
-                    onChange={this.update.bind(this)}
+                    // onChange={this.updateA.bind(this)}
+                    onChange={updateA}
                     placeholder="Cari Dosen"
                   />
                 </FormGroup>
@@ -153,7 +245,9 @@ class Mahasiswa extends Component {
                         <Button
                           color="primary"
                           onClick={() => {
-                            this.setState({
+                            // this.setState({
+                              setState({
+                              ...state,
                               modalBukti: true,
                             });
                           }}
@@ -176,11 +270,15 @@ class Mahasiswa extends Component {
         <div>
           <Modal
             size={"xl"}
-            isOpen={this.state.modal}
-            toggle={this.toggleModal}
-            className={this.props.className}
+            // isOpen={this.state.modal}
+            // toggle={this.toggleModal}
+            // className={this.props.className}
+            isOpen={state.modal}
+            toggle={toggleModal}
+            className={props.className}
           >
-            <ModalHeader toggle={this.toggleModal}>
+            {/* <ModalHeader toggle={this.toggleModal}> */}
+            <ModalHeader toggle={toggleModal}>
               Grafik Tahun Penelitian yang Melibatkan Mahasiswa
             </ModalHeader>
             <ModalBody>
@@ -211,11 +309,15 @@ class Mahasiswa extends Component {
           </Modal>
           <Modal
             size={"xl"}
-            isOpen={this.state.modalBukti}
-            toggle={this.toggleModalBukti}
-            className={this.props.className}
+            // isOpen={this.state.modalBukti}
+            // toggle={this.toggleModalBukti}
+            // className={this.props.className}
+            isOpen={state.modalBukti}
+            toggle={toggleModalBukti}
+            className={props.className}
           >
-            <ModalHeader toggle={this.toggleModalBukti}>
+            {/* <ModalHeader toggle={this.toggleModalBukti}> */}
+            <ModalHeader toggle={toggleModalBukti}>
               Bukti
             </ModalHeader>
             <ModalBody>
@@ -244,11 +346,29 @@ class Mahasiswa extends Component {
               </Container>
             </ModalBody>
           </Modal>
+
+          <Modal
+            size={"xl"}
+            // isOpen={this.state.unggahBukti}
+            // toggle={this.toggleModalUnggahlBukti}
+            // className={this.props.className}
+            isOpen={state.unggahBukti}
+            toggle={toggleModalUnggahBukti}
+            className={props.className}
+          >
+            {/* <ModalHeader toggle={this.toggleModalUnggahBukti}> */}
+            <ModalHeader toggle={toggleModalUnggahBukti}>
+              Bukti
+            </ModalHeader>
+            <ModalBody>
+              <DragDrop data={data} dispatch={dispatch}/>
+            </ModalBody>
+          </Modal>
         </div>
       </>
     );
-  }
+  // }
 }
-Mahasiswa.propTypes = {};
+// Mahasiswa.propTypes = {};
 
 export default Mahasiswa;

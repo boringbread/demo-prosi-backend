@@ -1,5 +1,5 @@
 import React from "react";
-import IndexJs from "./main.component";
+// import IndexJs from "./main.component.js";
 
 const DragAndDrop = (props) => {
   const { data, dispatch } = props;
@@ -45,7 +45,7 @@ const DragAndDrop = (props) => {
   };
   return (
     <div>
-      <IndexJs />
+      {/* <IndexJs /> */}
       <div className="auth-wrapper">
         <div className="auth-inner">
           <form>
