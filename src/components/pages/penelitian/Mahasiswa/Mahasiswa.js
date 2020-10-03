@@ -186,8 +186,10 @@ function Mahasiswa (props) {
     });
 
     // if(this.state.tabelBukti6a!=null){
-      let tabel_bukti_6_a = this.state.tabelBukti6a.map((d, i) => {
-        if(this.state.tabelBukti6a!=null){
+      // let tabel_bukti_6_a = this.state.tabelBukti6a.map((d, i) => {
+        let tabel_bukti_6_a = state.tabelBukti6a.map((d, i) => {
+        // if(this.state.tabelBukti6a!=null){
+          if(state.tabelBukti6a!=null){
           return (
             <tr>
               <td>{i + 1}</td>
