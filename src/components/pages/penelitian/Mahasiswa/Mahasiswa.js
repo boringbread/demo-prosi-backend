@@ -13,6 +13,7 @@ class Mahasiswa extends Component {
     this.state = {
       tabel6a: [],
       tabel6: [],
+      tabelBukti6a: [],
       modal: false,
       dad: false,
       modalBukti: false,
@@ -39,6 +40,7 @@ class Mahasiswa extends Component {
       this.setState({ modal: true });
     }
   }
+  
   toggleModalBukti() {
     if (this.state.modalBukti == true) {
       this.setState({ modalBukti: false });
@@ -46,13 +48,14 @@ class Mahasiswa extends Component {
       this.setState({ modalBukti: true });
     }
   }
+
   componentDidMount() {
     axios
-      .get("website-akreditasi-front-end/index.php/api/tabel6a")
+      .get("demo-prosi-backend/index.php/api/tabel6a")
       .then((data) => {
         this.setState({ tabel6a: data.data.result, tabel6: data.data.result });
       });
-    console.log(this.state.tabel6);
+    // console.log(this.state.tabel6);
   }
 
   render() {
@@ -82,9 +85,46 @@ class Mahasiswa extends Component {
           <td>{d.namaMahasiswa}</td>
           <td className="text-left">{d.judulKegiatan}</td>
           <td>{d.tahun}</td>
+          <td>
+          <Button
+            color="primary"
+            onClick={() => {
+
+              axios.get('demo-prosi-backend/index.php/C_Tabel6/getBukti/'+d.idPenelitian)
+                .then((data)=>{
+                  this.setState({ tabelBukti6a:data.data.result });
+                  // console.log(this.state.tabelBukti6a);
+                })
+              this.setState({
+                modalBukti: true,
+              });
+            }}
+          >
+            Lihat Bukti
+          </Button>
+          </td>
         </tr>
       );
     });
+
+    // if(this.state.tabelBukti6a!=null){
+      let tabel_bukti_6_a = this.state.tabelBukti6a.map((d, i) => {
+        if(this.state.tabelBukti6a!=null){
+          return (
+            <tr>
+              <td>{i + 1}</td>
+              <td style={{ textAlign: "left", width: 250 }}>{d.deskripsi}</td>
+              <td>
+                <a href={d.pathFile} target="_blank">{d.namaBukti}</a>  
+              </td>
+            </tr>
+          )
+        } else {
+          return (
+            <h4>Belum ada bukti</h4>
+          )
+        }
+      })
 
     return (
       <>
@@ -233,12 +273,12 @@ class Mahasiswa extends Component {
                     </tr>
                   </thead>
                   <tbody>
-                    {/* {tabel_6_a} */}
-                    <tr>
+                    {/* <tr>
                       <td>1</td>
                       <td>Sertifikat Smart Mirror menggunakan Arduiono</td>
                       <td><a href="facebook.com">Sertifikat.pdf</a></td>
-                    </tr>
+                    </tr> */}
+                    {tabel_bukti_6_a}
                   </tbody>
                 </Table>
               </Container>
