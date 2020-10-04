@@ -14,6 +14,9 @@ class PengabdianMasyarakat extends Component {
       tabel7: [],
       tabel7Filtered: [],
       modal: false,
+      dad: false,
+      modalBukti: false,
+      unggahBukti: false,
     };
     this.toggleModal = this.toggleModal.bind(this);
   }
@@ -86,6 +89,12 @@ class PengabdianMasyarakat extends Component {
                     modal: true
                   });
                 }}>Grafik</Button>
+                 <Button color="primary" 
+                className="unggahBukti"
+                
+                >
+                  Unggah Bukti
+                </Button>
               </Col>
               <Col md={3} className="ml-auto">
                 <FormGroup className="input">
