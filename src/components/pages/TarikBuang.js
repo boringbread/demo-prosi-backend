@@ -33,6 +33,8 @@ const DragAndDrop = (props) => {
     e.stopPropagation();
 
     let files = [...e.dataTransfer.files];
+    console.log(files);
+    console.log([e.dataTransfer.result]);
 
     if (files && files.length > 0) {
       const existingFiles = data.fileList.map((f) => f.name);
@@ -43,6 +45,7 @@ const DragAndDrop = (props) => {
       dispatch({ type: "SET_IN_DROP_ZONE", inDropZone: false });
     }
   };
+
   return (
     <div>
       {/* <IndexJs /> */}

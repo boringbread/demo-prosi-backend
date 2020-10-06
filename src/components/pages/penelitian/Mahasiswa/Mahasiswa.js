@@ -114,7 +114,7 @@ function Mahasiswa (props) {
 
   useEffect(() => {
     axios
-    .get("website-akreditasi-front-end/index.php/api/tabel6a")
+    .get("demo-prosi-backend/index.php/api/tabel6a")
     .then((data) => {
       setState({ 
         ...state,
@@ -167,15 +167,14 @@ function Mahasiswa (props) {
           <Button
             color="primary"
             onClick={() => {
-
               axios.get('demo-prosi-backend/index.php/C_Tabel6/getBukti/'+d.idPenelitian)
                 .then((data)=>{
-                  this.setState({ tabelBukti6a:data.data.result });
-                  // console.log(this.state.tabelBukti6a);
+                  // this.setState({ tabelBukti6a:data.data.result });
+                  setState({ 
+                    ...state,
+                    tabelBukti6a: data.data.result,
+                    modalBukti: true });
                 })
-              this.setState({
-                modalBukti: true,
-              });
             }}
           >
             Lihat Bukti
@@ -185,10 +184,7 @@ function Mahasiswa (props) {
       );
     });
 
-    // if(this.state.tabelBukti6a!=null){
-      // let tabel_bukti_6_a = this.state.tabelBukti6a.map((d, i) => {
         let tabel_bukti_6_a = state.tabelBukti6a.map((d, i) => {
-        // if(this.state.tabelBukti6a!=null){
           if(state.tabelBukti6a!=null){
           return (
             <tr>
@@ -221,7 +217,6 @@ function Mahasiswa (props) {
                   color="primary"
                   className="grafik"
                   onClick={() => {
-                    // this.setState({
                     setState({
                       ...state,
                       modal: true,
@@ -233,7 +228,6 @@ function Mahasiswa (props) {
                 <Button color="primary" 
                 className="unggahBukti"
                 onClick={() => {
-                  // this.setState({
                   setState({
                     ...state,
                     unggahBukti: true,
@@ -349,9 +343,6 @@ function Mahasiswa (props) {
           </Modal>
           <Modal
             size={"xl"}
-            // isOpen={this.state.modalBukti}
-            // toggle={this.toggleModalBukti}
-            // className={this.props.className}
             isOpen={state.modalBukti}
             toggle={toggleModalBukti}
             className={props.className}
