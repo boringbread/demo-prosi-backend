@@ -230,18 +230,6 @@ function PengabdianMasyarakat (props) {
                 >
                   Grafik
                 </Button>
-                <Button color="primary" 
-                className="unggahBukti"
-                onClick={() => {
-                  // this.setState({
-                  setState({
-                    ...state,
-                    unggahBukti: true,
-                  });
-                }}
-                >
-                  Unggah Bukti
-                </Button>
               </Col>
               <Col md={3} className="ml-auto">
                 <FormGroup className="input">
@@ -270,6 +258,7 @@ function PengabdianMasyarakat (props) {
                       <th className="align-middle">Judul Kegiatan</th>
                       <th className="align-middle">Tahun</th>
                       <th className="align-middle">Bukti</th>
+                      <th className="align-middle">Unggah Bukti</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -295,9 +284,24 @@ function PengabdianMasyarakat (props) {
                           Lihat Bukti
                         </Button>
                       </td>
+                      <td>
+                      <Button
+                        color="success"
+                        className="unggahBukti"
+                        onClick={() => {
+                          // this.setState({
+                          setState({
+                            ...state,
+                            unggahBukti: true,
+                          });
+                        }}
+                      >
+                        Unggah Bukti
+                      </Button>
+                    </td>
                     </tr>
                     <tr>
-                      <td colSpan="6">Jumlah </td>
+                      <td colSpan="7">Jumlah </td>
                       <td>{tabel_6_a.length}</td>
                     </tr>
                   </tbody>
@@ -358,7 +362,7 @@ function PengabdianMasyarakat (props) {
           >
             {/* <ModalHeader toggle={this.toggleModalBukti}> */}
             <ModalHeader toggle={toggleModalBukti}>
-              Bukti
+              Bukti [Nama Dosen] [Nama PengabdianMasyarakat]
             </ModalHeader>
             <ModalBody>
               <Container>
@@ -372,6 +376,7 @@ function PengabdianMasyarakat (props) {
                       <th className="align-middle">
                         Dokumen Bukti
                       </th>
+                      <th className="align-middle">Deskripsi File</th>
                     </tr>
                   </thead>
                   <tbody>

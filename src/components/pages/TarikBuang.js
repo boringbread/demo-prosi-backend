@@ -85,6 +85,14 @@ const DragAndDrop = (props) => {
             >
               <p>Drag files here to upload</p>
             </div>
+            <div className="form-group">
+              <label>Deskripsi File</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Masukkan Deskripsi File"
+              />
+            </div>
             <ol className="dropped-files">
               {data.fileList.map((f) => {
                 return <li key={f.name}>{f.name}</li>;
