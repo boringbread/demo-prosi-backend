@@ -174,18 +174,15 @@ function Mahasiswa(props) {
           <Button
             color="primary"
             onClick={() => {
-              axios
-                .get(
-                  "demo-prosi-backend/index.php/C_Tabel6/getBukti/" +
-                    d.idPenelitian
-                )
-                .then((data) => {
-                  this.setState({ tabelBukti6a: data.data.result });
-                  // console.log(this.state.tabelBukti6a);
-                });
-              this.setState({
-                modalBukti: true,
-              });
+              axios.get('demo-prosi-backend/index.php/C_Tabel6/getBukti/'+d.idPenelitian)
+                .then((data)=>{
+                  // this.setState({ tabelBukti6a:data.data.result });
+                  setState({ 
+                    ...state,
+                    modalBukti: true,
+                    tabelBukti6a: data.data.result,
+                     });
+                })
             }}
           >
             Lihat Bukti
