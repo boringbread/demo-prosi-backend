@@ -119,14 +119,6 @@ function Mahasiswa(props) {
 
   useEffect(() => {
     axios
-<<<<<<< Updated upstream
-    .get("demo-prosi-backend/index.php/api/tabel6a")
-    .then((data) => {
-      setState({ 
-        ...state,
-        tabel6a: data.data.result, tabel6: data.data.result });
-    }).catch((error) => {});
-=======
       .get("website-akreditasi-front-end/index.php/api/tabel6a")
       .then((data) => {
         setState({
@@ -136,7 +128,6 @@ function Mahasiswa(props) {
         });
       })
       .catch((error) => {});
->>>>>>> Stashed changes
     // console.log(state.tabel6);
   }, []);
 
@@ -183,16 +174,6 @@ function Mahasiswa(props) {
           <Button
             color="primary"
             onClick={() => {
-<<<<<<< Updated upstream
-              axios.get('demo-prosi-backend/index.php/C_Tabel6/getBukti/'+d.idPenelitian)
-                .then((data)=>{
-                  // this.setState({ tabelBukti6a:data.data.result });
-                  setState({ 
-                    ...state,
-                    tabelBukti6a: data.data.result,
-                    modalBukti: true });
-                })
-=======
               axios
                 .get(
                   "demo-prosi-backend/index.php/C_Tabel6/getBukti/" +
@@ -205,7 +186,6 @@ function Mahasiswa(props) {
               this.setState({
                 modalBukti: true,
               });
->>>>>>> Stashed changes
             }}
           >
             Lihat Bukti
@@ -231,53 +211,6 @@ function Mahasiswa(props) {
           </td>
         </tr>
       );
-<<<<<<< Updated upstream
-    });
-
-        let tabel_bukti_6_a = state.tabelBukti6a.map((d, i) => {
-          if(state.tabelBukti6a!=null){
-          return (
-            <tr>
-              <td>{i + 1}</td>
-              <td style={{ textAlign: "left", width: 250 }}>{d.deskripsi}</td>
-              <td>
-                <a href={d.pathFile} target="_blank">{d.namaBukti}</a>  
-              </td>
-            </tr>
-          )
-        } else {
-          return (
-            <h4>Belum ada bukti</h4>
-          )
-        }
-      })
-
-    return (
-      <>
-        <Container>
-          <h3 className="text-black font-weight-light my-5 text-center">
-            Tabel 6 Penelitian DTPS yang melibatkan mahasiswa{" "}
-          </h3>
-        </Container>
-        <Container fluid="true">
-          <div className="px-4">
-            <Row>
-              <Col className="mb-1">
-                <Button
-                  color="primary"
-                  className="grafik"
-                  onClick={() => {
-                    setState({
-                      ...state,
-                      modal: true,
-                    });
-                  }}
-                >
-                  Grafik
-                </Button>
-                <Button color="primary" 
-                className="unggahBukti"
-=======
     } else {
       return <h4>Belum ada bukti</h4>;
     }
@@ -297,8 +230,8 @@ function Mahasiswa(props) {
               <Button
                 color="primary"
                 className="grafik"
->>>>>>> Stashed changes
                 onClick={() => {
+                  // this.setState({
                   setState({
                     ...state,
                     modal: true,
@@ -388,74 +321,6 @@ function Mahasiswa(props) {
         </div>
       </Container>
 
-<<<<<<< Updated upstream
-        <div>
-          <Modal
-            size={"xl"}
-            // isOpen={this.state.modal}
-            // toggle={this.toggleModal}
-            // className={this.props.className}
-            isOpen={state.modal}
-            toggle={toggleModal}
-            className={props.className}
-          >
-            {/* <ModalHeader toggle={this.toggleModal}> */}
-            <ModalHeader toggle={toggleModal}>
-              Grafik Tahun Penelitian yang Melibatkan Mahasiswa
-            </ModalHeader>
-            <ModalBody>
-              <Container>
-                <Col md={12} style={{ float: "left" }}>
-                  <Chart
-                    width={"1000px"}
-                    height={"450px"}
-                    chartType="PieChart"
-                    loader={<div>Loading Chart</div>}
-                    data={[
-                      ["Tahun", "Jumlah"],
-                      ["2016", jml2016],
-                      ["2017", jml2017],
-                      ["2018", jml2018],
-                      ["2019", jml2019],
-                      ["2020", jml2020],
-                    ]}
-                    options={{
-                      title: "Penelitian yang Melibatkan Mahasiswa",
-                      is3D: false,
-                    }}
-                    rootProps={{ "data-testid": "2" }}
-                  />
-                </Col>
-              </Container>
-            </ModalBody>
-          </Modal>
-          <Modal
-            size={"xl"}
-            isOpen={state.modalBukti}
-            toggle={toggleModalBukti}
-            className={props.className}
-          >
-            {/* <ModalHeader toggle={this.toggleModalBukti}> */}
-            <ModalHeader toggle={toggleModalBukti}>
-              Bukti
-            </ModalHeader>
-            <ModalBody>
-              <Container>
-                <Table striped bordered responsive className="text-center">
-                  <thead>
-                    <tr>
-                      <th style={{ width: 10 }} className="align-middle">
-                        No.
-                      </th>
-                      <th className="align-middle">Nama Bukti</th>
-                      <th className="align-middle">
-                        Dokumen Bukti
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {/* <tr>
-=======
       <div>
         <Modal
           size={"xl"}
@@ -506,7 +371,7 @@ function Mahasiswa(props) {
           className={props.className}
         >
           {/* <ModalHeader toggle={this.toggleModalBukti}> */}
-          <ModalHeader toggle={toggleModalBukti}>Bukti [Nama Dosen] [Nama Penelitian] </ModalHeader>
+          <ModalHeader toggle={toggleModalBukti}>Bukti</ModalHeader>
           <ModalBody>
             <Container>
               <Table striped bordered responsive className="text-center">
@@ -517,12 +382,10 @@ function Mahasiswa(props) {
                     </th>
                     <th className="align-middle">Nama Bukti</th>
                     <th className="align-middle">Dokumen Bukti</th>
-                    <th className="align-middle">Deskripsi File</th>
                   </tr>
                 </thead>
                 <tbody>
                   {/* <tr>
->>>>>>> Stashed changes
                       <td>1</td>
                       <td>Sertifikat Smart Mirror menggunakan Arduiono</td>
                       <td><a href="facebook.com">Sertifikat.pdf</a></td>
