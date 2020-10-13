@@ -114,7 +114,13 @@ const DragAndDrop = (props) => {
                 onChange={handleChangeDeskripsi}
               />
             </div>
-            <button className="btn btn-primary btn-block">
+            <ol className="dropped-files">
+              {data.fileList.map((f) => {
+                return <li key={f.name}>{f.name} <button style={{float:"right"}}>&times;</button>
+                </li>;
+              })}
+            </ol>
+            <button type="submit" className="btn btn-primary btn-block">
               Submit
             </button>
           </form>
