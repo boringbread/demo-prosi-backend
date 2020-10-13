@@ -95,7 +95,8 @@ const DragAndDrop = (props) => {
             </div>
             <ol className="dropped-files">
               {data.fileList.map((f) => {
-                return <li key={f.name}>{f.name}</li>;
+                return <li key={f.name}>{f.name} <button style={{float:"right"}}>&times;</button>
+                </li>;
               })}
             </ol>
             <button type="submit" className="btn btn-primary btn-block">

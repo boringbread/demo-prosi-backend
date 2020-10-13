@@ -404,7 +404,7 @@ function Mahasiswa(props) {
           className={props.className}
         >
           {/* <ModalHeader toggle={this.toggleModalUnggahBukti}> */}
-          <ModalHeader toggle={toggleModalUnggahBukti}>Bukti</ModalHeader>
+          <ModalHeader toggle={toggleModalUnggahBukti}>Bukti untuk "Smartmirror menggunakan arduino"</ModalHeader>
           <ModalBody>
             <DragDrop data={data} dispatch={dispatch} />
           </ModalBody>
