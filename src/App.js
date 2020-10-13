@@ -27,18 +27,9 @@ import KinerjaLulusan from './components/pages/capaian/KinerjaLulusan/KinerjaLul
 import PrestasiMahasiswa from './components/pages/capaian/prestasiMahasiswa/PrestasiMahasiswa';
 import Produktivitas from './components/pages/capaian/Produktivitas/Produktivitas';
 import PenelitianPkm from './components/pages/capaian/PenelitianPkM/PenelitianPkM';
-// import DragAndDrop from './components/pages/dragAndDrop/TarikBuang';
 import { AuthContext } from "./Auth_Context";
 import PrivateRoute from "./Private_Route";
 import DragAndDrop from "./components/pages/TarikBuang.js";
-// import Login from "./components/login.component";
-// import Welcome from "./components/welcome.component";
-// import Latihan_2 from "./components/latihan_2.component";
-// import AddUser from "./components/adduser.component";
-// import Update from "./components/update.component";
-// import Goodbye from "./components/goodbye.component";
-// import IndexJs from "./components/main.component";
-// import registerServiceWorker from "./registerServiceWorker";
 
 function App() {
   const [authTokens, setAuthTokens] = useState(

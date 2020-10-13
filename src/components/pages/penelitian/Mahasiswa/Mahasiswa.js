@@ -20,8 +20,10 @@ function Mahasiswa(props) {
     dad: false,
     modalBukti: false,
     unggahBukti: false,
+    buktidata: '',
     // };
   });
+
   // this.toggleModal = this.toggleModal.bind(this);
   // this.toggleModalBukti = this.toggleModalBukti.bind(this);
   // this.toggleModalUnggahBukti = this.toggleModalUnggahBukti.bind(this);
@@ -109,6 +111,7 @@ function Mahasiswa(props) {
         ...state,
         unggahBukti: false,
       });
+      // console.log(state.unggahBukti)
     } else {
       setState({
         ...state,
@@ -119,7 +122,7 @@ function Mahasiswa(props) {
 
   useEffect(() => {
     axios
-      .get("website-akreditasi-front-end/index.php/api/tabel6a")
+      .get("demo-prosi-backend/index.php/api/tabel6a")
       .then((data) => {
         setState({
           ...state,
@@ -151,19 +154,19 @@ function Mahasiswa(props) {
   let jml2020 = 0;
   // console.log(state);
   let tabel_6_a = state.tabel6.map((d, i) => {
-    if (d.tahun == 2016) {
+    if (d.tahun === 2016) {
       jml2016++;
-    } else if (d.tahun == 2017) {
+    } else if (d.tahun === 2017) {
       jml2017++;
-    } else if (d.tahun == 2018) {
+    } else if (d.tahun === 2018) {
       jml2018++;
-    } else if (d.tahun == 2019) {
+    } else if (d.tahun === 2019) {
       jml2019++;
     } else {
       jml2020++;
     }
     return (
-      <tr>
+      <tr key={i}>
         <td>{i + 1}</td>
         <td style={{ textAlign: "left", width: 250 }}>{d.namaDosen}</td>
         <td>{d.temaPenelitian}</td>
@@ -179,13 +182,34 @@ function Mahasiswa(props) {
                   // this.setState({ tabelBukti6a:data.data.result });
                   setState({ 
                     ...state,
-                    modalBukti: true,
                     tabelBukti6a: data.data.result,
+                    modalBukti: true,
                      });
                 })
             }}
           >
             Lihat Bukti
+          </Button>
+        </td>
+        <td>
+          <Button
+            color="success"
+            className="unggahBukti"
+            data={d.idPenelitian}
+            onClick={() => {
+              axios.get('demo-prosi-backend/index.php/C_Tabel6/getrow/'+d.idPenelitian)
+                .then((data)=>{
+                  // this.setState({ tabelBukti6a:data.data.result });
+                  setState({
+                    ...state,
+                    unggahBukti: true,
+                    buktidata: data.data.result
+                  });
+                })              
+              
+            }}
+          >
+            Unggah Bukti
           </Button>
         </td>
       </tr>
@@ -406,7 +430,7 @@ function Mahasiswa(props) {
           {/* <ModalHeader toggle={this.toggleModalUnggahBukti}> */}
           <ModalHeader toggle={toggleModalUnggahBukti}>Bukti</ModalHeader>
           <ModalBody>
-            <DragDrop data={data} dispatch={dispatch} />
+            <DragDrop data={state.buktidata} dispatch={dispatch} />
           </ModalBody>
         </Modal>
       </div>
