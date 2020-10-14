@@ -6237,7 +6237,12 @@ button.bg-dark:focus {
 }
 
 .rounded {
-  border-radius: 0.25rem !important;
+  border-radius: 0.6rem !important;
+  transition: box-shadow .15s;
+}
+
+.rounded:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .rounded-top {
@@ -8854,7 +8859,7 @@ button.bg-dark:focus {
 }
 
 .text-primary {
-  color: #007bff !important;
+  color: #196aa0 !important;
 }
 
 a.text-primary:hover, a.text-primary:focus {

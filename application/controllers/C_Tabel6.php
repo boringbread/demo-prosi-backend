@@ -3,6 +3,18 @@
     defined('BASEPATH') OR exit('No direct script access allowed');
     
     class C_Tabel6 extends CI_Controller {
+
+        public function loadView(){
+            $this->load->database();
+            $this->db->query("SET NOCOUNT ON");
+            $data['table6'] = $this->db->query("EXEC Tabel6a_PenelitianDTPSMahasiswa")->result_array();
+            $this->db->query("SET NOCOUNT OFF");
+            // print_r($data);
+            // exit();
+            $this->load->view('layout/V_Header');
+            $this->load->view('pages/kriteria6/V_Tabel6', $data);
+            $this->load->view('layout/V_Footer');
+        }
     
         public function getBukti($idPenelitian)
         {

@@ -1,6 +1,7 @@
 <html>
 	<head>
-		<title>asd</title>
+		<title>SI Akreditasi 2020</title>
+		<link rel="icon" href=<?php echo base_url('/assets/img/favico.png') ?>>
 		<link rel="stylesheet" type="text/css" href=<?php echo base_url('/assets/css/bootstrap.css') ?>>
 		<script type="text/javascript" src="<?php echo base_url('/assets/js/jquery-slim.min.js') ?>"></script>
 		<script type="text/javascript" src="<?php echo base_url('/assets/js/popper.min.js') ?>"></script>
@@ -9,24 +10,26 @@
 	<body class="">
 		<div class="bg-primary py-3">
 			<div class="container bg-sucess w-50 text-center">
-				<div class=" bg-light rounded p-3 d-flex mb-3 align-items-center">
-					<div class="col-2">
-						<img src="<?php echo base_url('assets/img/UNPAR.png') ;?>" alt="Logo Informatika" class="img-fluid">
+				<a href=<?php echo base_url(); ?>>
+					<div class=" bg-light rounded p-3 d-flex mb-3 align-items-center">
+						<div class="col-2">
+							<img src="<?php echo base_url('assets/img/UNPAR.png') ;?>" alt="Logo Informatika" class="img-fluid">
+						</div>
+						<div class="col-2">
+							<img src="<?php echo base_url('assets/img/informatika.png') ;?>" alt="Logo Informatika" class="img-fluid">
+						</div>
+						<div class="col">
+							<img src="<?php echo base_url('assets/img/tulisan.png') ;?>" alt="Logo Informatika" class="img-fluid" style="filter: invert();">
+						</div>
 					</div>
-					<div class="col-2">
-						<img src="<?php echo base_url('assets/img/informatika.png') ;?>" alt="Logo Informatika" class="img-fluid">
-					</div>
-					<div class="col">
-						<img src="<?php echo base_url('assets/img/tulisan.png') ;?>" alt="Logo Informatika" class="img-fluid" style="filter: invert();">
-					</div>
-				</div>
+				</a>
 				<h3 class="text-light font-weight-light mb-0">Laporan Kinerja Program Studi 2020</h3>
 			</div>
 		</div>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="collapse navbar-collapse" id="menu">
 				<ul class="navbar-nav mx-auto">
-					<li class="nav-item active">
+					<li class="nav-item">
 						<a href="" class="nav-link">1. Tata Pamong</a>
 					</li>
 					<li class="nav-item dropdown">
@@ -58,7 +61,7 @@
 						</div>
 					</li>
 					<li class="nav-item">
-						<a href="" class="nav-link">6. Penelitian Melibatkan Mahasiswa</a>
+						<a href="<?php echo site_url('melibatkanMahasiswa');?>" class="nav-link">6. Penelitian Melibatkan Mahasiswa</a>
 					</li>
 					<li class="nav-item">
 						<a href="" class="nav-link">7. Pengabdian Masyarakat</a>
