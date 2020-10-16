@@ -20,8 +20,7 @@
         {
             $this->load->model('M_Tabel6');
             $data = $this->M_Tabel6->get_bukti_tabel_6($idPenelitian)->result_array();
-            $this->serveApi($data);
-
+            echo $this->serveApi($data);
         }
 
         public function unggahBukti(){

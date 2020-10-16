@@ -7,9 +7,9 @@
     
         public function get_bukti_tabel_6($idPenelitian){
 
-            $this->db->select('pathFile');
-            $this->db->select('namaBukti');
-            $this->db->select('deskripsi');
+            $this->db->select('*');
+            // $this->db->select('namaBukti');
+            // $this->db->select('deskripsi');
             $this->db->from('Penelitian');
             $this->db->join('bukti', 'Penelitian.idPenelitian = bukti.temaPenelitian', 'inner');
             $this->db->where('idPenelitian', $idPenelitian);
