@@ -40,22 +40,6 @@ class C_Login extends CI_Controller
         }
     }
 
-    public function test()
-    {
-        print(password_verify('test123', '$2y$10$NorTNcmEMm7HJRn0utcNPOp6ewFEQ9pnXvkxYl21UmSsdmkgBtka6'));
-        // return "test123";
-
-        // $array = array(
-        //     'color' => 'red',
-        //     'shape' => 'round',
-        //     'size'  => ''
-        // );
-
-        // return $array;
-
-
-    }
-
     protected function serveApi($data) {
 		echo json_encode([
 			"status" => true,

@@ -1,24 +1,23 @@
 <script>
 	// getData();
 
-	function getData($id){
+	function getData(id, judul){
+		var judul = judul.bold();
+		$("#bukti-header").html(judul);
 		$.ajax({
 			type: 'POST',
-			url: "<?php echo base_url('index.php/C_Tabel6/getBukti/') ?>" + $id,
+			url: "<?php echo base_url('index.php/C_Tabel6/getBukti/') ?>" + id,
 			dataType: 'json',
 			success: function(data){
-				console.log(data.result.length == 0);
-				var judul = (data.result.length == 0) ? '' : data.result[0].judul;
 				var baris = '';
 				for(var i = 0; i < data.result.length; i++) {
 					baris += 	'<tr>' +
-									'<td>'+ data.result[i].judul +'</td>' +
 									'<td>'+ data.result[i].deskripsi +'</td>' +
-									'<td><a href="' + data.result[i].pathFile + '">'+ data.result[i].namaBukti +'</a></td>' +
+									'<td>'+ data.result[i].namaBukti +'</td>' +
+									'<td><a href="' + data.result[i].pathFile + '" target=`_blank`>'+ data.result[i].namaBukti +'</a></td>' +
 								'</tr>'
 				}
 				$('#bukti-isi').html(baris);
-				$('#bukti-header').html(judul);
 			}
 		});
 	}
@@ -52,8 +51,24 @@
 					<td><?php echo $item['namaMahasiswa']; ?></td>
 					<td><?php echo substr($item['judulKegiatan'], 2); ?></td>
 					<td><?php echo $item['tahun']; ?></td>
-					<td><button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData('<?php echo $item['idPenelitian'] ?>')">Lihat Bukti</button></td>
-					<td><button class="btn btn-primary">Unggah Bukti</button></td>
+					<td>
+						<button class="btn btn-success"
+						data-toggle="modal"
+						data-target="#lihatBukti"
+						onClick="getData(`<?php echo $item['idPenelitian']?>`, `<?php echo substr($item['judulKegiatan'], 2) ?>`)">
+							Lihat Bukti
+						</button>
+					</td>
+					<td>
+						<form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
+							<input type="hidden" name="keterangan" value="<?php echo $item['judulKegiatan'] ?>">
+							<input type="hidden" name="id" value="<?php echo $item['idPenelitian'] ?>">
+							<input type="hidden" name="idKriteria" value="6">
+							<button class="btn btn-primary" type="submit">
+								Unggah Bukti
+							</button>			
+						</form>
+					</td>
 				</tr>
 				<?php 
 				$i = $i+1;
@@ -68,7 +83,7 @@
 		<div class="modal-content w-100">
 			<div class="modal-header">
 				<div id="bukti-header">
-					<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+					<h5 class="modal-title" id="exampleModalLabel"></h5>
 				</div>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>

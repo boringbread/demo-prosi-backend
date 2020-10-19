@@ -4,18 +4,22 @@
     
     class C_Tabel6 extends CI_Controller {
 
+        // Fungsi untuk load data dari SP (Kalo bisa load data dan load view nya pisahin sih)
         public function loadView(){
             $this->load->database();
             $this->db->query("SET NOCOUNT ON");
             $data['table6'] = $this->db->query("EXEC Tabel6a_PenelitianDTPSMahasiswa")->result_array();
             $this->db->query("SET NOCOUNT OFF");
-            // print_r($data);
-            // exit();
+
+            // print_r($data);            
+
+            $this->load->view('layout/V_Require');
             $this->load->view('layout/V_Header');
             $this->load->view('pages/kriteria6/V_Tabel6', $data);
             $this->load->view('layout/V_Footer');
         }
     
+        // Fungsi untuk mengambil data bukti berdasar 1 ID Penelitian
         public function getBukti($idPenelitian)
         {
             $this->load->model('M_Tabel6');
@@ -23,6 +27,7 @@
             echo $this->serveApi($data);
         }
 
+        // Fungsi untuk melakukan unggah bukti
         public function unggahBukti(){
             $data = json_decode(file_get_contents("php://input"), TRUE);
 
@@ -44,7 +49,8 @@
             $data = $this->M_Tabel6->get_row($id)->row();
             $this->serveApi($data);
         }
-
+        
+        // Fungsi untuk melempar data dalam bentuk JSon
         protected function serveApi($data) {
             echo json_encode([
                 "status" => true,

@@ -54,3 +54,6 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['melibatkanMahasiswa'] = 'C_Tabel6/loadView';
+$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
+$route['uploadFile'] = 'C_Home/unggahBukti';
+
