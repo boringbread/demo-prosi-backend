@@ -54,7 +54,6 @@ class C_Home extends CI_Controller {
 
 	public function unggahBukti() {
 		// Getting Post Data
-
 		$deskripsi 	= $this->input->post('deskripsi');
 		$idKategori	= $this->input->post('idKategori');
 		$upload 	= $_FILES['upload'];
@@ -84,7 +83,7 @@ class C_Home extends CI_Controller {
 		// Storing data to db
 		$this->global->storeData('-', base_url($config['upload_path']) . '/' . $id .'.'.$extension, $deskripsi, $idKriteria, $idKategori, $id );
 
-		// // Load View
+		// Load View
 		redirect('/melibatkanMahasiswa','refresh');
 
 	}

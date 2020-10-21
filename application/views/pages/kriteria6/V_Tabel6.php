@@ -14,7 +14,7 @@
 					baris += 	'<tr>' +
 									'<td>'+ data.result[i].deskripsi +'</td>' +
 									'<td>'+ data.result[i].namaBukti +'</td>' +
-									'<td><a href="' + data.result[i].pathFile + '" target=`_blank`>'+ data.result[i].namaBukti +'</a></td>' +
+									'<td><a href="' + data.result[i].pathFile + '" target=`_blank`>'+ data.result[i].deskripsi +'</a></td>' +
 								'</tr>'
 				}
 				$('#bukti-isi').html(baris);
@@ -103,8 +103,7 @@
 				</table>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Save changes</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
 			</div>
 		</div>
 	</div>

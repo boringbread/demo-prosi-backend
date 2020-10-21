@@ -9,9 +9,7 @@
             $this->load->database();
             $this->db->query("SET NOCOUNT ON");
             $data['table6'] = $this->db->query("EXEC Tabel6a_PenelitianDTPSMahasiswa")->result_array();
-            $this->db->query("SET NOCOUNT OFF");
-
-            // print_r($data);            
+            $this->db->query("SET NOCOUNT OFF");           
 
             $this->load->view('layout/V_Require');
             $this->load->view('layout/V_Header');
