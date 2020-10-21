@@ -74,9 +74,9 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'hostname' => 'AS',
-	'username' => 'PRASASTA',
-	'password' => 'test123',
+	'hostname' => 'OPANK-LAPTOP\MSSQLSERVER01',
+	'username' => 'prosi',
+	'password' => '1234',
 	'database' => 'Akreditasi2020',
 	'dbdriver' => 'sqlsrv',
 	'dbprefix' => '',
