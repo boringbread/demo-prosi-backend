@@ -6,6 +6,7 @@
   "dependencies": {
     "@blueprintjs/core": "^3.33.0",
     "@blueprintjs/icons": "^3.22.0",
+    "@fortawesome/fontawesome-free": "^5.15.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
@@ -22,7 +23,7 @@
     "react-google-charts": "^3.0.15",
     "react-if": "^3.4.3",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^3.4.4",
     "reactstrap": "^8.6.0"
   },
   "scripts": {

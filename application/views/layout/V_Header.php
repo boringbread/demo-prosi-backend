@@ -55,7 +55,7 @@
 						<a href="<?php echo site_url('melibatkanMahasiswa');?>" class="nav-link">6. Penelitian Melibatkan Mahasiswa</a>
 					</li>
 					<li class="nav-item">
-						<a href="" class="nav-link">7. Pengabdian Masyarakat</a>
+						<a href="<?php echo site_url('PKM');?>" class="nav-link">7. Pengabdian Masyarakat</a>
 					</li>
 					<li class="nav-item dropdown">
 						<a href="" class="nav-link dropdown-toggle" href="#" id="navbarLuaran" role="button" data-toggle="dropdown" aria-haspopup="true" arie-expanded="false">8. Luaran dan Capaian Tridharma</a>

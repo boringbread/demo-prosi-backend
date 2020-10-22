@@ -57,3 +57,6 @@ $route['melibatkanMahasiswa'] = 'C_Tabel6/loadView';
 $route['unggahBukti'] = 'C_Home/loadUnggahBukti';
 $route['uploadFile'] = 'C_Home/unggahBukti';
 
+$route['PKM'] = 'C_Tabel7/loadView';
+$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
+$route['uploadFile'] = 'C_Home/unggahBukti';
