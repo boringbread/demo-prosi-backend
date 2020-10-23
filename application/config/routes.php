@@ -60,3 +60,11 @@ $route['uploadFile'] = 'C_Home/unggahBukti';
 $route['PKM'] = 'C_Tabel7/loadView';
 $route['unggahBukti'] = 'C_Home/loadUnggahBukti';
 $route['uploadFile'] = 'C_Home/unggahBukti';
+
+$route['inputMahasiswa'] = 'C_Tabel3Input/loadView';
+$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
+$route['uploadFile'] = 'C_Home/unggahBukti';
+
+$route['asing'] = 'C_Tabel3Asing/loadView';
+$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
+$route['uploadFile'] = 'C_Home/unggahBukti';

@@ -28,8 +28,8 @@
 							2. Mahasiswa
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarMahasiswa">
-							<a href="" class="dropdown-item">a. Kualitas Input Mahasiswa</a>							
-							<a href="" class="dropdown-item">b. Mahasiswa Asing</a>							
+							<a href="<?php echo site_url('inputMahasiswa');?>" class="dropdown-item">a. Kualitas Input Mahasiswa</a>							
+							<a href="<?php echo site_url('asing');?>" class="dropdown-item">b. Mahasiswa Asing</a>							
 						</div>
 					</li>
 					<li class="nav-item dropdown">
