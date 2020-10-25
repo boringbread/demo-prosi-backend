@@ -8,11 +8,13 @@ class M_Tabel6 extends CI_Model
 
     public function get_bukti_tabel_6($idPenelitian)
     {
-        $this->db->select('namaBukti');
+        // $this->db->select('*');
         $this->db->select('deskripsi');
         $this->db->select('pathFile');
+        $this->db->select('kategori');
         $this->db->from('Penelitian');
         $this->db->join('bukti', 'Penelitian.idPenelitian = bukti.temaPenelitian', 'inner');
+        $this->db->join('kategori', 'bukti.idKategori = kategori.idKategori', 'inner');
         $this->db->where('idPenelitian', $idPenelitian);
         $result = $this->db->get();
 

@@ -5,13 +5,14 @@
     
     class M_Tabel7 extends CI_Model {
     
-        public function get_bukti_tabel_6($idPenelitian){
-            $this->db->select('namaBukti');
+        public function get_bukti_tabel_7($idPKM){
             $this->db->select('deskripsi');
             $this->db->select('pathFile');
-            $this->db->from('Penelitian');
-            $this->db->join('bukti', 'Penelitian.idPenelitian = bukti.temaPenelitian', 'inner');
-            $this->db->where('idPenelitian', $idPenelitian);
+            $this->db->select('kategori');
+            $this->db->from('Abdimas');
+            $this->db->join('bukti', 'Abdimas.idAbdimas = bukti.temaPenelitian', 'inner');
+            $this->db->join('kategori', 'bukti.idKategori = kategori.idKategori', 'inner');
+            $this->db->where('idAbdimas', $idPKM);
             $result = $this->db->get();
             
             return $result;

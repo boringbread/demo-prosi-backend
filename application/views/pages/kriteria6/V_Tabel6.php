@@ -13,7 +13,7 @@
 				for(var i = 0; i < data.result.length; i++) {
 					baris += 	'<tr>' +
 									'<td>'+ data.result[i].deskripsi +'</td>' +
-									'<td>'+ data.result[i].namaBukti +'</td>' +
+									'<td>'+ data.result[i].kategori +'</td>' +
 									'<td><a href="' + data.result[i].pathFile + '" target=`_blank`>'+ data.result[i].deskripsi +'</a></td>' +
 								'</tr>'
 				}
@@ -77,7 +77,6 @@
 		</tbody>
 	</table>
 </div>
-
 <div class="modal fade" id="lihatBukti" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content w-100">
@@ -94,7 +93,7 @@
 					<thead>
 						<tr class="text-center">
 							<th class="align-middle">Deskripsi</th>
-							<th class="align-middle">Nama Bukti</th>
+							<th class="align-middle">Kategori Bukti</th>
 							<th class="align-middle">Bukti</th>
 						</tr>
 					</thead>

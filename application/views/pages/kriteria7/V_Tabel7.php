@@ -13,7 +13,7 @@
 				for(var i = 0; i < data.result.length; i++) {
 					baris += 	'<tr>' +
 									'<td>'+ data.result[i].deskripsi +'</td>' +
-									'<td>'+ data.result[i].namaBukti +'</td>' +
+									'<td>'+ data.result[i].kategori +'</td>' +
 									'<td><a href="' + data.result[i].pathFile + '" target=`_blank`>'+ data.result[i].deskripsi +'</a></td>' +
 								'</tr>'
 				}
@@ -32,7 +32,7 @@
 			<tr class="text-center">
 				<th class="align-middle">No</th>
 				<th class="align-middle">Nama Dosen</th>
-				<th class="align-middle">Tema Penelitian Sesuai Roadmap</th>
+				<th class="align-middle">Tema PkM</th>
 				<th class="align-middle">Nama Mahasiswa</th>
 				<th class="align-middle">Judul Kegiatan</th>
 				<th class="align-middle" style="width: 100px">Tahun</th>
@@ -42,28 +42,28 @@
 		<tbody>
 			<?php 
 			$i = 1;
-			foreach ($table6 as $item) {
+			foreach ($table7 as $item) {
 				?>
 				<tr>
 					<td> <?php echo $i ?> </td>
 					<td><?php echo $item['namaDosen'] ?></td>
-					<td><?php echo $item['temaPenelitian']; ?></td>
+					<td><?php echo $item['temaPKM']; ?></td>
 					<td><?php echo $item['namaMahasiswa']; ?></td>
-					<td><?php echo substr($item['judulKegiatan'], 2); ?></td>
+					<td><?php echo $item['judulKegiatan']; ?></td>
 					<td><?php echo $item['tahun']; ?></td>
 					<td>
 						<button class="btn btn-success"
 						data-toggle="modal"
 						data-target="#lihatBukti"
-						onClick="getData(`<?php echo $item['idPenelitian']?>`, `<?php echo substr($item['judulKegiatan'], 2) ?>`)">
+						onClick="getData(`<?php echo $item['idPKM']?>`, `<?php echo $item['judulKegiatan'] ?>`)">
 							Lihat Bukti
 						</button>
 					</td>
 					<td>
 						<form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
 							<input type="hidden" name="keterangan" value="<?php echo $item['judulKegiatan'] ?>">
-							<input type="hidden" name="id" value="<?php echo $item['idPenelitian'] ?>">
-							<input type="hidden" name="idKriteria" value="6">
+							<input type="hidden" name="id" value="<?php echo $item['idPKM'] ?>">
+							<input type="hidden" name="idKriteria" value="7">
 							<button class="btn btn-primary" type="submit">
 								Unggah Bukti
 							</button>			
@@ -94,7 +94,7 @@
 					<thead>
 						<tr class="text-center">
 							<th class="align-middle">Deskripsi</th>
-							<th class="align-middle">Nama Bukti</th>
+							<th class="align-middle">Kategori</th>
 							<th class="align-middle">Bukti</th>
 						</tr>
 					</thead>
