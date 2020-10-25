@@ -89,6 +89,7 @@
 		c.append("kriteria", a.idKriteria);
 		a.deskripsi = document.getElementById('deskripsi').value;
 		c.append("deskripsi", a.deskripsi);
+		console.log(a);
 		//Menmpersiapkan token untuk masing masing foto
 	});
 </script>
