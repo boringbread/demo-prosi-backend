@@ -1,3 +1,9 @@
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/dropzone.min.css') ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/basic.min.css') ?>">
+
+<script type="text/javascript" src="<?php echo base_url('assets/js/jquery.js') ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/dropzone.min.js') ?>"></script>
+
 <div class="container mt-5">
 	<h2 class="text-center">Unggah Bukti</h2>
 
@@ -15,35 +21,74 @@
 		</tr>
 	</table>
 
-	<?php echo form_open_multipart(base_url('/index.php/uploadFile')); ?>
 
-		<input type="hidden" name="id" value="<?php echo $id ?> " >
-		<input type="hidden" name="idKriteria" value="<?php echo $idKriteria ?> " >
+	<input type="hidden" id="idKode" name="id" value="<?php echo $id ?> ">
+	<input type="hidden" id="idKriteria" name="idKriteria" value="<?php echo $idKriteria ?> ">
 
-		<div class="form-group">
-			<label for="deskripsi">Deskripsi Bukti</label>
-			<input type="text" id="deskripsi" name="deskripsi" class="form-control" required="">
+	<div class="form-group">
+		<label for="deskripsi">Deskripsi Bukti</label>
+		<input type="text" id="deskripsi" name="deskripsi" class="form-control" required="">
+	</div>
+
+	<div class="form-group">
+		<label for="jenis">Jenis Bukti</label>
+		<select id="jenis" name="idKategori" class="form-control" required="">
+			<option value="" selected disabled="">Pilih...</option>
+			<?php
+			foreach ($kategori as $item) {
+				echo "<option value='" . $item['idKategori'] . "'>" . $item['kategori'] . "</option>";
+			}
+			?>
+		</select>
+	</div>
+
+	<div class="form-group">
+		<div class="dropzone">
+
+			<div class="dz-message">
+				<h3> Klik atau Drop file disini</h3>
+			</div>
+
 		</div>
+	</div>
 
-		<div class="form-group">
-			<label for="jenis">Jenis Bukti</label>
-			<select id="jenis" name="idKategori" class="form-control" required="">
-				<option value="" selected disabled="">Pilih...</option>
-				<?php 
-					foreach ($kategori as $item) {
-						echo "<option value='". $item['idKategori'] ."'>". $item['kategori'] ."</option>";
-					}
-				?>
-			</select>
-		</div>
+	<div class="form-group">
+		<input type="button" id="upload" value="Upload" class="btn btn-primary w-100">
+	</div>
 
-		<div class="form-group">
-			<label for="upload">Upload Bukti</label>
-			<input type="file" id="upload" name="upload" class="form-control" required="true">
-		</div>
-
-		<div class="form-group">
-			<input type="submit" value="Upload" class="btn btn-primary w-100">
-		</div>
-	</form>
 </div>
+
+<script type="text/javascript">
+	Dropzone.autoDiscover = false;
+
+	var foto_upload = new Dropzone(".dropzone", {
+		autoProcessQueue: false,
+		url: "<?php echo base_url('index.php/C_Upload/proses_upload') ?>",
+		maxFilesize: 10,
+		parallelUploads: 1,
+		method: "post",
+		paramName: "userfile",
+		dictInvalidFileType: "Type file ini tidak dizinkan",
+		addRemoveLinks: true,
+	});
+
+	$('#upload').click(function() {
+		foto_upload.options.autoProcessQueue = true;
+		foto_upload.processQueue();
+	});
+
+	//Event ketika Memulai mengupload
+	foto_upload.on("sending", function(a, b, c) {
+		a.token = Math.random();
+		c.append("token_foto", a.token);
+		a.kategori = document.getElementById('jenis').value;
+		c.append("kategori", a.kategori);
+		a.idKode = document.getElementById('idKode').value;
+		c.append("id", a.idKode);
+		a.idKriteria = document.getElementById('idKriteria').value;
+		c.append("kriteria", a.idKriteria);
+		a.deskripsi = document.getElementById('deskripsi').value;
+		c.append("deskripsi", a.deskripsi);
+		//Menmpersiapkan token untuk masing masing foto
+	});
+</script>
