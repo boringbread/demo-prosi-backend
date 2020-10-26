@@ -55,6 +55,9 @@
 	<div class="form-group">
 		<input type="button" id="upload" value="Upload" class="btn btn-primary w-100">
 	</div>
+	<div class="form-group">
+		<input type="button" id="done" onclick="goBack()" value="Selesai" class="btn btn-primary w-100" style="display:none">
+	</div>
 
 </div>
 
@@ -92,4 +95,13 @@
 		console.log(a);
 		//Menmpersiapkan token untuk masing masing foto
 	});
+	foto_upload.on("queuecomplete", function() {
+		//Redirect URL
+		document.getElementById('done').style.display = 'block';
+		foto_upload.options.autoProcessQueue = false;
+	});
+
+	function goBack() {
+		window.history.back();
+	}
 </script>

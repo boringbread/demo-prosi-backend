@@ -56,7 +56,7 @@ class C_Upload extends CI_Controller
 		$kriteria = $this->input->post('kriteria');
 		$deskripsi = $this->input->post('deskripsi');
 		$config['upload_path']   = FCPATH . 'upload/' . $kriteria . "/";
-		$config['allowed_types'] = 'gif|jpg|png|xlsx|csv|xls|pdf';
+		$config['allowed_types'] = '*';
 		$config['file_name'] = $kategori . '_' . $idData . '_(' . $iterator . ')';
 		$this->load->library('upload', $config);
 		$this->upload->initialize($config);
