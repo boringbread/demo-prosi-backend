@@ -3,7 +3,7 @@
     
     defined('BASEPATH') OR exit('No direct script access allowed');
     
-    class M_Tabel3Asing extends CI_Model {
+    class M_Tabel2Input extends CI_Model {
     
         public function get_bukti_tabel_6($idPenelitian){
             $this->db->select('namaBukti');

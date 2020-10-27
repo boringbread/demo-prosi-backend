@@ -35,8 +35,8 @@
 					<li class="nav-item dropdown">
 						<a href="" class="nav-link dropdown-toggle" href="#" id="navbarSDM" role="button" data-toggle="dropdown" aria-haspopup="true" arie-expanded="false">3. SDM</a>
 						<div id="navbarSDM" class="dropdown-menu">
-							<a href="" class="dropdown-item">a. Profil Dosen</a>
-							<a href="" class="dropdown-item">b. Kinerja Dosen</a>
+							<a href="<?php echo site_url('profil');?>" class="dropdown-item">a. Profil Dosen</a>
+							<a href="<?php echo site_url('kinerja');?>" class="dropdown-item">b. Kinerja Dosen</a>
 						</div>
 					</li>
 					<li class="nav-item">

@@ -61,10 +61,18 @@ $route['PKM'] = 'C_Tabel7/loadView';
 $route['unggahBukti'] = 'C_Home/loadUnggahBukti';
 $route['uploadFile'] = 'C_Home/unggahBukti';
 
-$route['inputMahasiswa'] = 'C_Tabel3Input/loadView';
+$route['inputMahasiswa'] = 'C_Tabel2Input/loadView';
 $route['unggahBukti'] = 'C_Home/loadUnggahBukti';
 $route['uploadFile'] = 'C_Home/unggahBukti';
 
-$route['asing'] = 'C_Tabel3Asing/loadView';
+$route['asing'] = 'C_Tabel2Asing/loadView';
+$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
+$route['uploadFile'] = 'C_Home/unggahBukti';
+
+$route['profil'] = 'C_Tabel3Profil/loadView';
+$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
+$route['uploadFile'] = 'C_Home/unggahBukti';
+
+$route['kinerja'] = 'C_Tabel3Kinerja/loadView';
 $route['unggahBukti'] = 'C_Home/loadUnggahBukti';
 $route['uploadFile'] = 'C_Home/unggahBukti';

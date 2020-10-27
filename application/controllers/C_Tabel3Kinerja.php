@@ -2,7 +2,7 @@
     
     defined('BASEPATH') OR exit('No direct script access allowed');
     
-    class C_Tabel3Asing extends CI_Controller {
+    class C_Tabel3Kinerja extends CI_Controller {
 
         // Fungsi untuk load data dari SP (Kalo bisa load data dan load view nya pisahin sih)
         public function loadView(){
@@ -13,7 +13,7 @@
 
             $this->load->view('layout/V_Require');
             $this->load->view('layout/V_Header');
-            $this->load->view('pages/kriteria3/V_Tabel3Asing', $data);
+            $this->load->view('pages/kriteria3/V_Tabel3Kinerja', $data);
             $this->load->view('layout/V_Footer');
         }
     
