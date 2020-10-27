@@ -8,6 +8,7 @@
         public function get_bukti_tabel_7($idPKM){
             $this->db->select('deskripsi');
             $this->db->select('pathFile');
+            $this->db->select('namaBukti');
             $this->db->select('kategori');
             $this->db->from('Abdimas');
             $this->db->join('bukti', 'Abdimas.idAbdimas = bukti.temaPenelitian', 'inner');

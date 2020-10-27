@@ -14,7 +14,7 @@
 					baris += 	'<tr>' +
 									'<td>'+ data.result[i].deskripsi +'</td>' +
 									'<td>'+ data.result[i].kategori +'</td>' +
-									'<td><a href="' + data.result[i].pathFile + '" target=`_blank`>'+ data.result[i].deskripsi +'</a></td>' +
+									'<td><a href="' + data.result[i].pathFile + '" target=`_blank`>'+ data.result[i].namaBukti +'</a></td>' +
 								'</tr>'
 				}
 				$('#bukti-isi').html(baris);

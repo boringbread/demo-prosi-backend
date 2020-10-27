@@ -4,6 +4,10 @@
     
     class C_Tabel2Asing extends CI_Controller {
 
+        public __construct(){
+            // this->load->model
+        }
+
         // Fungsi untuk load data dari SP (Kalo bisa load data dan load view nya pisahin sih)
         public function loadView(){
             $this->load->database();

@@ -83,32 +83,37 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- <?php
-                            $i = 1;
-                            foreach ($table6 as $item) {
-                            ?>
+                    <?php
+                        $i = 1;
+                        foreach ($table3a1 as $item) {
+                        ?>
 				<tr class="text-center">
-					<td> <?php echo 2016 ?> </td>
-					<td><?php echo 120 ?></td>
-					<td><?php echo 400 ?></td>
-					<td><?php echo 120 ?></td>
-					<td><?php echo 120 ?></td>
-					<td><?php echo 0 ?></td>
-                    <td><?php echo 500 ?></td>
-					<td><?php echo 20 ?></td>
+                    <td><?php echo $i ?> </td>
+					<td><?php echo $item['NamaDosen'] ?> </td>
+					<td><?php echo $item['NIDN'] ?></td>
+					<td><?php echo $item['Pendidikan'] ?></td>
+					<td><?php $item['Pendidikan_doctor']==NULL ? print_r("-") : print_r($item['Pendidikan_doctor']) ?></td>
+					<td><?php echo $item['BidangKeahlian'] ?></td>
+					<td class="font-weight-bold"><?php $item['KesesuaianKompetensi']==NULL ? print_r("-") : print_r('&#10003') ?></td>
+                    <td><?php echo $item['JabatanAkademik'] ?></td>
+                    <td><?php echo $item['SertifikatPendidik'] ?></td>
+                    <td><?php $item['SertifikatKompetensi']==NULL ? print_r("-") : print_r($item['SertifikatKompetensi']) ?></td>
+                    <td><?php echo $item['MataKuliahPSYangDiampu'] ?></td>
+                    <td class="font-weight-bold"><?php $item['KesesuaianBidangKeahlian']==NULL ? print_r("-") : print_r('&#10003') ?></td>
+					<td><?php echo $item['MataKuliahLuarPSYangDiampu'] ?></td>
                     <td>
 						<button class="btn btn-success"
 						data-toggle="modal"
 						data-target="#lihatBukti"
-						onClick="getData(`<?php echo $item['idPenelitian'] ?>`, `<?php echo substr($item['judulKegiatan'], 2) ?>`)">
+						onClick="getData(`<?php echo $item['NIDN'] ?>`, `<?php echo substr($item['NIDN'], 2) ?>`)">
 							Lihat Bukti
 						</button>
 					</td>
 					<td>
 						<form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
-							<input type="hidden" name="keterangan" value="<?php echo $item['judulKegiatan'] ?>">
-							<input type="hidden" name="id" value="<?php echo $item['idPenelitian'] ?>">
-							<input type="hidden" name="idKriteria" value="6">
+							<input type="hidden" name="keterangan" value="<?php echo $item['NamaDosen'] ?>">
+							<input type="hidden" name="id" value="<?php echo $item['NamaDosen'] ?>">
+							<input type="hidden" name="idKriteria" value="3">
 							<button class="btn btn-primary" type="submit">
 								Unggah Bukti
 							</button>			
@@ -118,7 +123,7 @@
 				<?php
                                 $i = $i + 1;
                             }
-                ?> -->
+                ?> 
                 </tbody>
             </table>
         </div>

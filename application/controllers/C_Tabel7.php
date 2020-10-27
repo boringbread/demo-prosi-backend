@@ -4,12 +4,17 @@
     
     class C_Tabel7 extends CI_Controller {
 
+        public function __construct()
+        {
+            parent::__construct();
+            $this->load->model('M_Tabel7', 'tabel');
+            $this->load->model('Api', 'api');
+            $this->load->database();
+        }
+
         // Fungsi untuk load data dari SP (Kalo bisa load data dan load view nya pisahin sih)
         public function loadView(){
-            $this->load->database();
-            $this->db->query("SET NOCOUNT ON");
-            $data['table7'] = $this->db->query("EXEC Tabel7_PKMDTPSMahasiswa")->result_array();
-            $this->db->query("SET NOCOUNT OFF");    
+            $data['table7'] = $this->api->tabel7();
 
             $this->load->view('layout/V_Require');
             $this->load->view('layout/V_Header');
@@ -20,30 +25,11 @@
         // Fungsi untuk mengambil data bukti berdasar 1 ID Penelitian
         public function getBukti($idPenelitian)
         {
-            $this->load->model('M_Tabel7');
-            $data = $this->M_Tabel7->get_bukti_tabel_7($idPenelitian)->result_array();
+            $data = $this->tabel->get_bukti_tabel_7($idPenelitian)->result_array();
             echo $this->serveApi($data);
         }
 
-        // Fungsi untuk melakukan unggah bukti
-        public function unggahBukti(){
-            $data = json_decode(file_get_contents("php://input"), TRUE);
-
-            $nama = $data['nama'];
-            $jenis = $data['jenis'];
-            $deskripsi = $data['deskripsi'];
-            // $file = $data['File'];
-            // $file_path = $file;
-            $idPenelitian = $data['idPenelitian'];
-
-            $this->load->model('M_Tabel6');
-            $this->M_Tabel6->test_Post($nama, $jenis, $file, $deskripsi, $idPenelitian);
-
-            // $this->serveApi($file_path);
-        }
-
         public function getrow($id){
-            $this->load->model('M_Tabel6');
             $data = $this->M_Tabel6->get_row($id)->row();
             $this->serveApi($data);
         }

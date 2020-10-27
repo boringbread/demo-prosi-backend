@@ -4,12 +4,29 @@
     
     class C_Tabel3Profil extends CI_Controller {
 
+        public function __construct()
+        {
+            parent::__construct();
+            $this->load->model('M_Tabel3Kinerja', 'tabel');
+            $this->load->model('M_Tabel3Profil', 'tabelProfil');
+            $this->load->model('Api', 'api');
+            $this->load->database();
+        }
+
         // Fungsi untuk load data dari SP (Kalo bisa load data dan load view nya pisahin sih)
         public function loadView(){
-            $this->load->database();
-            $this->db->query("SET NOCOUNT ON");
-            $data['table6'] = $this->db->query("EXEC Tabel6a_PenelitianDTPSMahasiswa")->result_array();
-            $this->db->query("SET NOCOUNT OFF");           
+            $data['table3a1'] = $this->api->tabel3a1();
+            $data['table3a2'] = $this->api->tabel3a2();
+            $data['table3a3'] = $this->api->tabel3a3();
+            $data['table3a4'] = $this->api->tabel3a4();
+            $data['table3b1'] = $this->api->tabel3b1();
+            $data['table3b2'] = $this->api->tabel3b2();
+            $data['table3b3'] = $this->api->tabel3b3();
+            $data['table3b4a'] = $this->api->tabel3b4Jurnal();
+            $data['table3b4b'] = $this->api->tabel3b4Seminar();
+            $data['table3b4c'] = $this->api->tabel3b4Tulisan();
+            $data['table3b5'] = $this->api->tabel3b5();
+            $data['table3b7'] = $this->api->tabel3b7();
 
             $this->load->view('layout/V_Require');
             $this->load->view('layout/V_Header');
