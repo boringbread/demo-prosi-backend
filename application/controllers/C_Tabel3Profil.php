@@ -35,28 +35,15 @@
         }
     
         // Fungsi untuk mengambil data bukti berdasar 1 ID Penelitian
-        public function getBukti($idPenelitian)
+        public function getBukti($subsection, $index)
         {
-            $this->load->model('M_Tabel6');
-            $data = $this->M_Tabel6->get_bukti_tabel_6($idPenelitian)->result_array();
+                    $data = $this->tabelProfil->get_bukti_tabel($index)->result_array();
+            // case $subsection:
+            //     case '3a1':
+            //     case '3a2'
+            //         $data = $this->tabelProfil->get_bukti_tabel_3a2($index)->result_array();
+            //     break;
             echo $this->serveApi($data);
-        }
-
-        // Fungsi untuk melakukan unggah bukti
-        public function unggahBukti(){
-            $data = json_decode(file_get_contents("php://input"), TRUE);
-
-            $nama = $data['nama'];
-            $jenis = $data['jenis'];
-            $deskripsi = $data['deskripsi'];
-            // $file = $data['File'];
-            // $file_path = $file;
-            $idPenelitian = $data['idPenelitian'];
-
-            $this->load->model('M_Tabel6');
-            $this->M_Tabel6->test_Post($nama, $jenis, $file, $deskripsi, $idPenelitian);
-
-            // $this->serveApi($file_path);
         }
 
         public function getrow($id){

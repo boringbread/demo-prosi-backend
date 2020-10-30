@@ -5,17 +5,28 @@
     
     class M_Tabel3Profil extends CI_Model {
     
-        public function get_bukti_tabel_6($idPenelitian){
+        public function get_bukti_tabel($NIDN){
             $this->db->select('namaBukti');
             $this->db->select('deskripsi');
             $this->db->select('pathFile');
-            $this->db->from('Penelitian');
-            $this->db->join('bukti', 'Penelitian.idPenelitian = bukti.temaPenelitian', 'inner');
-            $this->db->where('idPenelitian', $idPenelitian);
+            $this->db->from('DosenTetapUPPS_TD');
+            $this->db->join('bukti', 'DosenTetapUPPS_TD.NIDN = bukti.temaPenelitian', 'inner');
+            $this->db->where('NIDN', $NIDN);
             $result = $this->db->get();
             
-            return $result;
+            return $result; 
+        }
+
+        public function get_bukti_tabel_3a2($nomor){
+            $this->db->select('namaBukti');
+            $this->db->select('deskripsi');
+            $this->db->select('pathFile');
+            $this->db->from('DosenTetapUPPS_TD');
+            $this->db->join('bukti', 'DosenTetapUPPS_TD.No# = bukti.temaPenelitian', 'inner');
+            $this->db->where('No#', $nomor);
+            $result = $this->db->get();
             
+            return $result; 
         }
 
         public function test_Post($nama, $jenis, $file, $deskripsi, $idPenelitian){

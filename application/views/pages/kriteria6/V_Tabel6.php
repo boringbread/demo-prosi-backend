@@ -61,7 +61,7 @@
 					</td>
 					<td>
 						<form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
-							<input type="hidden" name="keterangan" value="<?php echo $item['judulKegiatan'] ?>">
+							<input type="hidden" name="keterangan" value="<?php echo $item['namaDosen'] ?>">
 							<input type="hidden" name="id" value="<?php echo $item['idPenelitian'] ?>">
 							<input type="hidden" name="idKriteria" value="6">
 							<button class="btn btn-primary" type="submit">
