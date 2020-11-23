@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class C_Home extends CI_Controller {
+class C_Home extends CI_Controller
+{
 
 	/**
 	 * Index Page for this controller.
@@ -25,13 +26,13 @@ class C_Home extends CI_Controller {
 		$this->load->model('M_Tabel6', 'tabel6');
 		$this->load->model('M_Global', 'global');
 		$this->load->helper(array('form', 'url'));
-	 	$this->load->library('form_validation');
+		$this->load->library('form_validation');
 	}
 
 	public function index()
 	{
-        $this->load->view('layout/V_Require');
-		$this->load->view('layout/V_Header');
+		$this->load->view('layout/V_Require');
+		$this->load->view('layout/V_Header_Home');
 		$this->load->view('V_Home');
 		$this->load->view('layout/V_Footer');
 	}
@@ -47,12 +48,13 @@ class C_Home extends CI_Controller {
 		$data['idKriteria'] 	= $this->input->post('idKriteria');
 		$data['kategori']		= $this->global->getKategori()->result_array();
 
-        $this->load->view('layout/V_Require');
+		$this->load->view('layout/V_Require');
 		$this->load->view('V_UnggahBukti', $data);
 		$this->load->view('layout/V_Footer');
 	}
 
-	public function unggahBukti() {
+	public function unggahBukti()
+	{
 		// Getting Post Data
 		$deskripsi 	= $this->input->post('deskripsi');
 		$idKategori	= $this->input->post('idKategori');
@@ -63,7 +65,7 @@ class C_Home extends CI_Controller {
 		$id 		= trim($this->input->post('id'));
 
 		// Setting upload bukti
-		$config['upload_path'] 		= './upload/'.$idKriteria;
+		$config['upload_path'] 		= './upload/' . $idKriteria;
 		$config['file_name'] 		= $id;
 		$config['allowed_types'] 	= 'gif|jpg|png|xlsx|csv|xls|pdf';
 		$config['max_size']  		= '10000';
@@ -71,21 +73,18 @@ class C_Home extends CI_Controller {
 		// Initialize CI Function
 		$this->load->library('upload', $config);
 		$this->upload->initialize($config);
-		
-		if ( ! $this->upload->do_upload('upload')){
+
+		if (!$this->upload->do_upload('upload')) {
 			$error = array('error' => $this->upload->display_errors());
 			echo $this->upload->display_errors();
-		}
-		else{
+		} else {
 			$data = array('upload' => $this->upload->data());
 		}
 
 		// Storing data to db
-		$this->global->storeData('-', base_url($config['upload_path']) . '/' . $id .'.'.$extension, $deskripsi, $idKriteria, $idKategori, $id );
+		$this->global->storeData('-', base_url($config['upload_path']) . '/' . $id . '.' . $extension, $deskripsi, $idKriteria, $idKategori, $id);
 
 		// Load View
-		redirect('/melibatkanMahasiswa','refresh');
-
+		redirect('/melibatkanMahasiswa', 'refresh');
 	}
-
 }
