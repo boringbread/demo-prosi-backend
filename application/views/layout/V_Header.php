@@ -21,7 +21,7 @@
 			<div class="collapse navbar-collapse" id="menu">
 				<ul class="navbar-nav mx-auto">
 					<li class="nav-item">
-						<a href="" class="nav-link">1. Tata Pamong</a>
+						<a href="<?php echo site_url('tatapamong');?>" class="nav-link">1. Tata Pamong</a>
 					</li>
 					<li class="nav-item dropdown">
 						<a href="#" class="nav-link dropdown-toggle" href="#" id="navbarMahasiswa" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -40,7 +40,7 @@
 						</div>
 					</li>
 					<li class="nav-item">
-						<a href="" class="nav-link">4. Keuangan & Sarana</a> 
+						<a href="<?php echo site_url('keuangan');?>" class="nav-link">4. Keuangan & Sarana</a> 
 					</li>
 					<li class="nav-item dropdown">
 						<a href="" class="nav-link dropdown-toggle" href="#" id="navbarPendidikan" role="button" data-toggle="dropdown" aria-haspopup="true" arie-expanded="false">5. Pendidikan</a>

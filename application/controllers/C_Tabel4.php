@@ -2,7 +2,7 @@
     
     defined('BASEPATH') OR exit('No direct script access allowed');
     
-    class C_Tabel2Input extends CI_Controller {
+    class C_Tabel4 extends CI_Controller {
 
         // Fungsi untuk load data dari SP (Kalo bisa load data dan load view nya pisahin sih)
         public function loadView(){
@@ -13,14 +13,14 @@
 
             $this->load->view('layout/V_Require');
             $this->load->view('layout/V_Header');
-            $this->load->view('pages/kriteria2/V_Tabel2Input', $data);
+            $this->load->view('pages/kriteria4/V_Tabel4', $data);
             $this->load->view('layout/V_Footer');
         }
     
         // Fungsi untuk mengambil data bukti berdasar 1 ID Penelitian
         public function getBukti($idPenelitian)
         {
-            $this->load->model('M_Tabel2');
+            $this->load->model('M_Tabel4');
             $data = $this->M_Tabel6->get_bukti_tabel_6($idPenelitian)->result_array();
             echo $this->serveApi($data);
         }
@@ -36,14 +36,14 @@
             // $file_path = $file;
             $idPenelitian = $data['idPenelitian'];
 
-            $this->load->model('M_Tabel2');
+            $this->load->model('M_Tabel4');
             $this->M_Tabel6->test_Post($nama, $jenis, $file, $deskripsi, $idPenelitian);
 
             // $this->serveApi($file_path);
         }
 
         public function getrow($id){
-            $this->load->model('M_Tabel2');
+            $this->load->model('M_Tabel4');
             $data = $this->M_Tabel6->get_row($id)->row();
             $this->serveApi($data);
         }

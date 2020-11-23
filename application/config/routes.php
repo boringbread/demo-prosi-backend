@@ -76,3 +76,11 @@ $route['uploadFile'] = 'C_Home/unggahBukti';
 $route['kinerja'] = 'C_Tabel3Kinerja/loadView';
 $route['unggahBukti'] = 'C_Home/loadUnggahBukti';
 $route['uploadFile'] = 'C_Home/unggahBukti';
+
+$route['tatapamong'] = 'C_Tabel1/loadView';
+$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
+$route['uploadFile'] = 'C_Home/unggahBukti';
+
+$route['keuangan'] = 'C_Tabel4/loadView';
+$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
+$route['uploadFile'] = 'C_Home/unggahBukti';
