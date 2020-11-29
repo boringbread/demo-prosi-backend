@@ -13,7 +13,7 @@
             $this->load->database();
         }
 
-        // Fungsi untuk load data dari SP (Kalo bisa load data dan load view nya pisahin sih)
+        // Fungsi untuk load data dari SP
         public function loadView(){
             $data['table3a1'] = $this->api->tabel3a1();
             $data['table3a2'] = $this->api->tabel3a2();
@@ -33,16 +33,28 @@
             $this->load->view('pages/kriteria3/V_Tabel3Profil', $data);
             $this->load->view('layout/V_Footer');
         }
-    
-        // Fungsi untuk mengambil data bukti berdasar 1 ID Penelitian
+
+        // Fungsi untuk mengambil data bukti berdasar 1 ID
         public function getBukti($subsection, $index)
         {
+            switch ($subsection) {
+                case '311':
                     $data = $this->tabelProfil->get_bukti_tabel($index)->result_array();
-            // case $subsection:
-            //     case '3a1':
-            //     case '3a2'
-            //         $data = $this->tabelProfil->get_bukti_tabel_3a2($index)->result_array();
-            //     break;
+                    break;
+                case '312':
+                    $namaDosen = base64_decode($index);
+                    $data = $this->tabelProfil->get_bukti_tabel_3a2($namaDosen)->result_array();
+                    break;
+                case '313':
+                    $data = $this->tabelProfil->get_bukti_tabel_3a3($index)->result_array();
+                    break;
+                case '314':
+                    $namaDosen = base64_decode($index);
+                    $data = $this->tabelProfil->get_bukti_tabel_3a4($namaDosen)->result_array();
+                    break;
+                default:
+                    break;
+            }
             echo $this->serveApi($data);
         }
 

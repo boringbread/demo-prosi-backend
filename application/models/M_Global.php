@@ -12,7 +12,7 @@ class M_Global extends CI_Model {
         return $result;
 	}
 
-	public function storeData($namaBukti, $pathFile, $deskripsi, $idKriteria, $idKategori, $temaPenelitian){
+	public function storeData($namaBukti, $pathFile, $deskripsi, $idKriteria, $idKategori, $namaB){
 		$this->db->select("count(*) as 'table'");
         $this->db->from('bukti');
         $result = $this->db->get()->row()->table;
@@ -26,7 +26,7 @@ class M_Global extends CI_Model {
 		        'deskripsi' 		=> $deskripsi,
 		        'idKriteria' 		=> $idKriteria,
 		        'idKategori' 		=> $idKategori,
-		        'temaPenelitian' 	=> $temaPenelitian
+		        'namaB' 	=> $namaB
 		);
 
 		$this->db->insert('bukti', $data);

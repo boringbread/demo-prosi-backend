@@ -48,10 +48,9 @@
 <body>
     <div class="tab">
         <button class="tablinks" onclick="openCity(event, 'T3a1')" id="defaultopen">T 3.a.1 Dosen Tetap Pengampuan Program Studi</button>
-        <button class="tablinks" onclick="openCity(event, 'T3a2')">T 3.a.2 Ekuivalen Waktu Mengajar Dosen
-        </button>
-        <button class="tablinks" onclick="openCity(event, 'T3a3')">T 3.a.3 Dosen Tidak Tetap Pengampuan Program Studi</button>
-        <button class="tablinks" onclick="openCity(event, 'T3a4')">T 3.a.4 Dosen Pembimbing Utama Tugas Akhir</button>
+        <button class="tablinks" onclick="openCity(event, 'T3a2')">T 3.a.2 Dosen Pembimbing Utama Tugas Akhir</button>
+        <button class="tablinks" onclick="openCity(event, 'T3a3')">T 3.a.3 EWMP Dosen Tetap Perguruan Tinggi</button>
+        <button class="tablinks" onclick="openCity(event, 'T3a4')">T 3.a.4 Dosen Tidak Tetap UPPS</button>
     </div>
 
     <div id="T3a1" class="tabcontent">
@@ -94,7 +93,7 @@
 					<td><?php echo $item['Pendidikan'] ?></td>
 					<td><?php $item['Pendidikan_doctor']==NULL ? print_r("-") : print_r($item['Pendidikan_doctor']) ?></td>
 					<td><?php echo $item['BidangKeahlian'] ?></td>
-					<td class="font-weight-bold"><?php $item['KesesuaianKompetensi']==NULL ? print_r("-") : print_r('&#10003') ?></td>
+					<td class="font-weight-bold"><?php $item['KesesuaianKompetensi'] == NULL ? print_r("-") : print_r('&#10003') ?></td>
                     <td><?php echo $item['JabatanAkademik'] ?></td>
                     <td><?php echo $item['SertifikatPendidik'] ?></td>
                     <td><?php $item['SertifikatKompetensi']==NULL ? print_r("-") : print_r($item['SertifikatKompetensi']) ?></td>
@@ -105,15 +104,15 @@
 						<button class="btn btn-success"
 						data-toggle="modal"
 						data-target="#lihatBukti"
-						onClick="getData(`<?php echo $item['NIDN'] ?>`, `<?php echo $item['NamaDosen'] ?>`, `<?php echo '3a1' ?>`)">
+						onClick="getData(`<?php echo $item['NIDN'] ?>`, `<?php echo $item['NamaDosen'] ?>`, `<?php echo '311' ?>`)">
 							Lihat Bukti
 						</button>
 					</td>
 					<td>
 						<form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
-							<input type="hidden" name="keterangan" value="<?php echo $item['NIDN'] ?>">
+							<input type="hidden" name="keterangan" value="<?php echo $item['NamaDosen'] ?>">
 							<input type="hidden" name="id" value="<?php echo $item['NIDN'] ?>">
-							<input type="hidden" name="idKriteria" value="3a1">
+							<input type="hidden" name="idKriteria" value="311">
 							<button class="btn btn-primary" type="submit">
 								Unggah Bukti
 							</button>			
@@ -133,34 +132,35 @@
         <div class="container-fluid mb-5">
             <div class="mt-3 mb-5">
                 <h2 class="text-center">Tabel 3.a.2</h2>
-                <h4 class="text-center">Ekuivalen Waktu Mengajar Penuh (EWMP) Dosen Tetap Perguruan Tinggi</h4>
+                <h4 class="text-center">Dosen Pembimbing Utama Tugas Akhir</h4>
             </div>
             <table class="table table-striped table-bordered text-center">
+                
                 <thead>
                     <tr class="text-center">
                         <th className="align-middle" rowSpan="3">No.</th>
                         <th className="align-middle" rowSpan="3">Nama Dosen</th>
-                        <th className="align-middle" rowSpan="3">DTPS</th>
-                        <th className="align-middle" colSpan="6">Ekuivalen Waktu Mengajar Penuh (EWMP) pada saat TS dalam satuan kredit semester (sks)</th>
-                        <th className="align-middle" rowSpan="3">Jumlah (sks)</th>
-                        <th className="align-middle" rowSpan="3">Rata-rata per Semester (sks)</th>
+                        <th className="align-middle" colSpan="8">Jumlah Mahasiswa yang Dibimbing</th>
+                        <th className="temp align-middle" rowSpan="3">Rata-rata Jumlah Bimbingan di semua Program/ Semester</th>
                         <th className="align-middle" colspan="2" rowspan="3" >Aksi</th>
                     </tr>
                     <tr class="text-center">
-                        <th className="align-middle" colSpan="3">Pendidikan: <br></br>Pembelajaran dan Pembimbingan</th>
-                        <th className="align-middle" rowSpan="2">Penelitian</th>
-                        <th className="align-middle" rowSpan="2">PkM</th>
-                        <th className="align-middle" rowSpan="2">Tugas Tambahan dan/atau Penunjang</th>
+                        <th className="align-middle" colSpan="4">pada PS yang Diakreditasi</th>
+                        <th className="align-middle" colSpan="4">pada PS Lain di PT</th>
                     </tr>
                     <tr class="text-center">
-                        <th className="align-middle">PS yang Diakreditasi</th>
-                        <th className="align-middle">PS Lain di dalam PT</th>
-                        <th className="align-middle">PS Lain di luar PT</th>
+                        <th className="align-middle">TS-2</th>
+                        <th className="align-middle">TS-1</th>
+                        <th className="align-middle">TS</th>
+                        <th className="align-middle">Rata-rata</th>
+                        <th className="align-middle">TS-2</th>
+                        <th className="align-middle">TS-1</th>
+                        <th className="align-middle">TS</th>
+                        <th className="align-middle">Rata-rata</th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php
-                    $i = 1;
                     foreach ($table3a2 as $item) {
                     ?>
 				<tr class="text-center">
@@ -179,15 +179,15 @@
 						<button class="btn btn-success"
 						data-toggle="modal"
 						data-target="#lihatBukti"
-						onClick="getData(`<?php echo $item['Nomor'] ?>`, `<?php echo $item['NIDN'] ?>`, `<?php echo '3a2' ?>`)">
+						onClick="getData(`<?php echo base64_encode($item['NamaDosen']) ?>`, `<?php echo $item['NamaDosen'] ?>`, `<?php echo '312' ?>`)">
 							Lihat Bukti
 						</button>
 					</td>
 					<td>
 						<form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
-							<input type="hidden" name="keterangan" value="<?php echo $item['NIDN'] ?>">
-							<input type="hidden" name="id" value="<?php echo $item['Nomor'] ?>">
-							<input type="hidden" name="idKriteria" value="3a2">
+							<input type="hidden" name="keterangan" value="<?php echo $item['NamaDosen'] ?>">
+							<input type="hidden" name="id" value="<?php echo $item['NamaDosen'] ?>">
+							<input type="hidden" name="idKriteria" value='312'>
 							<button class="btn btn-primary" type="submit">
 								Unggah Bukti
 							</button>			
@@ -195,8 +195,7 @@
 					</td>
 				</tr>
 				<?php
-                                $i = $i + 1;
-                            }
+                    }
                 ?> 
                 </tbody>
             </table>
@@ -207,51 +206,59 @@
         <div class="container-fluid mb-5">
             <div class="mt-3 mb-5">
                 <h2 class="text-center">Tabel 3.a.3</h2>
-                <h4 class="text-center">Dosen Tidak Tetap yang ditugaskan sebagai pengampu mata kuliah di Program Studi yang Diakreditasi</h4>
+                <h4 class="text-center">EWMP Dosen Tetap Perguruan Tinggi</h4>
             </div>
             <table class="table table-striped table-bordered text-center">
                 <thead>
                     <tr class="text-center">
                         <th className="align-middle">No.</th>
-                        <th className="align-middle">Nama Dosen</th>
-                        <th className="align-middle">NIDN/NIDK</th>
-                        <th className="align-middle">Pendidikan Pasca Sarjana</th>
-                        <th className="align-middle">Bidang Keahlian</th>
-                        <th className="align-middle">Jabatan Akademik</th>
-                        <th className="align-middle">Sertifikat Pendidik Profesional</th>
-                        <th className="align-middle">Sertifikat Profesi/ Kompensasi/ Industri</th>
-                        <th className="align-middle">Mata Kuliah yang Diampu pada PS yang Diakreditasi</th>
-                        <th className="align-middle">Kesesuaian Bidang Keahlian dengan Mata Kuliah yang Diampu</th>
+                        <th className="align-middle">NIK</th>
+                        <th className="align-middle">Nama</th>
+                        <th className="align-middle">Dosen Tetap Program Studi</th>
+                        <th className="align-middle">Pembelajaran Program Studi</th>
+                        <th className="align-middle">Pembelajaran Program Studi Lain</th>
+                        <th className="align-middle">Pembelajaran Program Studi Luar</th>
+                        <th className="align-middle">Penelitian </th>
+                        <th className="align-middle">Pengabdian kepada Masyarakat</th>
+                        <th className="align-middle">Tambahan</th>
+                        <th className="align-middle">Jumlah</th>
+                        <th className="align-middle">Rata2</th>
+                        <th className="align-middle" colspan="2" rowspan="3">Aksi</th>
                     </tr>
 
                 </thead>
                 <tbody>
-                    <!-- <?php
-                            $i = 1;
-                            foreach ($table6 as $item) {
-                            ?>
+                 <?php
+                    $i = 1;
+                    foreach ($table3a3 as $item) {
+                ?>
 				<tr class="text-center">
-					<td> <?php echo 2016 ?> </td>
-					<td><?php echo 120 ?></td>
-					<td><?php echo 400 ?></td>
-					<td><?php echo 120 ?></td>
-					<td><?php echo 120 ?></td>
-					<td><?php echo 0 ?></td>
-                    <td><?php echo 500 ?></td>
-					<td><?php echo 20 ?></td>
+                    <td><?php echo $i ?></td>
+					<td><?php echo $item['NIK'] ?> </td>
+					<td><?php echo $item['Nama'] ?></td>
+					<td><?php echo ($item['isDTPS'] ? "&#10003;" : "-") ?></td>
+					<td><?php echo $item['PembelajaranPS'] ?></td>
+					<td><?php echo $item['PembelajaranPSLain'] ?></td>
+					<td><?php echo $item['PembelajaranPSLuar'] ?></td>
+                    <td><?php echo $item['Penelitian'] ?></td>
+                    <td><?php echo $item['Pkm'] ?></td>
+                    <td><?php echo $item['Tambahan'] ?></td>
+                    <td><?php echo $item['Jumlah'] ?></td>
+					<td><?php echo $item['Rata2'] ?></td>
                     <td>
+                        <!-- getData(id, judul, subsection) -->
 						<button class="btn btn-success"
 						data-toggle="modal"
 						data-target="#lihatBukti"
-						onClick="getData(`<?php echo $item['idPenelitian'] ?>`, `<?php echo substr($item['judulKegiatan'], 2) ?>`)">
+						onClick="getData(`<?php echo $item['NIK'] ?>`, `<?php echo $item['Nama'] ?>`, `<?php echo '313' ?>`)">
 							Lihat Bukti
 						</button>
 					</td>
 					<td>
 						<form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
-							<input type="hidden" name="keterangan" value="<?php echo $item['judulKegiatan'] ?>">
-							<input type="hidden" name="id" value="<?php echo $item['idPenelitian'] ?>">
-							<input type="hidden" name="idKriteria" value="6">
+							<input type="hidden" name="keterangan" value="<?php echo $item['Nama'] ?>">
+							<input type="hidden" name="id" value="<?php echo $item['NIK'] ?>">
+							<input type="hidden" name="idKriteria" value="313">
 							<button class="btn btn-primary" type="submit">
 								Unggah Bukti
 							</button>			
@@ -259,9 +266,9 @@
 					</td>
 				</tr>
 				<?php
-                                $i = $i + 1;
-                            }
-                ?> -->
+                    $i = $i + 1;
+                }
+                ?> 
                 </tbody>
             </table>
         </div>
@@ -270,58 +277,50 @@
         <div class="container-fluid mb-5">
             <div class="mt-3 mb-5">
                 <h2 class="text-center">Tabel 3.a.4</h2>
-                <h4 class="text-center">Dosen Pembimbing Utama Tugas Akhir</h4>
+                <h4 class="text-center">Dosen Tidak Tetap UPPS</h4>
             </div>
             <table class="table table-striped table-bordered text-center">
                 <thead>
-                    <tr class="text-center">
-                        <th className="align-middle" rowSpan="3">No.</th>
-                        <th className="align-middle" rowSpan="3">Nama Dosen</th>
-                        <th className="align-middle" colSpan="8">Jumlah Mahasiswa yang Dibimbing</th>
-                        <th className="temp align-middle" rowSpan="3">Rata-rata Jumlah Bimbingan di semua Program/ Semester</th>
-                    </tr>
-                    <tr class="text-center">
-                        <th className="align-middle" colSpan="4">pada PS yang Diakreditasi</th>
-                        <th className="align-middle" colSpan="4">pada PS Lain di PT</th>
-                    </tr>
-                    <tr class="text-center">
-                        <th className="align-middle">TS-2</th>
-                        <th className="align-middle">TS-1</th>
-                        <th className="align-middle">TS</th>
-                        <th className="align-middle">Rata-rata</th>
-                        <th className="align-middle">TS-2</th>
-                        <th className="align-middle">TS-1</th>
-                        <th className="align-middle">TS</th>
-                        <th className="align-middle">Rata-rata</th>
-                    </tr>
+                    <th>Nomor</th>
+                    <th>Nama Dosen</th>
+                    <th>NIDN</th>
+                    <th>Pendidikan</th>
+                    <th>Bidang Keahlian</th>
+                    <th>Jabatan Akademik</th>
+                    <th>Sertifikat Pendidik</th>
+                    <th>Sertifikat Kompetensi</th>
+                    <th>Mata Kuliah PS yang Diampu</th>
+                    <th>Kesesuaian Bid. Keahlian</th>
+                    <th colspan="2" rowspan="3">Aksi</th>
                 </thead>
                 <tbody>
-                    <!-- <?php
-                            $i = 1;
-                            foreach ($table6 as $item) {
-                            ?>
+                <?php
+                    foreach ($table3a4 as $item) {
+                    ?>
 				<tr class="text-center">
-					<td> <?php echo 2016 ?> </td>
-					<td><?php echo 120 ?></td>
-					<td><?php echo 400 ?></td>
-					<td><?php echo 120 ?></td>
-					<td><?php echo 120 ?></td>
-					<td><?php echo 0 ?></td>
-                    <td><?php echo 500 ?></td>
-					<td><?php echo 20 ?></td>
+					<td><?php echo $item['Nomor'] ?> </td>
+					<td><?php echo $item['NamaDosen'] ?></td>
+					<td><?php echo $item['NIDN'] ?></td>
+                    <td><?php echo $item['Pendidikan'] ?></td>
+                    <td><?php echo $item['BidangKeahlian'] ?></td>
+                    <td><?php echo $item['JabatanAkademik'] ?></td>
+                    <td><?php echo $item['SertifikatPendidik'] ?></td>
+                    <td><?php echo $item['SertifikatKompetensi'] ?></td>
+                    <td><?php echo $item['MataKuliahPSYangDiampu'] ?></td>
+					<td><?php echo ($item['KesesuaianBidangKeahlian'] ? "&#10003" : "-" )?></td>
                     <td>
 						<button class="btn btn-success"
 						data-toggle="modal"
 						data-target="#lihatBukti"
-						onClick="getData(`<?php echo $item['idPenelitian'] ?>`, `<?php echo substr($item['judulKegiatan'], 2) ?>`)">
+						onClick="getData(`<?php echo base64_encode($item['NamaDosen']) ?>`, `<?php echo $item['NamaDosen']?>`, `<?php echo '314' ?>`)">
 							Lihat Bukti
 						</button>
 					</td>
 					<td>
 						<form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
-							<input type="hidden" name="keterangan" value="<?php echo $item['judulKegiatan'] ?>">
-							<input type="hidden" name="id" value="<?php echo $item['idPenelitian'] ?>">
-							<input type="hidden" name="idKriteria" value="6">
+							<input type="hidden" name="keterangan" value="<?php echo $item['NamaDosen'] ?>">
+							<input type="hidden" name="id" value="<?php echo $item['NamaDosen'] ?>">
+							<input type="hidden" name="idKriteria" value="314">
 							<button class="btn btn-primary" type="submit">
 								Unggah Bukti
 							</button>			
@@ -329,9 +328,8 @@
 					</td>
 				</tr>
 				<?php
-                                $i = $i + 1;
-                            }
-                ?> -->
+                    }
+                ?>
                 </tbody>
             </table>
         </div>

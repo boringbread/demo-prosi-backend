@@ -43,7 +43,6 @@ class C_Upload extends CI_Controller
 		$this->load->view('upload_view');
 	}
 
-
 	//Untuk proses upload foto
 	function proses_upload()
 	{
@@ -55,6 +54,7 @@ class C_Upload extends CI_Controller
 		$idData = $this->input->post('id');
 		$kriteria = $this->input->post('kriteria');
 		$deskripsi = $this->input->post('deskripsi');
+
 		$config['upload_path']   = FCPATH . 'upload/' . $kriteria . "/";
 		$config['allowed_types'] = '*';
 		$config['file_name'] = $kategori . '_' . $idData . '_(' . $iterator . ')';
@@ -62,8 +62,12 @@ class C_Upload extends CI_Controller
 		$this->upload->initialize($config);
 		$path = base_url() . "upload/" . $kriteria . "/";
 
+		// $idDB = $iterator + 1;
+		// $this->M_Tabel6->inputBukti($idDB, 'asd', 'asd', $deskripsi, $kriteria, $kategori, $idData);
+		// exit();
 
 		if ($this->upload->do_upload('userfile')) {
+			$idDB = $iterator + 1;
 			$pathDB = $path . $this->upload->data('file_name');
 			$nama = $this->upload->data('file_name');
 			$idDB = $iterator + 1;
@@ -71,7 +75,4 @@ class C_Upload extends CI_Controller
 			$this->db->select_max('idBukti');
 		}
 	}
-
-
-	//Untuk menghapus foto
 }

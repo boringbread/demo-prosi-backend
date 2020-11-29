@@ -13,7 +13,7 @@ class M_Tabel6 extends CI_Model
         $this->db->select('pathFile');
         $this->db->select('kategori');
         $this->db->from('Penelitian');
-        $this->db->join('bukti', 'Penelitian.idPenelitian = bukti.temaPenelitian', 'inner');
+        $this->db->join('bukti', 'Penelitian.idPenelitian = bukti.namaB', 'inner');
         $this->db->join('kategori', 'bukti.idKategori = kategori.idKategori', 'inner');
         $this->db->where('idPenelitian', $idPenelitian);
         $result = $this->db->get();
@@ -44,7 +44,7 @@ class M_Tabel6 extends CI_Model
         $this->db->insert('bukti', $data);
     }
 
-    public function inputBukti($idBukti, $namaBukti, $path, $deskripsi, $idKriteria, $idKategori, $temaPeneliatian)
+    public function inputBukti($idBukti, $namaBukti, $path, $deskripsi, $idKriteria, $idKategori, $namaB)
     {
         $data = array(
             'idBukti' => $idBukti,
@@ -53,7 +53,7 @@ class M_Tabel6 extends CI_Model
             'deskripsi' => $deskripsi,
             'idKriteria' => $idKriteria,
             'idKategori' => $idKategori,
-            'temaPenelitian' => $temaPeneliatian
+            'namaB' => $namaB
         );
         $this->db->insert('bukti', $data);
     }

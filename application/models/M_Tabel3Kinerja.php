@@ -10,7 +10,7 @@
             $this->db->select('deskripsi');
             $this->db->select('pathFile');
             $this->db->from('Penelitian');
-            $this->db->join('bukti', 'Penelitian.idPenelitian = bukti.temaPenelitian', 'inner');
+            $this->db->join('bukti', 'Penelitian.idPenelitian = bukti.namaB', 'inner');
             $this->db->where('idPenelitian', $idPenelitian);
             $result = $this->db->get();
             

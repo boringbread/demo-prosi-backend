@@ -10,7 +10,7 @@
             $this->db->select('deskripsi');
             $this->db->select('pathFile');
             $this->db->from('Penelitian');
-            $this->db->join('bukti', 'Penelitian.idPenelitian = bukti.temaPenelitian', 'inner');
+            $this->db->join('bukti', 'Penelitian.idPenelitian = bukti.namaB', 'inner');
             $this->db->where('idPenelitian', $idPenelitian);
             $result = $this->db->get();
             
@@ -18,7 +18,7 @@
             
         }
 
-        public function test_Post($nama, $jenis, $file, $deskripsi, $idPenelitian){
+        public function test_Post($nama, $jenis, $file, $deskripsi, $namaB){
 
             $this->db->select("count(*) as 'table'");
             $this->db->from('bukti');
@@ -35,7 +35,7 @@
                 'deskripsi' => $deskripsi,
                 'idKriteria' => 6,
                 'idKategori' => 2,
-                'temaPenelitian' => $idPenelitian
+                'namaB' => $namaB
             );
             $this->db->insert('bukti', $data);
             
