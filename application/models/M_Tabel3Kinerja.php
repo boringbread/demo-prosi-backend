@@ -5,40 +5,64 @@
     
     class M_Tabel3Kinerja extends CI_Model {
     
-        public function get_bukti_tabel_6($idPenelitian){
+        public function get_bukti_tabel($namaB){
             $this->db->select('namaBukti');
             $this->db->select('deskripsi');
             $this->db->select('pathFile');
-            $this->db->from('Penelitian');
-            $this->db->join('bukti', 'Penelitian.idPenelitian = bukti.namaB', 'inner');
-            $this->db->where('idPenelitian', $idPenelitian);
+            $this->db->from('bukti');
+            $this->db->where('namaB', $namaB);
+            $this->db->where('idKriteria', '321');
             $result = $this->db->get();
             
-            return $result;
-            
+            return $result; 
         }
 
-        public function test_Post($nama, $jenis, $file, $deskripsi, $idPenelitian){
-
-            $this->db->select("count(*) as 'table'");
+        public function get_bukti_tabel_3b2($namaB){
+            $this->db->select('namaBukti');
+            $this->db->select('deskripsi');
+            $this->db->select('pathFile');
             $this->db->from('bukti');
-            $result = $this->db->get()->row()->table;
-
-            $idBukti = $result+1;
-
-            // print_r(base_url().'upload/KUIS%20PKn%20-%201.pdf');
-
-            $data = array(
-                'idBukti' => $idBukti,
-                'namaBukti' => $nama,
-                'pathFile' => $jenis,
-                'deskripsi' => $deskripsi,
-                'idKriteria' => 6,
-                'idKategori' => 2,
-                'temaPenelitian' => $idPenelitian
-            );
-            $this->db->insert('bukti', $data);
+            $this->db->where('namaB', $namaB);
+            $this->db->where('idKriteria', '322');
+            $result = $this->db->get();
             
+            return $result; 
+        }
+
+        public function get_bukti_tabel_3b3($namaB){
+            $this->db->select('namaBukti');
+            $this->db->select('deskripsi');
+            $this->db->select('pathFile');
+            $this->db->from('bukti');
+            $this->db->where('namaB', $namaB);
+            $this->db->where('idKriteria', '323');
+            $result = $this->db->get();
+            
+            return $result; 
+        }
+
+        public function get_bukti_tabel_3b4($namaB){
+            $this->db->select('namaBukti');
+            $this->db->select('deskripsi');
+            $this->db->select('pathFile');
+            $this->db->from('bukti');
+            $this->db->where('namaB', $namaB);
+            $this->db->where('idKriteria', '324');
+            $result = $this->db->get();
+            
+            return $result; 
+        }
+
+        public function get_bukti_tabel_3b5($namaB){
+            $this->db->select('namaBukti');
+            $this->db->select('deskripsi');
+            $this->db->select('pathFile');
+            $this->db->from('bukti');
+            $this->db->where('namaB', $namaB);
+            $this->db->where('idKriteria', '325');
+            $result = $this->db->get();
+            
+            return $result; 
         }
 
         public function get_row($id){
