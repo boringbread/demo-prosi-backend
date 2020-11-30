@@ -44,5 +44,3 @@ class M_Global extends CI_Model {
 
 /* End of file M_Global.php */
 /* Location: ./application/models/M_Global.php */
-
-?>
