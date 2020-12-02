@@ -1,45 +1,48 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_Global extends CI_Model {
+class M_Global extends CI_Model
+{
 
-	public function getKriteria($idKriteria){
+	public function getKriteria($idKriteria)
+	{
 		$this->db->select('*');
-        $this->db->from('kriteria');
-        $this->db->where('idKriteria', $idKriteria);
-        $result = $this->db->get();
-        
-        return $result;
+		$this->db->from('subkriteria');
+		$this->db->where('idSubKriteria', $idKriteria);
+		$result = $this->db->get();
+
+		return $result;
 	}
 
-	public function storeData($namaBukti, $pathFile, $deskripsi, $idKriteria, $idKategori, $namaB){
+	public function storeData($namaBukti, $pathFile, $deskripsi, $idKriteria, $idKategori, $namaB)
+	{
 		$this->db->select("count(*) as 'table'");
-        $this->db->from('bukti');
-        $result = $this->db->get()->row()->table;
+		$this->db->from('bukti');
+		$result = $this->db->get()->row()->table;
 
-        $idBukti = $result+1;
+		$idBukti = $result + 1;
 
 		$data = array(
-				'idBukti'			=> $idBukti,
-		        'namaBukti' 		=> $namaBukti,
-		        'pathFile' 			=> $pathFile,
-		        'deskripsi' 		=> $deskripsi,
-		        'idKriteria' 		=> $idKriteria,
-		        'idKategori' 		=> $idKategori,
-		        'namaB' 	=> $namaB
+			'idBukti'			=> $idBukti,
+			'namaBukti' 		=> $namaBukti,
+			'pathFile' 			=> $pathFile,
+			'deskripsi' 		=> $deskripsi,
+			'idKriteria' 		=> $idKriteria,
+			'idKategori' 		=> $idKategori,
+			'namaB' 	=> $namaB
 		);
 
 		$this->db->insert('bukti', $data);
 	}
 
-	public function getKategori(){
+	public function getKategori()
+	{
 		$this->db->select('*');
-        $this->db->from('kategori');
-        $result = $this->db->get();
-        
-        return $result;
-	}
+		$this->db->from('kategori');
+		$result = $this->db->get();
 
+		return $result;
+	}
 }
 
 /* End of file M_Global.php */

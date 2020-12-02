@@ -34,7 +34,7 @@ class M_Tabel6 extends CI_Model
 
         $data = array(
             'idBukti' => $idBukti,
-            'namaBukti' => $nama,
+            'namaB' => $nama,
             'pathFile' => $jenis,
             'deskripsi' => $deskripsi,
             'idKriteria' => 6,
@@ -48,12 +48,12 @@ class M_Tabel6 extends CI_Model
     {
         $data = array(
             'idBukti' => $idBukti,
-            'namaBukti' => $namaBukti,
+            'namaB' => $namaBukti,
             'pathFile' => $path,
             'deskripsi' => $deskripsi,
-            'idKriteria' => $idKriteria,
+            'idSubKriteria' => $idKriteria,
             'idKategori' => $idKategori,
-            'namaB' => $namaB
+            'idRecord' => $namaB
         );
         $this->db->insert('bukti', $data);
     }

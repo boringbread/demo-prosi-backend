@@ -40,8 +40,8 @@ class C_Home extends CI_Controller
 	public function loadUnggahBukti()
 	{
 		$idKriteria 			= $this->input->post('idKriteria');
-		$x 						= $this->global->getKriteria($idKriteria)->result_array();
-		$data['kriteria'] 		= $x[0]['kriteria'];
+		$x 						= $this->global->getKriteria($idKriteria)->row_array();
+		$data['kriteria'] 		= $x['subKriteria'];
 		$data['keterangan'] 	= $this->input->post('keterangan');
 		$data['id'] 			= $this->input->post('id');
 		$data['idKriteria'] 	= $this->input->post('idKriteria');

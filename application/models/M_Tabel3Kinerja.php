@@ -58,7 +58,7 @@
             $this->db->select('deskripsi');
             $this->db->select('pathFile');
             $this->db->from('bukti');
-            $this->db->where('namaB', $namaB);
+            $this->db->where('idRecord', $namaB);
             $this->db->where('idKriteria', '325');
             $result = $this->db->get();
             
@@ -77,6 +77,3 @@
     
     /* End of file M_Tabel6.php */
         }
-    
-
-?>
