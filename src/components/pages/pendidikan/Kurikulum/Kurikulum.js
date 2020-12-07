@@ -37,7 +37,7 @@ class Kurikulum extends Component {
             </Row>
             <Row>
               <Col>
-                <Table striped bordered responsive className="text-center">
+                <Table striped bordered responsive className="text-center table-font-size">
                   <thead>
                     <tr>
                       <th className="align-middle" rowSpan="2">No.</th>
