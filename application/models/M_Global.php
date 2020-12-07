@@ -43,6 +43,20 @@ class M_Global extends CI_Model
 
 		return $result;
 	}
+
+	public function inputBukti($idBukti, $namaBukti, $path, $deskripsi, $idSubKriteria, $idKategori, $namaB)
+    {
+        $data = array(
+            'idBukti' => $idBukti,
+            'namaB' => $namaBukti,
+            'pathFile' => $path,
+            'deskripsi' => $deskripsi,
+            'idSubKriteria' => $idSubKriteria,
+            'idKategori' => $idKategori,
+            'idRecord' => $namaB
+        );
+        $this->db->insert('bukti', $data);
+    }
 }
 
 /* End of file M_Global.php */

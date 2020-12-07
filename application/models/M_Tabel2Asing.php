@@ -5,13 +5,11 @@
     
     class M_Tabel2Asing extends CI_Model {
     
-        public function get_bukti_tabel_6($idPenelitian){
-            $this->db->select('namaBukti');
-            $this->db->select('deskripsi');
-            $this->db->select('pathFile');
-            $this->db->from('Penelitian');
-            $this->db->join('bukti', 'Penelitian.idPenelitian = bukti.namaB', 'inner');
-            $this->db->where('idPenelitian', $idPenelitian);
+        public function get_bukti_tabel($idRecord){
+            $this->db->select('*');
+            $this->db->from('bukti');
+            $this->db->where('idSubKriteria', 22);
+            $this->db->where('idRecord', $idRecord);
             $result = $this->db->get();
             
             return $result;

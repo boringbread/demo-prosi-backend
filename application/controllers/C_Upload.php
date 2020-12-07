@@ -36,6 +36,7 @@ class C_Upload extends CI_Controller
 		parent::__construct();
 		$this->load->database();
 		$this->load->helper(array('url', 'file'));
+		$this->load->model('M_Global', 'global');
 	}
 
 	function index()
@@ -71,7 +72,7 @@ class C_Upload extends CI_Controller
 			$pathDB = $path . $this->upload->data('file_name');
 			$nama = $this->upload->data('file_name');
 			$idDB = $iterator + 1;
-			$this->M_Tabel6->inputBukti($idDB, $nama, $pathDB, $deskripsi, $kriteria, $kategori, $idData);
+			$this->global->inputBukti($idDB, $nama, $pathDB, $deskripsi, $kriteria, $kategori, $idData);
 			$this->db->select_max('idBukti');
 		}
 	}

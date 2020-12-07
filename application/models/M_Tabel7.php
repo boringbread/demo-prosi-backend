@@ -8,38 +8,16 @@
         public function get_bukti_tabel_7($idPKM){
             $this->db->select('deskripsi');
             $this->db->select('pathFile');
-            $this->db->select('namaBukti');
+            $this->db->select('idRecord');
+            $this->db->select('namaB');
             $this->db->select('kategori');
             $this->db->from('Abdimas');
-            $this->db->join('bukti', 'Abdimas.idAbdimas = bukti.namaB', 'inner');
+            $this->db->join('bukti', 'Abdimas.idAbdimas = bukti.idRecord', 'inner');
             $this->db->join('kategori', 'bukti.idKategori = kategori.idKategori', 'inner');
             $this->db->where('idAbdimas', $idPKM);
             $result = $this->db->get();
             
             return $result;
-            
-        }
-
-        public function test_Post($nama, $jenis, $file, $deskripsi, $namaB){
-
-            $this->db->select("count(*) as 'table'");
-            $this->db->from('bukti');
-            $result = $this->db->get()->row()->table;
-
-            $idBukti = $result+1;
-
-            // print_r(base_url().'upload/KUIS%20PKn%20-%201.pdf');
-
-            $data = array(
-                'idBukti' => $idBukti,
-                'namaBukti' => $nama,
-                'pathFile' => $jenis,
-                'deskripsi' => $deskripsi,
-                'idKriteria' => 6,
-                'idKategori' => 2,
-                'namaB' => $namaB
-            );
-            $this->db->insert('bukti', $data);
             
         }
 

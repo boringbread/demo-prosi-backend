@@ -6,48 +6,48 @@
     class M_Tabel3Profil extends CI_Model {
     
         public function get_bukti_tabel($NIDN){
-            $this->db->select('namaBukti');
+            $this->db->select('namaB');
             $this->db->select('deskripsi');
             $this->db->select('pathFile');
             $this->db->from('DosenTetapUPPS_TD');
-            $this->db->join('bukti', 'DosenTetapUPPS_TD.NIDN = bukti.namaB', 'inner');
+            $this->db->join('bukti', 'DosenTetapUPPS_TD.NIDN = bukti.idRecord', 'inner');
             $this->db->where('NIDN', $NIDN);
             $result = $this->db->get();
             
             return $result; 
         }
 
-        public function get_bukti_tabel_3a2($namaB){
-            $this->db->select('namaBukti');
+        public function get_bukti_tabel_3a2($idRecord){
+            $this->db->select('namaB');
             $this->db->select('deskripsi');
             $this->db->select('pathFile');
             $this->db->from('bukti');
-            $this->db->where('namaB', $namaB);
-            $this->db->where('idKriteria', '312');
+            $this->db->where('idRecord', $idRecord);
+            $this->db->where('idSubKriteria', '312');
             $result = $this->db->get();
             
             return $result; 
         }
 
-        public function get_bukti_tabel_3a3($namaB){
-            $this->db->select('namaBukti');
+        public function get_bukti_tabel_3a3($idRecord){
+            $this->db->select('namaB');
             $this->db->select('deskripsi');
             $this->db->select('pathFile');
             $this->db->from('bukti');
-            $this->db->where('namaB', $namaB);
-            $this->db->where('idKriteria', '313');
+            $this->db->where('idRecord', $idRecord);
+            $this->db->where('idSubKriteria', '313');
             $result = $this->db->get();
             
             return $result; 
         }
 
-        public function get_bukti_tabel_3a4($namaB){
-            $this->db->select('namaBukti');
+        public function get_bukti_tabel_3a4($idRecord){
+            $this->db->select('namaB');
             $this->db->select('deskripsi');
             $this->db->select('pathFile');
             $this->db->from('bukti');
-            $this->db->where('namaB', $namaB);
-            $this->db->where('idKriteria', '314');
+            $this->db->where('idRecord', $idRecord);
+            $this->db->where('idSubKriteria', '314');
             $result = $this->db->get();
             
             return $result; 

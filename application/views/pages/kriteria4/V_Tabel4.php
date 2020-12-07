@@ -13,7 +13,7 @@
                 for (var i = 0; i < data.result.length; i++) {
                     baris += '<tr>' +
                         '<td>' + data.result[i].deskripsi + '</td>' +
-                        '<td>' + data.result[i].kategori + '</td>' +
+                        '<td>' + data.result[i].namaB + '</td>' +
                         '<td><a href="' + data.result[i].pathFile + '" target=`_blank`>' + data.result[i].deskripsi + '</a></td>' +
                         '</tr>'
                 }
@@ -48,30 +48,29 @@
         </thead>
         <tbody class="text-center">
             <?php
-            $i = 6;
-            foreach ($table6 as $item) {
+            foreach ($table4 as $item) {
             ?>
                 <tr class="text-center">
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo "Belanja" ?></td>
-                    <td><?php echo 400 ?></td>
-                    <td><?php echo 120 ?></td>
-                    <td><?php echo 120 ?></td>
-                    <td><?php echo 0 ?></td>
-                    <td><?php echo 500 ?></td>
-                    <td><?php echo 20 ?></td>
-                    <td><?php echo 40 ?></td>
-                    <td><?php echo 100 ?></td>
+                    <td><?php echo $item['Nomor'] ?> </td>
+                    <td><?php echo $item['jenisPenggunaan'] ?> </td>
+                    <td><?php echo $item['TS_2_UPPS'] ?> </td>
+                    <td><?php echo $item['TS_1_UPPS'] ?> </td>
+                    <td><?php echo $item['TS_UPPS'] ?> </td>
+                    <td><?php echo $item['Rata_rata_UPPS'] ?> </td>
+                    <td><?php echo $item['TS_2_PS'] ?> </td>
+                    <td><?php echo $item['TS_1_PS'] ?> </td>
+                    <td><?php echo $item['TS_PS'] ?> </td>
+                    <td><?php echo $item['Rata_rata_PS'] ?> </td>
                     <td>
-                        <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo $item['idPenelitian'] ?>`, `<?php echo substr($item['judulKegiatan'], 2) ?>`)">
+                        <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo base64_encode( $item['jenisPenggunaan'] ) ?>`, `<?php echo $item['jenisPenggunaan'] ?>`)">
                             Lihat Bukti
                         </button>
                     </td>
                     <td>
                         <form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
-                            <input type="hidden" name="keterangan" value="<?php echo $item['judulKegiatan'] ?>">
-                            <input type="hidden" name="id" value="<?php echo $item['idPenelitian'] ?>">
-                            <input type="hidden" name="idKriteria" value="6">
+                            <input type="hidden" name="keterangan" value="<?php echo $item['jenisPenggunaan'] ?>">
+                            <input type="hidden" name="id" value="<?php echo $item['jenisPenggunaan'] ?>">
+                            <input type="hidden" name="idKriteria" value="4">
                             <button class="btn btn-primary" type="submit">
                                 Unggah Bukti
                             </button>
@@ -80,7 +79,6 @@
                 </tr>
 
             <?php
-                $i = $i + 1;
             }
             ?>
         </tbody>

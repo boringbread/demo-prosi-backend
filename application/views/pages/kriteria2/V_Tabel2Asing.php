@@ -13,7 +13,7 @@
 				for(var i = 0; i < data.result.length; i++) {
 					baris += 	'<tr>' +
 									'<td>'+ data.result[i].deskripsi +'</td>' +
-									'<td>'+ data.result[i].namaBukti +'</td>' +
+									'<td>'+ data.result[i].namaB +'</td>' +
 									'<td><a href="' + data.result[i].pathFile + '" target=`_blank`>'+ data.result[i].deskripsi +'</a></td>' +
 								'</tr>'
 				}
@@ -53,33 +53,33 @@
 		<tbody>
 			<?php 
 			$i = 1;
-			foreach ($table6 as $item) {
+			foreach ($table2Asing as $item) {
 				?>
 				<tr class="text-center">
-					<td> <?php echo 1 ?> </td>
-					<td><?php echo "Informatika" ?></td>
-					<td><?php echo 20 ?></td>
-					<td><?php echo 12 ?></td>
-					<td><?php echo 11 ?></td>
-					<td><?php echo 8 ?></td>
-					<td><?php echo 12 ?></td>
-					<td><?php echo 20 ?></td>
-					<td><?php echo 8 ?></td>
-					<td><?php echo 12 ?></td>
-					<td><?php echo 20 ?></td>
+					<td><?php echo $i ?> </td>
+					<td><?php echo $item['prodi'] ?></td>
+					<td><?php echo $item['aktifTS'] ?></td>
+					<td><?php echo $item['aktifTS-1'] ?></td>
+					<td><?php echo $item['aktifTS-2'] ?></td>
+					<td><?php echo $item['fullTS'] ?></td>
+					<td><?php echo $item['fullTS-1'] ?></td>
+					<td><?php echo $item['fullTS-2'] ?></td>
+					<td><?php echo $item['partTS'] ?></td>
+					<td><?php echo $item['partTS-1'] ?></td>
+					<td><?php echo $item['partTS-2'] ?></td>
 					<td>
 						<button class="btn btn-success"
 						data-toggle="modal"
 						data-target="#lihatBukti"
-						onClick="getData(`<?php echo $item['idPenelitian']?>`, `<?php echo substr($item['judulKegiatan'], 2) ?>`)">
+						onClick="getData(`<?php echo base64_encode( $item['prodi'] ) ?>`, `<?php echo $item['prodi'] ?>`)">
 							Lihat Bukti
 						</button>
 					</td>
 					<td>
 						<form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
-							<input type="hidden" name="keterangan" value="<?php echo $item['judulKegiatan'] ?>">
-							<input type="hidden" name="id" value="<?php echo $item['idPenelitian'] ?>">
-							<input type="hidden" name="idKriteria" value="6">
+							<input type="hidden" name="keterangan" value="<?php echo $item['prodi'] ?>">
+							<input type="hidden" name="id" value="<?php echo $item['prodi'] ?>">
+							<input type="hidden" name="idKriteria" value="22">
 							<button class="btn btn-primary" type="submit">
 								Unggah Bukti
 							</button>			

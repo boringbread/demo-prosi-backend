@@ -1,26 +1,26 @@
 <script>
 	// getData();
 
-	function getData(id, judul){
-		var judul = judul.bold();
-		$("#bukti-header").html(judul);
-		$.ajax({
-			type: 'POST',
-			url: "<?php echo base_url('index.php/C_Tabel2Input/getBukti/') ?>" + id,
-			dataType: 'json',
-			success: function(data){
-				var baris = '';
-				for(var i = 0; i < data.result.length; i++) {
-					baris += 	'<tr>' +
-									'<td>'+ data.result[i].deskripsi +'</td>' +
-									'<td>'+ data.result[i].namaBukti +'</td>' +
-									'<td><a href="' + data.result[i].pathFile + '" target=`_blank`>'+ data.result[i].deskripsi +'</a></td>' +
-								'</tr>'
-				}
-				$('#bukti-isi').html(baris);
-			}
-		});
-	}
+	function getData(id, judul) {
+        var judul = judul.bold();
+        $("#bukti-header").html(judul);
+        $.ajax({
+            type: 'POST',
+            url: "<?php echo base_url('index.php/C_Tabel2Input/getBukti/') ?>" + '/' + id,
+            dataType: 'json',
+            success: function(data) {
+                var baris = '';
+                for (var i = 0; i < data.result.length; i++) {
+                    baris += '<tr>' +
+                        '<td>' + data.result[i].deskripsi + '</td>' +
+                        '<td>' + data.result[i].namaB + '</td>' +
+                        '<td><a href="' + data.result[i].pathFile + '" target=`_blank`>' + data.result[i].deskripsi + '</a></td>' +
+                        '</tr>'
+                }
+                $('#bukti-isi').html(baris);
+            }
+        });
+    }
 </script>
 <div class="container-fluid mb-5">
 	<div class="mt-3 mb-5">
@@ -49,30 +49,30 @@
 		<tbody>
 			<?php 
 			$i = 1;
-			foreach ($table6 as $item) {
+			foreach ($table2a as $item) {
 				?>
 				<tr class="text-center">
-					<td> <?php echo 2016 ?> </td>
-					<td><?php echo 120 ?></td>
-					<td><?php echo 400 ?></td>
-					<td><?php echo 120 ?></td>
-					<td><?php echo 120 ?></td>
-					<td><?php echo 0 ?></td>
-                    <td><?php echo 500 ?></td>
-					<td><?php echo 20 ?></td>
+					<td><?php echo $item['tahun'] ?> </td>
+					<td><?php echo $item['dayaTampung'] ?> </td>
+					<td><?php echo $item['pendaftar'] ?> </td>
+					<td><?php echo $item['lulusSeleksi'] ?> </td>
+					<td><?php echo $item['mabaReg'] ?> </td>
+					<td><?php echo $item['mabaTrans'] ?> </td>
+					<td><?php echo $item['aktifReg'] ?> </td>
+					<td><?php echo $item['aktifTrans'] ?> </td>
                     <td>
 						<button class="btn btn-success"
 						data-toggle="modal"
 						data-target="#lihatBukti"
-						onClick="getData(`<?php echo $item['idPenelitian']?>`, `<?php echo substr($item['judulKegiatan'], 2) ?>`)">
+						onClick="getData(`<?php echo $item['tahun']?>`, `<?php echo $item['tahun'] ?>`)">
 							Lihat Bukti
 						</button>
 					</td>
 					<td>
 						<form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
-							<input type="hidden" name="keterangan" value="<?php echo $item['judulKegiatan'] ?>">
-							<input type="hidden" name="id" value="<?php echo $item['idPenelitian'] ?>">
-							<input type="hidden" name="idKriteria" value="6">
+							<input type="hidden" name="keterangan" value="<?php echo $item['tahun'] ?>">
+							<input type="hidden" name="id" value="<?php echo $item['tahun'] ?>">
+							<input type="hidden" name="idKriteria" value="21">
 							<button class="btn btn-primary" type="submit">
 								Unggah Bukti
 							</button>			

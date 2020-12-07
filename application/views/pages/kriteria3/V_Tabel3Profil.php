@@ -382,7 +382,7 @@
                     for (var i = 0; i < data.result.length; i++) {
                         baris += '<tr>' +
                             '<td>' + data.result[i].deskripsi + '</td>' +
-                            '<td>' + data.result[i].namaBukti + '</td>' +
+                            '<td>' + data.result[i].namaB + '</td>' +
                             '<td><a href="' + data.result[i].pathFile + '" target=`_blank`>' + data.result[i].deskripsi + '</a></td>' +
                             '</tr>'
                     }
