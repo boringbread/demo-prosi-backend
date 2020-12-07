@@ -46,9 +46,9 @@
 						<a href="" class="nav-link dropdown-toggle" href="#" id="navbarPendidikan" role="button" data-toggle="dropdown" aria-haspopup="true" arie-expanded="false">5. Pendidikan</a>
 
 						<div class="dropdown-menu" id="navbarPendidikan">
-							<a href="" class="dropdown-item">a. Kurikulum</a>
-							<a href="" class="dropdown-item">b. Integrasi Kegiatan Penelitian/PkM dalam Pembelajaran</a>
-							<a href="" class="dropdown-item">c. Kepuasan Mahasiswa</a>
+							<a href="<?php echo site_url('kurikulum');?>" class="dropdown-item">a. Kurikulum</a>
+							<a href="<?php echo site_url('Integrasi');?>" class="dropdown-item">b. Integrasi Kegiatan Penelitian/PkM dalam Pembelajaran</a>
+							<a href="<?php echo site_url('kepuasan');?>" class="dropdown-item">c. Kepuasan Mahasiswa</a>
 						</div>
 					</li>
 					<li class="nav-item">
@@ -61,12 +61,12 @@
 						<a href="" class="nav-link dropdown-toggle" href="#" id="navbarLuaran" role="button" data-toggle="dropdown" aria-haspopup="true" arie-expanded="false">8. Luaran dan Capaian Tridharma</a>
 
 						<div class="dropdown-menu" id="navbarLuaran">
-							<a href="" class="dropdown-item">a. Capaian Pembelajaran</a>
-							<a href="" class="dropdown-item">b. Prestasi Mahasiswa</a>
-							<a href="" class="dropdown-item">c. Efektifitas dan Produktifitas Pendidikan</a>
-							<a href="" class="dropdown-item">d. Daya Saing Lulusan</a>
-							<a href="" class="dropdown-item">e. Kinerja Lulusan</a>
-							<a href="" class="dropdown-item">f. Penelitian dan PkM</a>
+							<a href="<?php echo site_url('capaian');?>" class="dropdown-item">a. Capaian Pembelajaran</a>
+							<a href="<?php echo site_url('prestasi');?>" class="dropdown-item">b. Prestasi Mahasiswa</a>
+							<a href="<?php echo site_url('efektivitas');?>" class="dropdown-item">c. Efektifitas dan Produktifitas Pendidikan</a>
+							<a href="<?php echo site_url('dayasaing');?>" class="dropdown-item">d. Daya Saing Lulusan</a>
+							<a href="<?php echo site_url('kinerja');?>" class="dropdown-item">e. Kinerja Lulusan</a>
+							<a href="<?php echo site_url('publikasi');?>" class="dropdown-item">f. Penelitian dan PkM</a>
 						</div>
 					</li>
 				</ul>				

@@ -84,3 +84,39 @@ $route['uploadFile'] = 'C_Home/unggahBukti';
 $route['keuangan'] = 'C_Tabel4/loadView';
 $route['unggahBukti'] = 'C_Home/loadUnggahBukti';
 $route['uploadFile'] = 'C_Home/unggahBukti';
+
+$route['kurikulum'] = 'C_Tabel5Kurikulum/loadView';
+$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
+$route['uploadFile'] = 'C_Home/unggahBukti';
+
+$route['Integrasi'] = 'C_Tabel5Integrasi/loadView';
+$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
+$route['uploadFile'] = 'C_Home/unggahBukti';
+
+$route['kepuasan'] = 'C_Tabel5Kepuasan/loadView';
+$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
+$route['uploadFile'] = 'C_Home/unggahBukti';
+
+$route['capaian'] = 'C_Tabel8Capaian/loadView';
+$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
+$route['uploadFile'] = 'C_Home/unggahBukti';
+
+$route['prestasi'] = 'C_Tabel8Prestasi/loadView';
+$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
+$route['uploadFile'] = 'C_Home/unggahBukti';
+
+$route['efektivitas'] = 'C_Tabel8Efektivitas/loadView';
+$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
+$route['uploadFile'] = 'C_Home/unggahBukti';
+
+$route['dayasaing'] = 'C_Tabel8DayaSaing/loadView';
+$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
+$route['uploadFile'] = 'C_Home/unggahBukti';
+
+$route['kinerja'] = 'C_Tabel8Kinerja/loadView';
+$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
+$route['uploadFile'] = 'C_Home/unggahBukti';
+
+$route['publikasi'] = 'C_Tabel8Publikasi/loadView';
+$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
+$route['uploadFile'] = 'C_Home/unggahBukti';
