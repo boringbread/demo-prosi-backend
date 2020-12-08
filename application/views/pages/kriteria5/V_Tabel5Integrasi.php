@@ -39,25 +39,26 @@
             </tr>
         </thead>
         <tbody class="text-center">
+            <?php $i = 1; ?>
             <?php
-            foreach ($table4 as $item) {
+            foreach ($table5 as $item) {
             ?>
                 <tr class="text-center">
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
+                    <td><?php echo $i++; ?> </td>
+                    <td><?php echo $item["JudulPenelitian"] ?> </td>
+                    <td><?php echo $item["NamaDosen"] ?> </td>
+                    <td><?php echo $item["MataKuliah"] ?> </td>
+                    <td><?php echo $item["BentukIntegrasi"] ?> </td>
                     <td>
-                        <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo base64_encode($item['jenisPenggunaan']) ?>`, `<?php echo $item['jenisPenggunaan'] ?>`)">
+                        <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo base64_encode($item['JudulPenelitian']) ?>`, `<?php echo $item['JudulPenelitian'] ?>`)">
                             Lihat Bukti
                         </button>
                     </td>
                     <td>
                         <form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
-                            <input type="hidden" name="keterangan" value="<?php echo $item['jenisPenggunaan'] ?>">
-                            <input type="hidden" name="id" value="<?php echo $item['jenisPenggunaan'] ?>">
-                            <input type="hidden" name="idKriteria" value="4">
+                            <input type="hidden" name="keterangan" value="<?php echo $item['JudulPenelitian'] ?>">
+                            <input type="hidden" name="id" value="<?php echo $item['JudulPenelitian'] ?>">
+                            <input type="hidden" name="idKriteria" value="52">
                             <button class="btn btn-primary" type="submit">
                                 Unggah Bukti
                             </button>

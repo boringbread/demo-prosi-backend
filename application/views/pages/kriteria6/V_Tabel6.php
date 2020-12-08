@@ -1,21 +1,21 @@
 <script>
 	// getData();
 
-	function getData(id, judul){
+	function getData(id, judul) {
 		var judul = judul.bold();
 		$("#bukti-header").html(judul);
 		$.ajax({
 			type: 'POST',
 			url: "<?php echo base_url('index.php/C_Tabel6/getBukti/') ?>" + id,
 			dataType: 'json',
-			success: function(data){
+			success: function(data) {
 				var baris = '';
-				for(var i = 0; i < data.result.length; i++) {
-					baris += 	'<tr>' +
-									'<td>'+ data.result[i].deskripsi +'</td>' +
-									'<td>'+ data.result[i].kategori +'</td>' +
-									'<td><a href="' + data.result[i].pathFile + '" target=`_blank`>'+ data.result[i].deskripsi +'</a></td>' +
-								'</tr>'
+				for (var i = 0; i < data.result.length; i++) {
+					baris += '<tr>' +
+						'<td>' + data.result[i].deskripsi + '</td>' +
+						'<td>' + data.result[i].kategori + '</td>' +
+						'<td><a href="' + data.result[i].pathFile + '" target=`_blank`>' + data.result[i].deskripsi + '</a></td>' +
+						'</tr>'
 				}
 				$('#bukti-isi').html(baris);
 			}
@@ -36,14 +36,14 @@
 				<th class="align-middle">Nama Mahasiswa</th>
 				<th class="align-middle">Judul Kegiatan</th>
 				<th class="align-middle" style="width: 100px">Tahun</th>
-				<th class="align-middle" colspan="2" >Aksi</th>
+				<th class="align-middle" colspan="2">Aksi</th>
 			</tr>
 		</thead>
 		<tbody>
-			<?php 
+			<?php
 			$i = 1;
 			foreach ($table6 as $item) {
-				?>
+			?>
 				<tr>
 					<td> <?php echo $i ?> </td>
 					<td><?php echo $item['namaDosen'] ?></td>
@@ -52,10 +52,7 @@
 					<td><?php echo substr($item['judulKegiatan'], 2); ?></td>
 					<td><?php echo $item['tahun']; ?></td>
 					<td>
-						<button class="btn btn-success"
-						data-toggle="modal"
-						data-target="#lihatBukti"
-						onClick="getData(`<?php echo $item['idPenelitian']?>`, `<?php echo substr($item['judulKegiatan'], 2) ?>`)">
+						<button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo $item['idPenelitian'] ?>`, `<?php echo substr($item['judulKegiatan'], 2) ?>`)">
 							Lihat Bukti
 						</button>
 					</td>
@@ -66,12 +63,12 @@
 							<input type="hidden" name="idKriteria" value="6">
 							<button class="btn btn-primary" type="submit">
 								Unggah Bukti
-							</button>			
+							</button>
 						</form>
 					</td>
 				</tr>
-				<?php 
-				$i = $i+1;
+			<?php
+				$i = $i + 1;
 			}
 			?>
 		</tbody>
