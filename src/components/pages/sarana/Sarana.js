@@ -57,12 +57,6 @@ class Sarana extends Component {
       }
 
       return <tr>
-        <If condition={d.jenisPenggunaan === "Biaya Operasional Pendidikan"}>
-          <Then>
-          <td>{d.Nomor}</td>
-          <td className="text-left" colSpan="10">{d.jenisPenggunaan}</td>          
-          </Then>
-        </If>
         <If condition={d.jenisPenggunaan === "Jumlah"}>
           <Then>
             <td colSpan="2">{d.jenisPenggunaan}</td>
@@ -134,7 +128,7 @@ class Sarana extends Component {
                     </tr>
                   </thead>
                   <tbody>
-                   {tabel_4}
+                    {tabel_4}
                   </tbody>
                 </Table>
               </Col>

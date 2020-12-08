@@ -37,12 +37,12 @@ class Kurikulum extends Component {
             </Row>
             <Row>
               <Col>
-                <Table striped bordered responsive className="text-center table-font">
+                <Table striped bordered responsive className="text-center">
                   <thead>
                     <tr>
                       <th className="align-middle" rowSpan="2">No.</th>
                       <th className="align-middle" rowSpan="2">Semester</th>
-                      <th className="align-middle" roswSpan="2">Kode Mata Kuliah</th>
+                      <th className="align-middle" rowSpan="2">Kode Mata Kuliah</th>
                       <th className="align-middle" rowSpan="2">Nama Mata Kuliah</th>
                       <th className="align-middle" rowSpan="2">Mata Kuliah Kompetensi</th>
                       <th className="align-middle" colSpan="3">Bobot Kredit (sks)</th>
