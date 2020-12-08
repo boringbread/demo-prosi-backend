@@ -24,7 +24,7 @@ class C_Tabel5Integrasi extends CI_Controller
     public function getBukti($idPenelitian)
     {
         $id = base64_decode($idPenelitian);
-        $this->load->model('M_Tabel5Integrasi');
+        $this->load->model('M_Tabel5Integrasi', 'M_Tabel5');
         $data = $this->M_Tabel5->get_bukti_tabel($id)->result_array();
         echo $this->serveApi($data);
     }
