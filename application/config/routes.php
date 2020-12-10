@@ -113,7 +113,7 @@ $route['dayasaing'] = 'C_Tabel8DayaSaing/loadView';
 $route['unggahBukti'] = 'C_Home/loadUnggahBukti';
 $route['uploadFile'] = 'C_Home/unggahBukti';
 
-$route['kinerja'] = 'C_Tabel8Kinerja/loadView';
+$route['kepuasan'] = 'C_Tabel8Kinerja/loadView';
 $route['unggahBukti'] = 'C_Home/loadUnggahBukti';
 $route['uploadFile'] = 'C_Home/unggahBukti';
 

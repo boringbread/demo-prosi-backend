@@ -65,7 +65,7 @@
 							<a href="<?php echo site_url('prestasi');?>" class="dropdown-item">b. Prestasi Mahasiswa</a>
 							<a href="<?php echo site_url('efektivitas');?>" class="dropdown-item">c. Efektifitas dan Produktifitas Pendidikan</a>
 							<a href="<?php echo site_url('dayasaing');?>" class="dropdown-item">d. Daya Saing Lulusan</a>
-							<a href="<?php echo site_url('kinerja');?>" class="dropdown-item">e. Kinerja Lulusan</a>
+							<a href="<?php echo site_url('kepuasan');?>" class="dropdown-item">e. Kinerja Lulusan</a>
 							<a href="<?php echo site_url('publikasi');?>" class="dropdown-item">f. Penelitian dan PkM</a>
 						</div>
 					</li>
