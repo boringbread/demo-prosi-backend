@@ -41,26 +41,45 @@
                 <th class="align-middle">Maks</th>
             </tr>
         </thead>
+
         <tbody class="text-center">
             <?php
-            foreach ($table4 as $item) {
+            function round_up($value, $places = 0)
+            {
+                if ($places < 0) {
+                    $places = 0;
+                }
+                $mult = pow(10, $places);
+                return ceil($value * $mult) / $mult;
+            }
+            $ts = 2;
+            foreach ($table8 as $item) {
             ?>
                 <tr class="text-center">
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
                     <td>
-                        <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo base64_encode($item['jenisPenggunaan']) ?>`, `<?php echo $item['jenisPenggunaan'] ?>`)">
+                        <?php
+                        if ($ts > 0) {
+                            echo "TS-" . $ts;
+                            $ts--;
+                        } else {
+                            echo "TS";
+                        }
+                        ?>
+                    </td>
+                    <td><?php echo $item['jumlah'] ?> </td>
+                    <td><?php echo round_up($item['min'], 2); ?> </td>
+                    <td><?php echo round_up($item['rata-rata'], 2) ?> </td>
+                    <td><?php echo round_up($item['max'], 2) ?> </td>
+                    <td>
+                        <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo base64_encode($item['TahunLulus']) ?>`, `<?php echo $item['TahunLulus'] ?>`)">
                             Lihat Bukti
                         </button>
                     </td>
                     <td>
                         <form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
-                            <input type="hidden" name="keterangan" value="<?php echo $item['jenisPenggunaan'] ?>">
-                            <input type="hidden" name="id" value="<?php echo $item['jenisPenggunaan'] ?>">
-                            <input type="hidden" name="idKriteria" value="4">
+                            <input type="hidden" name="keterangan" value="<?php echo $item['TahunLulus'] ?>">
+                            <input type="hidden" name="id" value="<?php echo $item['TahunLulus'] ?>">
+                            <input type="hidden" name="idKriteria" value="81">
                             <button class="btn btn-primary" type="submit">
                                 Unggah Bukti
                             </button>

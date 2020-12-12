@@ -74,26 +74,33 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php {
+                    <?php $i = 1;
+                    foreach ($akademik as $item) {
                     ?>
                         <tr class="text-center">
-                            <td><?php echo 1 ?> </td>
-                            <td><?php echo 1 ?> </td>
-                            <td><?php echo 1 ?> </td>
-                            <td><?php echo 1 ?> </td>
-                            <td><?php echo 1 ?> </td>
-                            <td><?php echo 1 ?> </td>
-                            <td><?php echo 1 ?> </td>
+                            <td><?php echo $i++ ?> </td>
+                            <td><?php echo $item['Kegiatan'] ?> </td>
+                            <td><?php echo $item['Tahun'] ?> </td>
+                            <td><?php if ($item['Tingkat'] == "Lokal") {
+                                    echo "V";
+                                } ?> </td>
+                            <td><?php if ($item['Tingkat'] == "Nasional") {
+                                    echo "V";
+                                } ?> </td>
+                            <td><?php if ($item['Tingkat'] == "Internasional") {
+                                    echo "V";
+                                } ?> </td>
+                            <td><?php echo $item["Prestasi"] ?> </td>
                             <td>
-                                <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo '' ?>`, `<?php echo '' ?>`, `<?php echo '311' ?>`)">
+                                <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo base64_encode($item['Kegiatan'] . " " . $item['Prestasi']) ?>`, `<?php echo $item['Kegiatan'] . " " . $item['Prestasi'] ?>`)">
                                     Lihat Bukti
                                 </button>
                             </td>
                             <td>
                                 <form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
-                                    <input type="hidden" name="keterangan" value="<?php echo '' ?>">
-                                    <input type="hidden" name="id" value="<?php echo '' ?>">
-                                    <input type="hidden" name="idKriteria" value="311">
+                                    <input type="hidden" name="keterangan" value="<?php echo $item['Kegiatan'] . " " . $item['Prestasi'] ?>">
+                                    <input type="hidden" name="id" value="<?php echo $item['Kegiatan'] . " " . $item['Prestasi'] ?>">
+                                    <input type="hidden" name="idKriteria" value="82">
                                     <button class="btn btn-primary" type="submit">
                                         Unggah Bukti
                                     </button>
@@ -132,26 +139,34 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php {
+                    <?php
+                    $i = 1;
+                    foreach ($nonakademik as $item) {
                     ?>
                         <tr class="text-center">
-                            <td><?php echo 1 ?> </td>
-                            <td><?php echo 1 ?> </td>
-                            <td><?php echo 1 ?> </td>
-                            <td><?php echo 1 ?> </td>
-                            <td><?php echo 1 ?> </td>
-                            <td><?php echo 1 ?> </td>
-                            <td><?php echo 1 ?> </td>
+                            <td><?php echo $i++ ?> </td>
+                            <td><?php echo $item['Kegiatan'] ?> </td>
+                            <td><?php echo $item['Tahun'] ?> </td>
+                            <td><?php if ($item['Tingkat'] == "Lokal") {
+                                    echo "V";
+                                } ?> </td>
+                            <td><?php if ($item['Tingkat'] == "Nasional") {
+                                    echo "V";
+                                } ?> </td>
+                            <td><?php if ($item['Tingkat'] == "Internasional") {
+                                    echo "V";
+                                } ?> </td>
+                            <td><?php echo $item["Prestasi"] ?> </td>
                             <td>
-                                <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo '' ?>`, `<?php echo '' ?>`, `<?php echo '312' ?>`)">
+                                <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo base64_encode($item['Kegiatan'] . " " . $item['Prestasi']) ?>`, `<?php echo $item['Kegiatan'] . " " . $item['Prestasi'] ?>`)">
                                     Lihat Bukti
                                 </button>
                             </td>
                             <td>
                                 <form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
-                                    <input type="hidden" name="keterangan" value="<?php echo '' ?>">
-                                    <input type="hidden" name="id" value="<?php echo '' ?>">
-                                    <input type="hidden" name="idKriteria" value='312'>
+                                    <input type="hidden" name="keterangan" value="<?php echo $item['Kegiatan'] . " " . $item['Prestasi'] ?>">
+                                    <input type="hidden" name="id" value="<?php echo $item['Kegiatan'] . " " . $item['Prestasi'] ?>">
+                                    <input type="hidden" name="idKriteria" value="82">
                                     <button class="btn btn-primary" type="submit">
                                         Unggah Bukti
                                     </button>
@@ -206,7 +221,7 @@
             $("#bukti-header").html(judul);
             $.ajax({
                 type: 'POST',
-                url: "<?php echo base_url('index.php/C_Tabel3Profil/getBukti/') ?>" + subsection + '/' + id,
+                url: "<?php echo base_url('index.php/C_Tabel8Prestasi/getBukti/') ?>" + '/' + id,
                 dataType: 'json',
                 success: function(data) {
                     var baris = '';

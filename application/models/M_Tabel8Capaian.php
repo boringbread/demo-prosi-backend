@@ -9,7 +9,7 @@
             $this->db->select('*');
             $this->db->from('bukti');
             $this->db->where('idRecord', $idPenelitian);
-            $this->db->where('idSubKriteria', 4);
+            $this->db->where('idSubKriteria', 81);
 
             $result = $this->db->get();
             
@@ -29,6 +29,3 @@
     
     /* End of file M_Tabel6.php */
         }
-    
-
-?>
