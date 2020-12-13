@@ -54,34 +54,41 @@
         </thead>
         <tbody class="text-center">
             <?php
+            $i = 1;
             foreach ($table4 as $item) {
             ?>
                 <tr class="text-center">
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
+                    <td><?php echo $i++; ?> </td>
+                    <td><?php echo $item['semester'] ?> </td>
+                    <td><?php echo $item['kodeMatakuliah'] ?> </td>
+                    <td><?php echo $item['namaMatakuliah'] ?> </td>
+                    <td><?php echo '-' ?> </td>
+                    <td><?php echo '-' ?> </td>
+                    <td><?php echo '-' ?> </td>
+                    <td><?php echo '-' ?> </td>
+                    <td><?php echo ceil(round(($item['bobotPemrograman'] * $item['sks'] * 45 * 3 + $item['sks'] * 45 * 3) / 6)) / 10  ?> </td>
+                    <td><?php echo '-' ?> </td>
+                    <td><?php echo '-' ?> </td>
+                    <td><?php echo '-' ?> </td>
+                    <td><?php echo '-' ?> </td>
+                    <td><?php echo 'RPS-' . $item['kodeMatakuliah'] ?> </td>
+                    <td><?php if (substr($item['kodeMatakuliah'], 0, 3) == 'AIF') {
+                            echo 'UPPS';
+                        } else {
+                            echo 'PT';
+                        }
+                        ?> </td>
+
                     <td>
-                        <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo base64_encode($item['jenisPenggunaan']) ?>`, `<?php echo $item['jenisPenggunaan'] ?>`)">
+                        <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo base64_encode($item['idMatakuliah']) ?>`, `<?php echo $item['idMatakuliah'] ?>`)">
                             Lihat Bukti
                         </button>
                     </td>
                     <td>
                         <form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
-                            <input type="hidden" name="keterangan" value="<?php echo $item['jenisPenggunaan'] ?>">
-                            <input type="hidden" name="id" value="<?php echo $item['jenisPenggunaan'] ?>">
-                            <input type="hidden" name="idKriteria" value="4">
+                            <input type="hidden" name="keterangan" value="<?php echo $item['kodeMatakuliah'] ?>">
+                            <input type="hidden" name="id" value="<?php echo $item['idMatakuliah'] ?>">
+                            <input type="hidden" name="idKriteria" value="51">
                             <button class="btn btn-primary" type="submit">
                                 Unggah Bukti
                             </button>

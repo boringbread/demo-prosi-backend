@@ -25,7 +25,7 @@ class C_Tabel1 extends CI_Controller
     public function getBukti($idPenelitian)
     {
         $this->load->model('M_Tabel1');
-        $data = $this->M_Tabel1->get_bukti_tabel_6($idPenelitian)->result_array();
+        $data = $this->M_Tabel1->get_bukti($idPenelitian)->result_array();
         echo $this->serveApi($data);
     }
 

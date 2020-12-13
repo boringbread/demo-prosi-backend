@@ -6,7 +6,7 @@
         $("#bukti-header").html(judul);
         $.ajax({
             type: 'POST',
-            url: "<?php echo base_url('index.php/C_Tabel1/getBukti/') ?>" + judul,
+            url: "<?php echo base_url('index.php/C_Tabel1/getBukti/') ?>" + id,
             dataType: 'json',
             success: function(data) {
                 var baris = '';
