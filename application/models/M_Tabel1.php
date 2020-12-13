@@ -6,13 +6,12 @@
     class M_Tabel1 extends CI_Model {
     
         public function get_bukti_tabel_6($idPenelitian){
-            $this->db->select('namaBukti');
-            $this->db->select('deskripsi');
-            $this->db->select('pathFile');
-            $this->db->from('Penelitian');
-            $this->db->join('bukti', 'Penelitian.idPenelitian = bukti.temaPenelitian', 'inner');
-            $this->db->where('idPenelitian', $idPenelitian);
-            $result = $this->db->get();
+        $this->db->select('*');
+        $this->db->from('bukti');
+        $this->db->where('idRecord', $idPenelitian);
+        $this->db->where('idSubKriteria', 1);
+
+        $result = $this->db->get();
             
             return $result;
             
@@ -53,6 +52,3 @@
     
     /* End of file M_Tabel6.php */
         }
-    
-
-?>
