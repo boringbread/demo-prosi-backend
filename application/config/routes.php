@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -113,7 +113,7 @@ $route['dayasaing'] = 'C_Tabel8DayaSaing/loadView';
 $route['unggahBukti'] = 'C_Home/loadUnggahBukti';
 $route['uploadFile'] = 'C_Home/unggahBukti';
 
-$route['kepuasan'] = 'C_Tabel8Kinerja/loadView';
+$route['kinerja'] = 'C_Tabel8Kinerja/loadView';
 $route['unggahBukti'] = 'C_Home/loadUnggahBukti';
 $route['uploadFile'] = 'C_Home/unggahBukti';
 

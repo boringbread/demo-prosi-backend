@@ -76,7 +76,7 @@
                     <td><?php echo  date("Y", strtotime($item['WaktuMulai'])) . "-" . date("Y", strtotime($item['WaktuBerakhir'])); ?></td>
                     <td><?php echo  $item['BuktiKerjaSama'] ?></td>
                     <td>
-                        <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo $item['JudulKegiatanKerjaSama'] ?>`, `<?php echo $item['JudulKegiatanKerjaSama'] ?>`)">
+                        <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo base64_encode($item['JudulKegiatanKerjaSama']) ?>`, `<?php echo $item['JudulKegiatanKerjaSama'] ?>`)">
                             Lihat Bukti
                         </button>
                     </td>

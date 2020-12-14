@@ -45,26 +45,27 @@
         </thead>
         <tbody class="text-center">
             <?php
+            $i = 1;
             foreach ($table4 as $item) {
             ?>
                 <tr class="text-center">
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo "Keandalan (reliability): kemampuan dosen, tenaga kependidikan, dan pengelola dalam memberikan pelayanan." ?> </td>
-                    <td><?php echo "" ?> </td>
-                    <td><?php echo "" ?> </td>
-                    <td><?php echo "" ?> </td>
-                    <td><?php echo "" ?> </td>
-                    <td><?php echo "" ?> </td>
+                    <td><?php echo $i++ ?> </td>
+                    <td><?php echo $item['aspek'] ?> </td>
+                    <td><?php echo "%" . $item['sangatBaik'] ?> </td>
+                    <td><?php echo "%" . $item['baik'] ?> </td>
+                    <td><?php echo "%" . $item['cukup'] ?> </td>
+                    <td><?php echo "%" . $item['kurang'] ?> </td>
+                    <td><?php echo $item['rencana'] ?> </td>
                     <td>
-                        <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo base64_encode($item['jenisPenggunaan']) ?>`, `<?php echo $item['jenisPenggunaan'] ?>`)">
+                        <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo base64_encode($item['id']) ?>`, `<?php echo $item['aspek'] ?>`)">
                             Lihat Bukti
                         </button>
                     </td>
                     <td>
                         <form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
-                            <input type="hidden" name="keterangan" value="<?php echo $item['jenisPenggunaan'] ?>">
-                            <input type="hidden" name="id" value="<?php echo $item['jenisPenggunaan'] ?>">
-                            <input type="hidden" name="idKriteria" value="4">
+                            <input type="hidden" name="keterangan" value="<?php echo $item['aspek'] ?>">
+                            <input type="hidden" name="id" value="<?php echo $item['id'] ?>">
+                            <input type="hidden" name="idKriteria" value="53">
                             <button class="btn btn-primary" type="submit">
                                 Unggah Bukti
                             </button>

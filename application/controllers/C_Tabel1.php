@@ -24,8 +24,9 @@ class C_Tabel1 extends CI_Controller
     // Fungsi untuk mengambil data bukti berdasar 1 ID Penelitian
     public function getBukti($idPenelitian)
     {
+        $id = base64_decode($idPenelitian);
         $this->load->model('M_Tabel1');
-        $data = $this->M_Tabel1->get_bukti($idPenelitian)->result_array();
+        $data = $this->M_Tabel1->get_bukti($id)->result_array();
         echo $this->serveApi($data);
     }
 
