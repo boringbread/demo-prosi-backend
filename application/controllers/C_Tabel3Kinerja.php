@@ -45,9 +45,17 @@
                     $namaDosen = base64_decode($index);
                     $data = $this->tabel->get_bukti_tabel_3b3($namaDosen)->result_array();
                     break;
-                case '324':
-                    $namaDosen = base64_decode($index);
-                    $data = $this->tabel->get_bukti_tabel_3b4($namaDosen)->result_array();
+                case '3241':
+                    $bukti = base64_decode($index);
+                    $data = $this->tabel->get_bukti_tabel_3b41($bukti)->result_array();
+                    break;
+                case '3242':
+                    $bukti = base64_decode($index);
+                    $data = $this->tabel->get_bukti_tabel_3b42($bukti)->result_array();
+                    break;
+                case '3243':
+                    $bukti = base64_decode($index);
+                    $data = $this->tabel->get_bukti_tabel_3b43($bukti)->result_array();
                     break;
                 case '325':
                     $namaDosen = base64_decode($index);
