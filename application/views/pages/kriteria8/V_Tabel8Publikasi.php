@@ -74,14 +74,66 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php {
+                    <tr class="text-center">
+                        <td colspan="8"><?php echo "Jurnal Mahasiswa" ?> </td>
+                    </tr>
+                    <tr class="text-center">
+                        <?php $i = 1;
+                        $count = count($tabel8f1_jurnal);
+                        foreach ($tabel8f1_jurnal as $item) :
+                        ?>
+
+                            <td><?php echo $i++; ?> </td>
+                            <td><?php echo $item['jenisPublikasi'] ?> </td>
+                            <td><?php echo $item['ts2'] ?> </td>
+                            <td><?php echo $item['ts1'] ?> </td>
+                            <td><?php echo $item['ts'] ?> </td>
+                            <td><?php echo $item['jumlah'] ?> </td>
+                            <?php
+                            if ($i != $count + 1) {
+
+                            ?>
+                                <td>
+                                    <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo '' ?>`, `<?php echo '' ?>`, `<?php echo '312' ?>`)">
+                                        Lihat Bukti
+                                    </button>
+                                </td>
+                                <td>
+                                    <form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
+                                        <input type="hidden" name="keterangan" value="<?php echo '' ?>">
+                                        <input type="hidden" name="id" value="<?php echo '' ?>">
+                                        <input type="hidden" name="idKriteria" value='312'>
+                                        <button class="btn btn-primary" type="submit">
+                                            Unggah Bukti
+                                        </button>
+                                    </form>
+                                </td>
+                            <?php } ?>
+                    </tr>
+
+                <?php
+                        endforeach;
+                ?>
+
+                <tr class="text-center">
+                    <td colspan="8"><?php echo "Seminar Mahasiswa" ?> </td>
+                </tr>
+                <tr class="text-center">
+                    <?php $i = 1;
+                    $count = count($tabel8f1_seminar);
+                    foreach ($tabel8f1_seminar as $item) :
                     ?>
-                        <tr class="text-center">
-                            <td colspan="2"><?php echo "Jumlah" ?> </td>
-                            <td><?php echo 0 ?> </td>
-                            <td><?php echo 0 ?> </td>
-                            <td><?php echo 0 ?> </td>
-                            <td><?php echo 0 ?> </td>
+
+                        <td><?php echo $i++; ?> </td>
+                        <td><?php echo $item['jenisPublikasi'] ?> </td>
+                        <td><?php echo $item['ts2'] ?> </td>
+                        <td><?php echo $item['ts1'] ?> </td>
+                        <td><?php echo $item['ts'] ?> </td>
+                        <td><?php echo $item['jumlah'] ?> </td>
+                        <?php
+                        if ($i != $count + 1) {
+
+                        ?>
                             <td>
                                 <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo '' ?>`, `<?php echo '' ?>`, `<?php echo '312' ?>`)">
                                     Lihat Bukti
@@ -97,10 +149,13 @@
                                     </button>
                                 </form>
                             </td>
-                        </tr>
-                    <?php
-                    }
-                    ?>
+                        <?php } ?>
+                </tr>
+
+            <?php
+                    endforeach;
+            ?>
+
                 </tbody>
             </table>
         </div>
@@ -116,20 +171,22 @@
                 <thead>
                     <tr>
                         <th className="align-middle">No.</th>
-                        <th className="align-middle">Nama Mahasiswa</th>
+                        <th className="align-middle">Nama Dosen</th>
                         <th className="align-middle">Judul Artikel yang Disitasi (Jurnal/Buku, Volume, Tahun, Nomor, Halaman) </th>
                         <th className="align-middle">Jumlah Sitasi</th>
                         <th className="align-middle" colspan="2" rowSpan="2">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php {
+                    <?php
+                    $i = 1;
+                    foreach ($tabel8f2 as $item) :
                     ?>
                         <tr class="text-center">
-                            <td><?php echo 1 ?> </td>
-                            <td><?php echo 1 ?> </td>
-                            <td><?php echo 1 ?> </td>
-                            <td><?php echo 1 ?> </td>
+                            <td><?php echo $i++; ?> </td>
+                            <td><?php echo $item['namaDosen'] ?> </td>
+                            <td><?php echo $item['judulArtikel']  ?> </td>
+                            <td><?php echo $item['jumlahSitasi'] ?> </td>
                             <td>
                                 <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo '' ?>`, `<?php echo '' ?>`, `<?php echo '312' ?>`)">
                                     Lihat Bukti
@@ -147,7 +204,7 @@
                             </td>
                         </tr>
                     <?php
-                    }
+                    endforeach
                     ?>
                 </tbody>
             </table>
@@ -171,32 +228,47 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php {
-                    ?>
-                        <tr class="text-center">
-                            <td><?php echo 1 ?> </td>
-                            <td><?php echo 1 ?> </td>
-                            <td><?php echo 1 ?> </td>
-                            <td><?php echo 1 ?> </td>
-                            <td>
-                                <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo '' ?>`, `<?php echo '' ?>`, `<?php echo '312' ?>`)">
-                                    Lihat Bukti
-                                </button>
-                            </td>
-                            <td>
-                                <form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
-                                    <input type="hidden" name="keterangan" value="<?php echo '' ?>">
-                                    <input type="hidden" name="id" value="<?php echo '' ?>">
-                                    <input type="hidden" name="idKriteria" value='312'>
-                                    <button class="btn btn-primary" type="submit">
-                                        Unggah Bukti
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
                     <?php
-                    }
+                    $count = count($tabel8f3);
+                    $j = 1;
+                    $i = 1;
+                    foreach ($tabel8f3 as $item) :
+                        if ($i != 2) {
                     ?>
+                            <tr class="text-center">
+                                <td><?php echo $j++; ?> </td>
+                                <td><?php echo $item['JudulLuaran'] ?> </td>
+                                <td><?php echo $item['tahun'] ?> </td>
+                                <td><?php echo $item['keterangan'] ?> </td>
+                                <?php if ($i != 1) {
+                                ?>
+                                    <td>
+                                        <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo '' ?>`, `<?php echo '' ?>`, `<?php echo '312' ?>`)">
+                                            Lihat Bukti
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
+                                            <input type="hidden" name="keterangan" value="<?php echo '' ?>">
+                                            <input type="hidden" name="id" value="<?php echo '' ?>">
+                                            <input type="hidden" name="idKriteria" value='312'>
+                                            <button class="btn btn-primary" type="submit">
+                                                Unggah Bukti
+                                            </button>
+                                        </form>
+                                    </td>
+                            </tr>
+                <?php
+                                }
+                            }
+                            $i++;
+                        endforeach;
+                ?>
+                <tr class="text-center">
+                    <td><?php echo $j++; ?> </td>
+                    <td colspan="2"><?php echo $tabel8f3[1]['JudulLuaran'] ?> </td>
+                    <td><?php echo $tabel8f3[1]['tahun'] ?> </td>
+                </tr>
                 </tbody>
             </table>
         </div>
