@@ -27,7 +27,7 @@
     </script>
     <style>
         .table-font {
-            font-size: 12px !important;
+            font-size: 10px !important;
         }
     </style>
 </head>

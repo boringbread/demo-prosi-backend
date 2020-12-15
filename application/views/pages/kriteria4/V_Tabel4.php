@@ -54,7 +54,7 @@
                     <?php 
                         if ($item['jenisPenggunaan'] === "Biaya Operasional Pendidikan") {
                             echo '<td>'.$item['Nomor'].'</td>';
-                            echo '<td colSpan="10">'.$item['jenisPenggunaan'].'</td>';
+                            echo '<td colSpan="8">'.$item['jenisPenggunaan'].'</td>';
                         } else {
                             echo '<td>'.$item['Nomor'].'</td>';
                             echo '<td>'.$item['jenisPenggunaan'].'</td>';
