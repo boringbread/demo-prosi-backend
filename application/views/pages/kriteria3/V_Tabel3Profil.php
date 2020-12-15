@@ -43,7 +43,7 @@
             border-top: none;
         }
         .table-font {
-            font-size: 10px !important;
+            font-size: 9px !important;
         }
     </style>
 </head>
