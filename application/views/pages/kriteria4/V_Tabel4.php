@@ -51,8 +51,15 @@
             foreach ($table4 as $item) {
             ?>
                 <tr class="text-center">
-                    <td><?php echo $item['Nomor'] ?> </td>
-                    <td><?php echo $item['jenisPenggunaan'] ?> </td>
+                    <?php 
+                        if ($item['jenisPenggunaan'] === "Biaya Operasional Pendidikan") {
+                            echo '<td>'.$item['Nomor'].'</td>';
+                            echo '<td colSpan="10">'.$item['jenisPenggunaan'].'</td>';
+                        } else {
+                            echo '<td>'.$item['Nomor'].'</td>';
+                            echo '<td>'.$item['jenisPenggunaan'].'</td>';
+                        }
+                    ?>
                     <td><?php echo $item['TS_2_UPPS'] ?> </td>
                     <td><?php echo $item['TS_1_UPPS'] ?> </td>
                     <td><?php echo $item['TS_UPPS'] ?> </td>
@@ -61,21 +68,27 @@
                     <td><?php echo $item['TS_1_PS'] ?> </td>
                     <td><?php echo $item['TS_PS'] ?> </td>
                     <td><?php echo $item['Rata_rata_PS'] ?> </td>
-                    <td>
-                        <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo base64_encode( $item['jenisPenggunaan'] ) ?>`, `<?php echo $item['jenisPenggunaan'] ?>`)">
-                            Lihat Bukti
-                        </button>
-                    </td>
-                    <td>
-                        <form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
-                            <input type="hidden" name="keterangan" value="<?php echo $item['jenisPenggunaan'] ?>">
-                            <input type="hidden" name="id" value="<?php echo $item['jenisPenggunaan'] ?>">
-                            <input type="hidden" name="idKriteria" value="4">
-                            <button class="btn btn-primary" type="submit">
-                                Unggah Bukti
-                            </button>
-                        </form>
-                    </td>
+                    <?php
+                        if ($item['jenisPenggunaan'] !== "Biaya Operasional Pendidikan") {
+                            echo '<td>'.
+                            '<button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`'.base64_encode( $item['jenisPenggunaan']).'`, `'.$item['jenisPenggunaan'].'`)">
+                                Lihat Bukti
+                            </button>'.
+                        '</td>';
+                            echo '<td>'.
+                            '<form action="' . base_url('/index.php/unggahBukti') . '" method="POST">' .
+                                '<input type="hidden" name="keterangan" value="' . $item['jenisPenggunaan'] . '">' .
+                                '<input type="hidden" name="id" value="' . $item['jenisPenggunaan'] . '">' .
+                                '<input type="hidden" name="idKriteria" value="4">' .
+                                '<button class="btn btn-primary" type="submit">
+                                    Unggah Bukti
+                                </button>' .
+                            '</form>' .
+                        '</td>';
+                        }
+                    ?>
+                    
+                    
                 </tr>
 
             <?php

@@ -42,6 +42,9 @@
             border: 1px solid #ccc;
             border-top: none;
         }
+        .table-font {
+            font-size: 12px !important;
+        }
     </style>
 </head>
 
@@ -59,7 +62,7 @@
                 <h2 class="text-center">Tabel 3.a.1</h2>
                 <h4 class="text-center">Dosen Tetap Perguruan Tinggi yang ditugaskan sebagai pengampu mata kuliah di Program Studi yang diakreditasi</h4>
             </div>
-            <table class="table table-striped table-bordered text-center">
+            <table class="table table-striped table-bordered text-center table-font">
                 <thead>
                     <tr class="text-center">
                         <th class="align-middle" rowSpan="2">No.</th>
