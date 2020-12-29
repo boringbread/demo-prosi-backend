@@ -29,12 +29,16 @@
             <div class="col-md">
                 <?php echo form_open('C_Login/login'); ?>
                     <div class="form-group">
-                        <label for="username">Username</label>
+                        <label for="username">Email</label>
                         <input type="email" class="form-control" id="username" name="username" aria-describedby="emailHelp">
                     </div>
                     <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" name="password">
+                        <label for="password">Kata Sandi</label>
+                        <input type="password" class="form-control" id="password" name="password" >
+                    </div>
+                    <div class="mb-2">
+                        <input type="checkbox" name="" id="pass-check" onChange="seePass()">
+                        <label for="pass-check" class="ml-1">Lihat Kata Sandi</label>
                     </div>
                     <button type="submit" class="btn btn-primary">LOGIN</button>
                 </form>
@@ -47,4 +51,11 @@
     </div>
     
 </body>
+
+<script defer>
+    function seePass(){
+        var x = document.getElementById('password');
+        x.type === "password" ? x.type = "text" : x.type = "password";
+    }
+</script>
 </html>
