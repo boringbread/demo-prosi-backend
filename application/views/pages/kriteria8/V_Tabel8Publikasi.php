@@ -94,15 +94,15 @@
 
                             ?>
                                 <td>
-                                    <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo '' ?>`, `<?php echo '' ?>`, `<?php echo '312' ?>`)">
+                                    <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo base64_encode($item['jenisPublikasi']) ?>`, `<?php echo $item['jenisPublikasi'] ?>`, `<?php echo '8611' ?>`)">
                                         Lihat Bukti
                                     </button>
                                 </td>
                                 <td>
                                     <form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
-                                        <input type="hidden" name="keterangan" value="<?php echo '' ?>">
-                                        <input type="hidden" name="id" value="<?php echo '' ?>">
-                                        <input type="hidden" name="idKriteria" value='312'>
+                                        <input type="hidden" name="keterangan" value="<?php echo $item['jenisPublikasi']?>">
+                                        <input type="hidden" name="id" value="<?php echo  $item['jenisPublikasi'] ?>">
+                                        <input type="hidden" name="idKriteria" value='8611'>
                                         <button class="btn btn-primary" type="submit">
                                             Unggah Bukti
                                         </button>
@@ -135,15 +135,15 @@
 
                         ?>
                             <td>
-                                <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo '' ?>`, `<?php echo '' ?>`, `<?php echo '312' ?>`)">
+                                <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo base64_encode($item['jenisPublikasi']) ?>`, `<?php echo $item['jenisPublikasi'] ?>`, `<?php echo '8612' ?>`)">
                                     Lihat Bukti
                                 </button>
                             </td>
                             <td>
                                 <form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
-                                    <input type="hidden" name="keterangan" value="<?php echo '' ?>">
-                                    <input type="hidden" name="id" value="<?php echo '' ?>">
-                                    <input type="hidden" name="idKriteria" value='312'>
+                                    <input type="hidden" name="keterangan" value="<?php echo $item['jenisPublikasi']?>">
+                                        <input type="hidden" name="id" value="<?php echo  $item['jenisPublikasi'] ?>">
+                                        <input type="hidden" name="idKriteria" value='8612'>
                                     <button class="btn btn-primary" type="submit">
                                         Unggah Bukti
                                     </button>
@@ -188,15 +188,15 @@
                             <td><?php echo $item['judulArtikel']  ?> </td>
                             <td><?php echo $item['jumlahSitasi'] ?> </td>
                             <td>
-                                <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo '' ?>`, `<?php echo '' ?>`, `<?php echo '312' ?>`)">
+                                <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo base64_encode($item['judulArtikel']) ?>`, `<?php echo $item['judulArtikel'] ?>`, `<?php echo '862' ?>`)">
                                     Lihat Bukti
                                 </button>
                             </td>
                             <td>
                                 <form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
-                                    <input type="hidden" name="keterangan" value="<?php echo '' ?>">
-                                    <input type="hidden" name="id" value="<?php echo '' ?>">
-                                    <input type="hidden" name="idKriteria" value='312'>
+                                    <input type="hidden" name="keterangan" value="<?php echo $item['judulArtikel'] ?>">
+                                    <input type="hidden" name="id" value="<?php echo $item['judulArtikel'] ?>">
+                                    <input type="hidden" name="idKriteria" value='862'>
                                     <button class="btn btn-primary" type="submit">
                                         Unggah Bukti
                                     </button>
@@ -314,7 +314,7 @@
             $("#bukti-header").html(judul);
             $.ajax({
                 type: 'POST',
-                url: "<?php echo base_url('index.php/C_Tabel3Profil/getBukti/') ?>" + subsection + '/' + id,
+                url: "<?php echo base_url('index.php/C_Tabel8Publikasi/getBukti/') ?>" + subsection + '/' + id,
                 dataType: 'json',
                 success: function(data) {
                     var baris = '';

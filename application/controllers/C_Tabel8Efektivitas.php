@@ -4,11 +4,19 @@
     
     class C_Tabel8Efektivitas extends CI_Controller {
 
+        public function __construct() {
+            parent::__construct();
+            if ( ! $this->session->userdata('logged_in'))
+            { 
+                redirect('/login');
+            }
+        }
+
         // Fungsi untuk load data dari SP (Kalo bisa load data dan load view nya pisahin sih)
         public function loadView(){
             $this->load->database();
             $this->db->query("SET NOCOUNT ON");
-            $data['table4'] = $this->db->query("EXEC Tabel4_PenggunaanDana")->result_array();
+            $data['table'] = $this->db->query("EXEC Tabel8C_MasaStudiLulusan")->result_array();
             $this->db->query("SET NOCOUNT OFF");           
 
             $this->load->view('layout/V_Require');

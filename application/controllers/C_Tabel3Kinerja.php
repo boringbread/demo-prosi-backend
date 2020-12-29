@@ -7,9 +7,14 @@
         public function __construct()
         {
             parent::__construct();
+            if ( ! $this->session->userdata('logged_in'))
+            { 
+                redirect('login');
+            }
             $this->load->model('M_Tabel3Kinerja', 'tabel');
             $this->load->model('Api', 'api');
             $this->load->database();
+
         }
 
         // Fungsi untuk load data dari SP

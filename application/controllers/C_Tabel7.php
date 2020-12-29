@@ -7,6 +7,10 @@
         public function __construct()
         {
             parent::__construct();
+            if ( ! $this->session->userdata('logged_in'))
+            { 
+                redirect('login');
+            }
             $this->load->model('M_Tabel7', 'tabel');
             $this->load->model('Api', 'api');
             $this->load->database();

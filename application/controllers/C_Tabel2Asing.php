@@ -4,6 +4,13 @@
     
     class C_Tabel2Asing extends CI_Controller {
 
+        public function __construct() {
+            parent::__construct();
+            if ( ! $this->session->userdata('logged_in'))
+            { 
+                redirect('/login');
+            }
+        }
        
         // Fungsi untuk load data dari SP (Kalo bisa load data dan load view nya pisahin sih)
         public function loadView(){

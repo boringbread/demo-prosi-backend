@@ -4,6 +4,16 @@
     
     class C_Tabel4 extends CI_Controller {
 
+        public function __construct()
+        {
+            parent::__construct();
+            $this->load->model('M_Tabel6', 'tabel6');
+            $this->load->model('M_user', 'user');
+            $this->load->model('M_Global', 'global');
+            $this->load->helper(array('form', 'url'));
+            $this->load->library('form_validation');
+        }
+
         // Fungsi untuk load data dari SP (Kalo bisa load data dan load view nya pisahin sih)
         public function loadView(){
             $this->load->database();

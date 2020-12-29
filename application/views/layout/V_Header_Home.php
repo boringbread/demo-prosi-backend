@@ -1,5 +1,10 @@
 	<body class="">
-		<div class="bg-primary py-3">
+	<div class="bg-primary py-3">
+			<div class="container w-100 text-right mr-3">
+				<a href="<?php echo site_url('/C_Login/logout') ?>">
+					<button class="btn btn-danger">LOGOUT</button>
+				</a>
+			</div>
 			<div class="container bg-sucess w-50 text-center">
 				<a href=<?php echo base_url(); ?>>
 					<div class=" bg-light rounded p-3 d-flex mb-3 align-items-center">

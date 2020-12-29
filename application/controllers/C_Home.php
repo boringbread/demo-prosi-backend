@@ -23,10 +23,16 @@ class C_Home extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		if ( ! $this->session->userdata('logged_in'))
+        { 
+            redirect('login');
+        }
 		$this->load->model('M_Tabel6', 'tabel6');
+		$this->load->model('M_user', 'user');
 		$this->load->model('M_Global', 'global');
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
+
 	}
 
 	public function index()

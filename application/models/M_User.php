@@ -4,13 +4,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_User extends CI_Model {
     // Get exact user
     function getUserData($username){
-        $this->db->select('Username, Passwords');
+        $this->db->select('*');
         $this->db->from('users');
         $this->db->where('username', $username);
         $result = $this->db->get();
 
         if($result->num_rows() == 1){
-            return $result;
+            return $result->result_array();
         }
         else{
             return false;

@@ -53,70 +53,32 @@ $route['default_controller'] = 'C_Home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['melibatkanMahasiswa'] = 'C_Tabel6/loadView';
-$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
+$route['login'] = 'C_Login/loadView';
+$route['logout'] = 'C_Login/logout';
 $route['uploadFile'] = 'C_Home/unggahBukti';
-
-$route['PKM'] = 'C_Tabel7/loadView';
 $route['unggahBukti'] = 'C_Home/loadUnggahBukti';
-$route['uploadFile'] = 'C_Home/unggahBukti';
-
-$route['inputMahasiswa'] = 'C_Tabel2Input/loadView';
-$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
-$route['uploadFile'] = 'C_Home/unggahBukti';
-
-$route['asing'] = 'C_Tabel2Asing/loadView';
-$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
-$route['uploadFile'] = 'C_Home/unggahBukti';
-
-$route['profil'] = 'C_Tabel3Profil/loadView';
-$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
-$route['uploadFile'] = 'C_Home/unggahBukti';
-
-$route['kinerja'] = 'C_Tabel3Kinerja/loadView';
-$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
-$route['uploadFile'] = 'C_Home/unggahBukti';
 
 $route['tatapamong'] = 'C_Tabel1/loadView';
-$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
-$route['uploadFile'] = 'C_Home/unggahBukti';
+
+$route['inputMahasiswa'] = 'C_Tabel2Input/loadView';
+$route['asing'] = 'C_Tabel2Asing/loadView';
+
+$route['profil'] = 'C_Tabel3Profil/loadView';
+$route['kinerja'] = 'C_Tabel3Kinerja/loadView';
 
 $route['keuangan'] = 'C_Tabel4/loadView';
-$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
-$route['uploadFile'] = 'C_Home/unggahBukti';
 
 $route['kurikulum'] = 'C_Tabel5Kurikulum/loadView';
-$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
-$route['uploadFile'] = 'C_Home/unggahBukti';
-
 $route['Integrasi'] = 'C_Tabel5Integrasi/loadView';
-$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
-$route['uploadFile'] = 'C_Home/unggahBukti';
-
 $route['kepuasan'] = 'C_Tabel5Kepuasan/loadView';
-$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
-$route['uploadFile'] = 'C_Home/unggahBukti';
+
+$route['melibatkanMahasiswa'] = 'C_Tabel6/loadView';
+
+$route['PKM'] = 'C_Tabel7/loadView';
 
 $route['capaian'] = 'C_Tabel8Capaian/loadView';
-$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
-$route['uploadFile'] = 'C_Home/unggahBukti';
-
 $route['prestasi'] = 'C_Tabel8Prestasi/loadView';
-$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
-$route['uploadFile'] = 'C_Home/unggahBukti';
-
 $route['efektivitas'] = 'C_Tabel8Efektivitas/loadView';
-$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
-$route['uploadFile'] = 'C_Home/unggahBukti';
-
 $route['dayasaing'] = 'C_Tabel8DayaSaing/loadView';
-$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
-$route['uploadFile'] = 'C_Home/unggahBukti';
-
 $route['kepuasan'] = 'C_Tabel8Kinerja/loadView';
-$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
-$route['uploadFile'] = 'C_Home/unggahBukti';
-
 $route['publikasi'] = 'C_Tabel8Publikasi/loadView';
-$route['unggahBukti'] = 'C_Home/loadUnggahBukti';
-$route['uploadFile'] = 'C_Home/unggahBukti';

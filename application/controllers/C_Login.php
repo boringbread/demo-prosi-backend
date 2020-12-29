@@ -4,48 +4,59 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class C_Login extends CI_Controller
 {
 
-    // CONTROLLER UNTUK MENANGANI LOGIN
-    public function login()
-    {
-        // Getting input from website
-        // $username = htmlspecialchars($this->input->post('username'));
-        // $password = htmlspecialchars($this->input->post('password'));
+	public function __construct(){
+		parent::__construct();
+		$this->load->model('M_user', 'user');
+	}
 
-        $is_login = FALSE;
-        $data = json_decode(file_get_contents("php://input"), TRUE);
-        
-        $username = $data['Username'];
-        $password = $data['Password'];
-
-        // return $this->serveApi($array);
-        
-
-        // Load Model
-        $this->load->model('M_User');
-
-        // Check users whether it is available or not
-        if ($this->M_User->getUserData($username) == NULL) {
-            return $this->serveApi($is_login);
-        }
-
-        // Getting data
-        $user_data = $this->M_User->getUserData($username)->row();
-
-        // Check passwords, go through if match
-        if (password_verify($password, $user_data->Passwords) == 1) {
-            $is_login=true;
-            return $this->serveApi($is_login);
-        } else {
-            return $this->serveApi($is_login);
-        }
+    public function loadView() {
+        $this->load->view('layout/V_Require');
+		$this->load->view('V_Login');
+		$this->load->view('layout/V_Footer');
     }
 
-    protected function serveApi($data) {
-		echo json_encode([
-			"status" => true,
-			"result" => $data
-        ]);
-        return;
+    public function login(){
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+
+		$result = $this->user->getUserData($username);
+
+		// echo ($password);
+
+		$pass_hashed = "";
+		
+		if($result != NULL) {
+			$pass_hashed = $result[0]['passwords'];
+		}
+		
+		//  Checking password
+		if (password_verify($password, $pass_hashed)) {
+
+			$array = array(
+				'logged_in' => 'true',
+				'username' => $username
+			);
+
+			$this->session->set_userdata( $array );
+
+			redirect('/','refresh');
+			
+		} else {
+			$this->session->set_flashdata('error', 'Username atau Password anda salah');
+			
+			redirect('/login','refresh');
+			
+		}
+	}
+
+	public function logout(){
+		
+		$this->session->sess_destroy();
+		
+		
+		redirect('/','refresh');
+		
+		 
 	}
 }
 

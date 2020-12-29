@@ -25,7 +25,7 @@
 <div class="container-fluid mb-5">
     <div class="mt-3 mb-5">
         <h2 class="text-center">Tabel 8.c</h2>
-        <h4 class="text-center">Masa Studi Lulusan Program Studi</h4>
+        <h4 class="text-center">Efektifitas dan Produktifitas Pendidikan</h4>
     </div>
     <table class="table table-striped table-bordered text-center">
         <thead>
@@ -49,7 +49,7 @@
         </thead>
         <tbody class="text-center">
             <?php
-            foreach ($table4 as $item) {
+            foreach ($table as $item) {
             ?>
                 <tr class="text-center">
                     <td><?php echo 1 ?> </td>

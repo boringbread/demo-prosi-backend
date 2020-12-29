@@ -23,11 +23,26 @@ class C_Tabel8Publikasi extends CI_Controller
     }
 
     // Fungsi untuk mengambil data bukti berdasar 1 ID Penelitian
-    public function getBukti($idPenelitian)
+    public function getBukti($subsection, $index)
     {
-        $id = base64_decode($idPenelitian);
-        $this->load->model('M_Tabel5Kurikulum');
-        $data = $this->M_Tabel5->get_bukti_tabel($id)->result_array();
+        $id = base64_decode($index);
+        $this->load->model('M_Tabel8Publikasi', 'tabel');
+        switch ($subsection) {
+                case 8611:
+                    $data = $this->tabel->get_bukti_tabel_jurnal($id)->result_array();
+                    break;
+                case 8612:
+                    $data = $this->tabel->get_bukti_tabel_seminar($id)->result_array();
+                    break;
+                case 862:
+                    $data = $this->tabel->get_bukti_tabel_karyaIlmiah($id)->result_array();
+                    break;
+                case 863:
+                    $data = $this->tabel->get_bukti_tabel_karyaIlmiah($id)->result_array();
+                    break;
+                default:
+                    break;
+            }
         echo $this->serveApi($data);
     }
 
