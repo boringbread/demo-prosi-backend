@@ -58,16 +58,17 @@
                         } else {
                             echo '<td>'.$item['Nomor'].'</td>';
                             echo '<td>'.$item['jenisPenggunaan'].'</td>';
+                            echo '<td>'.$item['TS_2_UPPS'].'</td>';
+                            echo '<td>'.$item['TS_1_UPPS'].'</td>';
+                            echo '<td>'.$item['TS_UPPS'].'</td>';
+                            echo '<td>'.$item['Rata_rata_UPPS'].'</td>';
+                            echo '<td>'.$item['TS_2_PS'].'</td>';
+                            echo '<td>'.$item['TS_1_PS'].'</td>';
+                            echo '<td>'.$item['TS_PS'].'</td>';
+                            echo '<td>'.$item['Rata_rata_PS'].'</td>';
                         }
                     ?>
-                    <td><?php echo $item['TS_2_UPPS'] ?> </td>
-                    <td><?php echo $item['TS_1_UPPS'] ?> </td>
-                    <td><?php echo $item['TS_UPPS'] ?> </td>
-                    <td><?php echo $item['Rata_rata_UPPS'] ?> </td>
-                    <td><?php echo $item['TS_2_PS'] ?> </td>
-                    <td><?php echo $item['TS_1_PS'] ?> </td>
-                    <td><?php echo $item['TS_PS'] ?> </td>
-                    <td><?php echo $item['Rata_rata_PS'] ?> </td>
+                    
                     <?php
                         if ($item['jenisPenggunaan'] !== "Biaya Operasional Pendidikan") {
                             echo '<td>'.

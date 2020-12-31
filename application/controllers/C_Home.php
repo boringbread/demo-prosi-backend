@@ -57,6 +57,21 @@ class C_Home extends CI_Controller
 		$this->load->view('V_UnggahBukti', $data);
 		$this->load->view('layout/V_Footer');
 	}
+	public function loadUnggahBukti2()
+	{
+		$idKriteria 			= $this->input->post('idKriteria');
+		$x 						= $this->global->getKriteria($idKriteria)->row_array();
+		$data['kriteria'] 		= $x['subKriteria'];
+		$data['keterangan'] 	= $this->input->post('keterangan');
+		$data['id'] 			= $this->input->post('id');
+		$data['idKriteria'] 	= $this->input->post('idKriteria');
+		$data['TS'] 			= $this->input->post('TS');
+		$data['kategori']		= $this->global->getKategori()->result_array();
+
+		$this->load->view('layout/V_Require');
+		$this->load->view('V_UnggahBukti2', $data);
+		$this->load->view('layout/V_Footer');
+	}
 
 	public function unggahBukti()
 	{
