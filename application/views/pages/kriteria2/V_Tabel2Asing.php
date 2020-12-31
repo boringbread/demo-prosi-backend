@@ -1,21 +1,21 @@
 <script>
 	// getData();
 
-	function getData(id, judul){
+	function getData(id, judul) {
 		var judul = judul.bold();
 		$("#bukti-header").html(judul);
 		$.ajax({
 			type: 'POST',
 			url: "<?php echo base_url('index.php/C_Tabel2Asing/getBukti/') ?>" + id,
 			dataType: 'json',
-			success: function(data){
+			success: function(data) {
 				var baris = '';
-				for(var i = 0; i < data.result.length; i++) {
-					baris += 	'<tr>' +
-									'<td>'+ data.result[i].deskripsi +'</td>' +
-									'<td>'+ data.result[i].namaB +'</td>' +
-									'<td><a href="' + data.result[i].pathFile + '" target=`_blank`>'+ data.result[i].deskripsi +'</a></td>' +
-								'</tr>'
+				for (var i = 0; i < data.result.length; i++) {
+					baris += '<tr>' +
+						'<td>' + data.result[i].deskripsi + '</td>' +
+						'<td>' + data.result[i].namaB + '</td>' +
+						'<td><a href="' + data.result[i].pathFile + '" target=`_blank`>' + data.result[i].deskripsi + '</a></td>' +
+						'</tr>'
 				}
 				$('#bukti-isi').html(baris);
 			}
@@ -30,31 +30,31 @@
 	<table class="table table-striped table-bordered">
 		<thead>
 			<tr class="text-center">
-                <th class="align-middle" rowSpan = "2">No</th>
-                <th class="align-middle" rowSpan = "2">Program Studi</th>
-                <th class="align-middle" colSpan = "3">Jumlah Mahasiswa Aktif</th>
-                <th class="align-middle" colSpan = "3">Jumlah Mahasiswa Asing Penuh Waktu (<i>Full-time</i>)</th>
-                <th class="align-middle" colSpan = "3">Jumlah Mahasiswa Asing Paruh Waktu (<i>Part-time</i>)</th>
-				<th class="align-middle" colSpan = "2" rowspan = "2">Aksi</th>
+				<th class="align-middle" rowSpan="2">No</th>
+				<th class="align-middle" rowSpan="2">Program Studi</th>
+				<th class="align-middle" colSpan="3">Jumlah Mahasiswa Aktif</th>
+				<th class="align-middle" colSpan="3">Jumlah Mahasiswa Asing Penuh Waktu (<i>Full-time</i>)</th>
+				<th class="align-middle" colSpan="3">Jumlah Mahasiswa Asing Paruh Waktu (<i>Part-time</i>)</th>
+				<th class="align-middle" colSpan="2" rowspan="2">Aksi</th>
 			</tr>
-            <tr class="text-center">
-              <th>TS-2</th>
-              <th>TS-1</th>
-              <th>TS</th>
-              <th>TS-2</th>
-              <th>TS-1</th>
-              <th>TS</th>
-              <th>TS-2</th>
-              <th>TS-1</th>
-              <th>TS</th>
+			<tr class="text-center">
+				<th>TS-2</th>
+				<th>TS-1</th>
+				<th>TS</th>
+				<th>TS-2</th>
+				<th>TS-1</th>
+				<th>TS</th>
+				<th>TS-2</th>
+				<th>TS-1</th>
+				<th>TS</th>
 
-            </tr>
+			</tr>
 		</thead>
 		<tbody>
-			<?php 
+			<?php
 			$i = 1;
 			foreach ($table2Asing as $item) {
-				?>
+			?>
 				<tr class="text-center">
 					<td><?php echo $i ?> </td>
 					<td><?php echo $item['prodi'] ?></td>
@@ -68,26 +68,24 @@
 					<td><?php echo $item['partTS-1'] ?></td>
 					<td><?php echo $item['partTS-2'] ?></td>
 					<td>
-						<button class="btn btn-success"
-						data-toggle="modal"
-						data-target="#lihatBukti"
-						onClick="getData(`<?php echo base64_encode( $item['prodi'] ) ?>`, `<?php echo $item['prodi'] ?>`)">
+						<button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo base64_encode($item['prodi']) ?>`, `<?php echo $item['prodi'] ?>`)">
 							Lihat Bukti
 						</button>
 					</td>
 					<td>
-						<form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
+						<form action="<?php echo base_url('/index.php/unggahBukti2') ?>" method="POST">
 							<input type="hidden" name="keterangan" value="<?php echo $item['prodi'] ?>">
 							<input type="hidden" name="id" value="<?php echo $item['prodi'] ?>">
+							<input type="hidden" name="TS" value="2">
 							<input type="hidden" name="idKriteria" value="22">
 							<button class="btn btn-primary" type="submit">
 								Unggah Bukti
-							</button>			
+							</button>
 						</form>
 					</td>
 				</tr>
-				<?php 
-				$i = $i+1;
+			<?php
+				$i = $i + 1;
 			}
 			?>
 		</tbody>

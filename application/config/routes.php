@@ -116,7 +116,7 @@ $route['uploadFile'] = 'C_Home/unggahBukti';
 $route['kepuasan'] = 'C_Tabel8Kinerja/loadView';
 $route['unggahBukti'] = 'C_Home/loadUnggahBukti';
 $route['uploadFile'] = 'C_Home/unggahBukti';
-
+$route['unggahBukti2'] = 'C_Home/loadUnggahBukti2';
 $route['publikasi'] = 'C_Tabel8Publikasi/loadView';
 $route['unggahBukti'] = 'C_Home/loadUnggahBukti';
 $route['uploadFile'] = 'C_Home/unggahBukti';
