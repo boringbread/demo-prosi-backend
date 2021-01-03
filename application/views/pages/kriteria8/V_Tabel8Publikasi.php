@@ -99,7 +99,8 @@
                                     </button>
                                 </td>
                                 <td>
-                                    <form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
+                                    <form action="<?php echo base_url('/index.php/unggahBukti2') ?>" method="POST">
+                                        <input type="hidden" name="TS" value="2">
                                         <input type="hidden" name="keterangan" value="<?php echo '' ?>">
                                         <input type="hidden" name="id" value="<?php echo '' ?>">
                                         <input type="hidden" name="idKriteria" value='312'>
@@ -140,7 +141,8 @@
                                 </button>
                             </td>
                             <td>
-                                <form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
+                                <form action="<?php echo base_url('/index.php/unggahBukti2') ?>" method="POST">
+                                    <input type="hidden" name="TS" value="2">
                                     <input type="hidden" name="keterangan" value="<?php echo '' ?>">
                                     <input type="hidden" name="id" value="<?php echo '' ?>">
                                     <input type="hidden" name="idKriteria" value='312'>
