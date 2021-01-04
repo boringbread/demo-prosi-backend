@@ -57,6 +57,7 @@ $route['login'] = 'C_Login/loadView';
 $route['logout'] = 'C_Login/logout';
 $route['uploadFile'] = 'C_Home/unggahBukti';
 $route['unggahBukti'] = 'C_Home/loadUnggahBukti';
+$route['unggahBukti2'] = 'C_Home/loadUnggahBukti2';
 
 $route['tatapamong'] = 'C_Tabel1/loadView';
 

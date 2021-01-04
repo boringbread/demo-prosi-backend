@@ -16,7 +16,8 @@
         public function loadView(){
             $this->load->database();
             $this->db->query("SET NOCOUNT ON");
-            $data['table4'] = $this->db->query("EXEC Tabel4_PenggunaanDana")->result_array();
+            $data['table8e1'] = $this->db->query("EXEC Tabel8e1_TempatKerjaLulusan")->result_array();
+            $data['table8e2'] = $this->db->query("EXEC Tabel8e2_Kepuasan")->result_array();
             $this->db->query("SET NOCOUNT OFF");           
 
             $this->load->view('layout/V_Require');
@@ -25,12 +26,11 @@
             $this->load->view('layout/V_Footer');
         }
     
-        // Fungsi untuk mengambil data bukti berdasar 1 ID Penelitian
-        public function getBukti($idPenelitian)
+        // Fungsi untuk mengambil data bukti berdasar 1 ID
+        public function getBukti($subsection, $id)
         {
-            $id = base64_decode($idPenelitian);
-            $this->load->model('M_Tabel5Kurikulum');
-            $data = $this->M_Tabel5->get_bukti_tabel($id)->result_array();
+            $this->load->model('M_Tabel8Kinerja');
+            $data = $this->M_Tabel8Kinerja->get_bukti_tabel($subsection, $id)->result_array();
             echo $this->serveApi($data);
         }
 

@@ -3,13 +3,13 @@
     
     defined('BASEPATH') OR exit('No direct script access allowed');
     
-    class M_Tabel8DaySaing extends CI_Model {
+    class M_Tabel8DayaSaing extends CI_Model {
     
-        public function get_bukti_tabel($idPenelitian){
+        public function get_bukti_tabel($subsection, $id){
             $this->db->select('*');
             $this->db->from('bukti');
-            $this->db->where('idRecord', $idPenelitian);
-            $this->db->where('idSubKriteria', 4);
+            $this->db->where('idRecord', $id);
+            $this->db->where('idSubKriteria', $subsection);
 
             $result = $this->db->get();
             

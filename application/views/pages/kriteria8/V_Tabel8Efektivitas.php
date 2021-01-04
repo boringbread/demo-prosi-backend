@@ -6,7 +6,7 @@
         $("#bukti-header").html(judul);
         $.ajax({
             type: 'POST',
-            url: "<?php echo base_url('index.php/C_Tabel8Capaian/getBukti/') ?>" + id,
+            url: "<?php echo base_url('index.php/C_Tabel8Efektivitas/getBukti/') ?>" + id,
             dataType: 'json',
             success: function(data) {
                 var baris = '';
@@ -52,26 +52,27 @@
             foreach ($table as $item) {
             ?>
                 <tr class="text-center">
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
-                    <td><?php echo 1 ?> </td>
+                    <td><?php echo $item['tahunMasuk'] ?> </td>
+                    <td><?php echo $item['jumlahDiterima'] ?> </td>
+                    <td><?php echo $item['ts6'] ?> </td>
+                    <td><?php echo $item['ts5'] ?> </td>
+                    <td><?php echo $item['ts4'] ?> </td>
+                    <td><?php echo $item['ts3'] ?> </td>
+                    <td><?php echo $item['ts2'] ?> </td>
+                    <td><?php echo $item['ts1'] ?> </td>
+                    <td><?php echo $item['ts'] ?> </td>
+                    <td><?php echo $item['jumlahLulus'] ?> </td>
+                    <td><?php echo $item['rata-rata'] ?> </td>
                     <td>
-                        <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo base64_encode($item['jenisPenggunaan']) ?>`, `<?php echo $item['jenisPenggunaan'] ?>`)">
+                        <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo ($item['tahunMasuk']) ?>`, `<?php echo $item['tahunMasuk'] ?>`)">
                             Lihat Bukti
                         </button>
                     </td>
                     <td>
-                        <form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
-                            <input type="hidden" name="keterangan" value="<?php echo $item['jenisPenggunaan'] ?>">
-                            <input type="hidden" name="id" value="<?php echo $item['jenisPenggunaan'] ?>">
+                        <form action="<?php echo base_url('/index.php/unggahBukti2') ?>" method="POST">
+                            <input type="hidden" name="TS" value="6">
+                            <input type="hidden" name="keterangan" value="<?php echo $item['tahunMasuk'] ?>">
+                            <input type="hidden" name="id" value="<?php echo $item['tahunMasuk'] ?>">
                             <input type="hidden" name="idKriteria" value="4">
                             <button class="btn btn-primary" type="submit">
                                 Unggah Bukti

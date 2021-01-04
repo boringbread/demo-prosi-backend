@@ -51,45 +51,46 @@
             foreach ($table4 as $item) {
             ?>
                 <tr class="text-center">
-                    <?php 
-                        if ($item['jenisPenggunaan'] === "Biaya Operasional Pendidikan") {
-                            echo '<td>'.$item['Nomor'].'</td>';
-                            echo '<td colSpan="8">'.$item['jenisPenggunaan'].'</td>';
-                        } else {
-                            echo '<td>'.$item['Nomor'].'</td>';
-                            echo '<td>'.$item['jenisPenggunaan'].'</td>';
-                            echo '<td>'.$item['TS_2_UPPS'].'</td>';
-                            echo '<td>'.$item['TS_1_UPPS'].'</td>';
-                            echo '<td>'.$item['TS_UPPS'].'</td>';
-                            echo '<td>'.$item['Rata_rata_UPPS'].'</td>';
-                            echo '<td>'.$item['TS_2_PS'].'</td>';
-                            echo '<td>'.$item['TS_1_PS'].'</td>';
-                            echo '<td>'.$item['TS_PS'].'</td>';
-                            echo '<td>'.$item['Rata_rata_PS'].'</td>';
-                        }
-                    ?>
-                    
                     <?php
-                        if ($item['jenisPenggunaan'] !== "Biaya Operasional Pendidikan") {
-                            echo '<td>'.
-                            '<button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`'.base64_encode( $item['jenisPenggunaan']).'`, `'.$item['jenisPenggunaan'].'`)">
+                    if ($item['jenisPenggunaan'] === "Biaya Operasional Pendidikan") {
+                        echo '<td>' . $item['Nomor'] . '</td>';
+                        echo '<td colSpan="8">' . $item['jenisPenggunaan'] . '</td>';
+                    } else {
+                        echo '<td>' . $item['Nomor'] . '</td>';
+                        echo '<td>' . $item['jenisPenggunaan'] . '</td>';
+                        echo '<td>' . $item['TS_2_UPPS'] . '</td>';
+                        echo '<td>' . $item['TS_1_UPPS'] . '</td>';
+                        echo '<td>' . $item['TS_UPPS'] . '</td>';
+                        echo '<td>' . $item['Rata_rata_UPPS'] . '</td>';
+                        echo '<td>' . $item['TS_2_PS'] . '</td>';
+                        echo '<td>' . $item['TS_1_PS'] . '</td>';
+                        echo '<td>' . $item['TS_PS'] . '</td>';
+                        echo '<td>' . $item['Rata_rata_PS'] . '</td>';
+                    }
+                    ?>
+
+                    <?php
+                    if ($item['jenisPenggunaan'] !== "Biaya Operasional Pendidikan") {
+                        echo '<td>' .
+                            '<button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`' . base64_encode($item['jenisPenggunaan']) . '`, `' . $item['jenisPenggunaan'] . '`)">
                                 Lihat Bukti
-                            </button>'.
-                        '</td>';
-                            echo '<td>'.
-                            '<form action="' . base_url('/index.php/unggahBukti') . '" method="POST">' .
-                                '<input type="hidden" name="keterangan" value="' . $item['jenisPenggunaan'] . '">' .
-                                '<input type="hidden" name="id" value="' . $item['jenisPenggunaan'] . '">' .
-                                '<input type="hidden" name="idKriteria" value="4">' .
-                                '<button class="btn btn-primary" type="submit">
+                            </button>' .
+                            '</td>';
+                        echo '<td>' .
+                            '<form action="' . base_url('/index.php/unggahBukti2') . '" method="POST">' .
+                            '<input type="hidden" name="TS" value="2">' .
+                            '<input type="hidden" name="keterangan" value="' . $item['jenisPenggunaan'] . '">' .
+                            '<input type="hidden" name="id" value="' . $item['jenisPenggunaan'] . '">' .
+                            '<input type="hidden" name="idKriteria" value="4">' .
+                            '<button class="btn btn-primary" type="submit">
                                     Unggah Bukti
                                 </button>' .
                             '</form>' .
-                        '</td>';
-                        }
+                            '</td>';
+                    }
                     ?>
-                    
-                    
+
+
                 </tr>
 
             <?php

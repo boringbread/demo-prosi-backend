@@ -5,11 +5,11 @@
     
     class M_Tabel8Kinerja extends CI_Model {
     
-        public function get_bukti_tabel($idPenelitian){
+        public function get_bukti_tabel($subsection, $idPenelitian){
             $this->db->select('*');
             $this->db->from('bukti');
             $this->db->where('idRecord', $idPenelitian);
-            $this->db->where('idSubKriteria', 4);
+            $this->db->where('idSubKriteria', $subsection);
 
             $result = $this->db->get();
             

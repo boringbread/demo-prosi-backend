@@ -99,9 +99,10 @@
                                     </button>
                                 </td>
                                 <td>
-                                    <form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
-                                        <input type="hidden" name="keterangan" value="<?php echo $item['jenisPublikasi']?>">
-                                        <input type="hidden" name="id" value="<?php echo  $item['jenisPublikasi'] ?>">
+                                        <input type="hidden" name="TS" value="2">
+                                    <form action="<?php echo base_url('/index.php/unggahBukti2') ?>" method="POST">
+                                        <input type="hidden" name="keterangan" value="<?php echo '' ?>">
+                                        <input type="hidden" name="id" value="<?php echo '' ?>">
                                         <input type="hidden" name="idKriteria" value='8611'>
                                         <button class="btn btn-primary" type="submit">
                                             Unggah Bukti
@@ -141,9 +142,9 @@
                             </td>
                             <td>
                                 <form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
-                                    <input type="hidden" name="keterangan" value="<?php echo $item['jenisPublikasi']?>">
-                                        <input type="hidden" name="id" value="<?php echo  $item['jenisPublikasi'] ?>">
-                                        <input type="hidden" name="idKriteria" value='8612'>
+                                    <input type="hidden" name="keterangan" value="<?php echo '' ?>">
+                                    <input type="hidden" name="id" value="<?php echo '' ?>">
+                                    <input type="hidden" name="idKriteria" value='312'>
                                     <button class="btn btn-primary" type="submit">
                                         Unggah Bukti
                                     </button>

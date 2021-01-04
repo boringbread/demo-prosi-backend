@@ -69,38 +69,95 @@
                     <tr>
                         <th class="align-middle">WT &lt; 6 bulan</th>
                         <th class="align-middle">6 ≤ WT ≤ 18 bulan</th>
-                        <th class="align-middle">WT > 6 bulan</th>
+                        <th class="align-middle">WT > 18 bulan</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php {
-                    ?>
-                        <tr class="text-center">
-                            <td><?php echo 1 ?> </td>
-                            <td><?php echo 1 ?> </td>
-                            <td><?php echo 1 ?> </td>
-                            <td><?php echo 1 ?> </td>
-                            <td><?php echo 1 ?> </td>
-                            <td><?php echo 1 ?> </td>
-                            <td>
-                                <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo '' ?>`, `<?php echo '' ?>`, `<?php echo '312' ?>`)">
+                    <?php
+                    $ts4 = array();
+                    $totalts4 = 0;
+                    $ts3 = array();
+                    $totalts3 = 0;
+                    $ts2 = array();
+                    $totalts2 = 0;
+                    foreach($table8d1 as $item){
+                        if($item['ts'] == -4){
+                            if($ts4 == NULL) {
+                                array_push($ts4, $item['ts'], $item['jumlah'], $item['lacak'], $item['waktu_berkerja']);
+                                $totalts4 += intval($item['lacak']);
+                            } else {
+                                array_push($ts4, $item['lacak'], $item['waktu_berkerja']);
+                                $totalts4 += intval($item['lacak']);
+                            }
+                        } else if ($item['ts'] == -3){
+                            if($ts3 == NULL) {
+                                array_push($ts3, $item['ts'], $item['jumlah'], $item['lacak'], $item['waktu_berkerja']);
+                                $totalts3 += intval($item['lacak']);
+                            } else {
+                                array_push($ts3, $item['lacak'], $item['waktu_berkerja']);
+                                $totalts3 += intval($item['lacak']);
+                            }
+                        } else if ($item['ts'] == -2){
+                            if($ts2 == NULL) {
+                                array_push($ts2, $item['ts'], $item['jumlah'], $item['lacak'], $item['waktu_berkerja']);
+                                $totalts2 += intval($item['lacak']);
+                            } else {
+                                array_push($ts2, $item['lacak'], $item['waktu_berkerja']);
+                                $totalts2 += intval($item['lacak']);
+                            }
+                        }
+                    }
+
+                    $array_tot = array();
+                    array_push($array_tot, $ts4, $ts3, $ts2);
+
+                    for ($i=4; $i > 1 ; $i--) { 
+                        echo "<tr>";
+                        echo "<td>" . ${'ts'.$i}[0] . "</td>";
+                        echo "<td>" . ${'ts'.$i}[1] . "</td>";
+                        echo "<td>" . ${'totalts'.$i} . "</td>";
+                        
+                        if(in_array("Kurang dari 6 bulan", ${'ts' . $i})){
+                            $value = array_search('Kurang dari 6 bulan', ${'ts' . $i});
+                            echo "<td>" . ${'ts' . $i}[($value-1)] . "</td>";
+                        } else {
+                            echo "<td></td>";
+                        }
+                        
+                        if (in_array("6 sampai dengan 18 bulan", ${'ts' . $i})) {
+                            $value = array_search('6 sampai dengan 18 bulan', ${'ts' . $i});
+                            echo "<td>" . ${'ts' . $i}[($value-1)] . "</td>";
+                        } else {
+                            echo "<td></td>";
+                        }
+                        
+                        if (in_array("Lebih dari 18 bulan", ${'ts' . $i})){
+                            $value = array_search('Lebih dari 18 bulan', ${'ts' . $i});
+                            echo "<td>" . ${'ts' . $i}[($value-1)] . "</td>";
+                        } else {
+                            echo "<td></td>";
+                        }
+
+                        echo "<td>" ?>
+                                <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo ${'ts'.$i}[0] ?>`, `<?php echo ${'ts'.$i}[0] ?>`, `<?php echo '841' ?>`)">
                                     Lihat Bukti
                                 </button>
                             </td>
                             <td>
                                 <form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
-                                    <input type="hidden" name="keterangan" value="<?php echo '' ?>">
-                                    <input type="hidden" name="id" value="<?php echo '' ?>">
-                                    <input type="hidden" name="idKriteria" value='312'>
+                                    <input type="hidden" name="keterangan" value="<?php echo "TS" . ${'ts'.$i}[0] ?>">
+                                    <input type="hidden" name="id" value="<?php echo ${'ts'.$i}[0] ?>">
+                                    <input type="hidden" name="idKriteria" value='841'>
                                     <button class="btn btn-primary" type="submit">
                                         Unggah Bukti
                                     </button>
                                 </form>
                             </td>
                         </tr>
-                    <?php
+                        <?php
                     }
                     ?>
+                       
                 </tbody>
             </table>
         </div>
@@ -128,33 +185,86 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php {
-                    ?>
-                        <tr class="text-center">
-                            <td><?php echo 1 ?> </td>
-                            <td><?php echo 1 ?> </td>
-                            <td><?php echo 1 ?> </td>
-                            <td><?php echo 1 ?> </td>
-                            <td><?php echo 1 ?> </td>
-                            <td><?php echo 1 ?> </td>
-                            <td>
-                                <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo '' ?>`, `<?php echo '' ?>`, `<?php echo '312' ?>`)">
+                    <?php 
+                    $ts4b = array();
+                    $totalts4b = 0;
+                    $ts3b = array();
+                    $totalts3b = 0;
+                    $ts2b = array();
+                    $totalts2b = 0;
+
+                    foreach($table8d2 as $item){
+                        if($item['ts'] == -4){
+                            if($ts4b == NULL) {
+                                array_push($ts4b, $item['ts'], $item['jumlah'], $item['lacak'], $item['sesuai']);
+                                $totalts4b += intval($item['lacak']);
+                            } else {
+                                array_push($ts4b, $item['lacak'], $item['sesuai']);
+                                $totalts4b += intval($item['lacak']);
+                            }
+                        } else if ($item['ts'] == -3){
+                            if($ts3b == NULL) {
+                                array_push($ts3b, $item['ts'], $item['jumlah'], $item['lacak'], $item['sesuai']);
+                                $totalts3b += intval($item['lacak']);
+                            } else {
+                                array_push($ts3b, $item['lacak'], $item['sesuai']);
+                                $totalts3b += intval($item['lacak']);
+                            }
+                        } else if ($item['ts'] == -2){
+                            if($ts2b == NULL) {
+                                array_push($ts2b, $item['ts'], $item['jumlah'], $item['lacak'], $item['sesuai']);
+                                $totalts2b += intval($item['lacak']);
+                            } else {
+                                array_push($ts2b, $item['lacak'], $item['sesuai']);
+                                $totalts2b += intval($item['lacak']);
+                            }
+                        }
+                    }
+
+                    $array_totb = array($ts4b, $ts3b, $ts2b);
+
+                    for ($i=4; $i > 1 ; $i--) { 
+                        echo "<tr>";
+                        echo "<td>" . ${'ts'.$i . 'b'}[0] . "</td>";
+                        echo "<td>" . ${'ts'.$i . 'b'}[1] . "</td>";
+                        echo "<td>" . ${'totalts'.$i . 'b'} . "</td>";
+                        
+                        if(in_array("Ya", ${'ts' . $i . 'b'})){
+                            $value = array_search('Ya', ${'ts' . $i . 'b'});
+                            echo "<td>" . ${'ts' . $i . 'b'}[($value-1)] . "</td>";
+                        } else {
+                            echo "<td></td>";
+                        }
+
+                        echo "<td></td>";
+
+                        if(in_array("Tidak", ${'ts' . $i . 'b'})){
+                            $value = array_search('Tidak', ${'ts' . $i . 'b'});
+                            echo "<td>" . ${'ts' . $i . 'b'}[($value-1)] . "</td>";
+                        } else {
+                            echo "<td></td>";
+                        }
+
+                        echo "<td>" ?>
+                                <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo ${'ts'.$i}[0] ?>`, `<?php echo ${'ts'.$i}[0] ?>`, `<?php echo '842' ?>`)">
                                     Lihat Bukti
                                 </button>
                             </td>
                             <td>
                                 <form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
-                                    <input type="hidden" name="keterangan" value="<?php echo '' ?>">
-                                    <input type="hidden" name="id" value="<?php echo '' ?>">
-                                    <input type="hidden" name="idKriteria" value='312'>
+                                    <input type="hidden" name="keterangan" value="<?php echo "TS" . ${'ts'.$i}[0] ?>">
+                                    <input type="hidden" name="id" value="<?php echo ${'ts'.$i}[0] ?>">
+                                    <input type="hidden" name="idKriteria" value='842'>
                                     <button class="btn btn-primary" type="submit">
                                         Unggah Bukti
                                     </button>
                                 </form>
                             </td>
                         </tr>
-                    <?php
+                        <?php
                     }
+
+                    
                     ?>
                 </tbody>
             </table>
@@ -201,7 +311,7 @@
             $("#bukti-header").html(judul);
             $.ajax({
                 type: 'POST',
-                url: "<?php echo base_url('index.php/C_Tabel3Profil/getBukti/') ?>" + subsection + '/' + id,
+                url: "<?php echo base_url('index.php/C_Tabel8dayasaing/getBukti/') ?>" + subsection + '/' + id,
                 dataType: 'json',
                 success: function(data) {
                     var baris = '';
