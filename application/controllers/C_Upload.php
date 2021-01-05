@@ -108,4 +108,37 @@ class C_Upload extends CI_Controller
 			$this->db->select_max('idBukti');
 		}
 	}
+	function proses_upload3()
+	{
+		$this->load->Model('M_Tabel6');
+		$this->db->select_max('idBukti');
+		$z = $this->db->get('bukti')->row_array();
+		$iterator = $z['idBukti'];
+		$kategori = $this->input->post('kategori');
+		$idData = $this->input->post('id');
+		$kriteria = $this->input->post('kriteria');
+		$deskripsi = $this->input->post('deskripsi');
+		$TS = $this->input->post('TS');
+		$stat = $this->input->post('stat');
+
+		$config['upload_path']   = FCPATH . 'upload/' . $kriteria . "/";
+		$config['allowed_types'] = '*';
+		$config['file_name'] = $stat . '_' . $TS . '_' . $kategori . '_' . $idData . '_(' . $iterator . ')';
+		$this->load->library('upload', $config);
+		$this->upload->initialize($config);
+		$path = base_url() . "upload/" . $kriteria . "/";
+
+		// $idDB = $iterator + 1;
+		// $this->M_Tabel6->inputBukti($idDB, 'asd', 'asd', $deskripsi, $kriteria, $kategori, $idData);
+		// exit();
+
+		if ($this->upload->do_upload('userfile')) {
+			$idDB = $iterator + 1;
+			$pathDB = $path . $this->upload->data('file_name');
+			$nama = $this->upload->data('file_name');
+			$idDB = $iterator + 1;
+			$this->global->inputBukti($idDB, $nama, $pathDB, $deskripsi, $kriteria, $kategori, $idData);
+			$this->db->select_max('idBukti');
+		}
+	}
 }
