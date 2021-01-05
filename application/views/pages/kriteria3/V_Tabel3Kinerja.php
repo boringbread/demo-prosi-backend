@@ -282,15 +282,15 @@
                             <?php 
                                 if ($item['jenisPublikasi'] !== "Jumlah") {
                                     echo '<td>' .
-                                        '<button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`' . base64_encode($item['sumberPembiayaan']) . '`, `' . $item['sumberPembiayaan'] . '`, `' . "322" . '`)">' .
+                                        '<button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`' . base64_encode($item['jenisPublikasi']) . '`, `' . $item['sumberPembiayaan'] . '`, `' . "322" . '`)">' .
                                             'Lihat Bukti' .
                                         '</button>' .
                                     '</td>;' .
                                     '<td>' .
                                         '<form action="' . base_url('/index.php/unggahBukti2') . '" method="POST">' .
                                             '<input type="hidden" name="TS" value="2">' .
-                                            '<input type="hidden" name="keterangan" value="' . $item['sumberPembiayaan'] . '">' .
-                                            '<input type="hidden" name="id" value="' . $item['sumberPembiayaan'] . '">' .
+                                            '<input type="hidden" name="keterangan" value="' . $item['jenisPublikasi'] . '">' .
+                                            '<input type="hidden" name="id" value="' . $item['jenisPublikasi'] . '">' .
                                             '<input type="hidden" name="idKriteria" value="322"> ' .
                                             '<button class="btn btn-primary" type="submit">' .
                                                 'Unggah Bukti' .
@@ -341,15 +341,15 @@
                             <?php 
                                 if ($item['jenisPublikasi'] !== "Jumlah") {
                                     echo '<td>' .
-                                        '<button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`' . base64_encode($item['sumberPembiayaan']) . '`, `' . $item['sumberPembiayaan'] . '`, `' . "322" . '`)">' .
+                                        '<button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`' . base64_encode($item['jenisPublikasi']) . '`, `' . $item['sumberPembiayaan'] . '`, `' . "322" . '`)">' .
                                             'Lihat Bukti' .
                                         '</button>' .
                                     '</td>;' .
                                     '<td>' .
                                         '<form action="' . base_url('/index.php/unggahBukti2') . '" method="POST">' .
                                             '<input type="hidden" name="TS" value="2">' .
-                                            '<input type="hidden" name="keterangan" value="' . $item['sumberPembiayaan'] . '">' .
-                                            '<input type="hidden" name="id" value="' . $item['sumberPembiayaan'] . '">' .
+                                            '<input type="hidden" name="keterangan" value="' . $item['jenisPublikasi'] . '">' .
+                                            '<input type="hidden" name="id" value="' . $item['jenisPublikasi'] . '">' .
                                             '<input type="hidden" name="idKriteria" value="322"> ' .
                                             '<button class="btn btn-primary" type="submit">' .
                                                 'Unggah Bukti' .
@@ -400,15 +400,15 @@
                             <?php 
                                 if ($item['jenisPublikasi'] !== "Jumlah") {
                                     echo '<td>' .
-                                        '<button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`' . base64_encode($item['sumberPembiayaan']) . '`, `' . $item['sumberPembiayaan'] . '`, `' . "322" . '`)">' .
+                                        '<button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`' . base64_encode($item['jenisPublikasi']) . '`, `' . $item['sumberPembiayaan'] . '`, `' . "322" . '`)">' .
                                             'Lihat Bukti' .
                                         '</button>' .
                                     '</td>;' .
                                     '<td>' .
                                         '<form action="' . base_url('/index.php/unggahBukti2') . '" method="POST">' .
                                             '<input type="hidden" name="TS" value="2">' .
-                                            '<input type="hidden" name="keterangan" value="' . $item['sumberPembiayaan'] . '">' .
-                                            '<input type="hidden" name="id" value="' . $item['sumberPembiayaan'] . '">' .
+                                            '<input type="hidden" name="keterangan" value="' . $item['jenisPublikasi'] . '">' .
+                                            '<input type="hidden" name="id" value="' . $item['jenisPublikasi'] . '">' .
                                             '<input type="hidden" name="idKriteria" value="322"> ' .
                                             '<button class="btn btn-primary" type="submit">' .
                                                 'Unggah Bukti' .
@@ -506,15 +506,15 @@
                             <?php 
                                 if ($item['JudulLuaran'] !== "Jumlah" || $item['JudulLuaran'] !== "Paten" || $item['JudulLuaran'] !== "Hak Cipta") {
                                     echo '<td>' .
-                                        '<button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`' . base64_encode($item['sumberPembiayaan']) . '`, `' . $item['sumberPembiayaan'] . '`, `' . "322" . '`)">' .
+                                        '<button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`' . base64_encode($item['JudulLuaran']) . '`, `' . $item['sumberPembiayaan'] . '`, `' . "322" . '`)">' .
                                             'Lihat Bukti' .
                                         '</button>' .
                                     '</td>;' .
                                     '<td>' .
                                         '<form action="' . base_url('/index.php/unggahBukti2') . '" method="POST">' .
                                             '<input type="hidden" name="TS" value="2">' .
-                                            '<input type="hidden" name="keterangan" value="' . $item['sumberPembiayaan'] . '">' .
-                                            '<input type="hidden" name="id" value="' . $item['sumberPembiayaan'] . '">' .
+                                            '<input type="hidden" name="keterangan" value="' . $item['JudulLuaran'] . '">' .
+                                            '<input type="hidden" name="id" value="' . $item['JudulLuaran'] . '">' .
                                             '<input type="hidden" name="idKriteria" value="322"> ' .
                                             '<button class="btn btn-primary" type="submit">' .
                                                 'Unggah Bukti' .
