@@ -55,7 +55,8 @@
                     if ($item['jenisPenggunaan'] === "Biaya Operasional Pendidikan") {
                         echo '<td>' . $item['Nomor'] . '</td>';
                         echo '<td colSpan="8">' . $item['jenisPenggunaan'] . '</td>';
-                    } else {
+                    }
+                    else {
                         echo '<td>' . $item['Nomor'] . '</td>';
                         echo '<td>' . $item['jenisPenggunaan'] . '</td>';
                         echo '<td>' . $item['TS_2_UPPS'] . '</td>';
@@ -70,7 +71,7 @@
                     ?>
 
                     <?php
-                    if ($item['jenisPenggunaan'] !== "Biaya Operasional Pendidikan") {
+                    if ($item['jenisPenggunaan'] !== "Biaya Operasional Pendidikan" || $item['jenisPenggunaan' !== "Jumlah"]) {
                         echo '<td>' .
                             '<button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`' . base64_encode($item['jenisPenggunaan']) . '`, `' . $item['jenisPenggunaan'] . '`)">
                                 Lihat Bukti
@@ -99,6 +100,7 @@
         </tbody>
     </table>
 </div>
+
 <div class="modal fade" id="lihatBukti" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content w-100">
