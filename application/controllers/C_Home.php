@@ -23,16 +23,14 @@ class C_Home extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		if ( ! $this->session->userdata('logged_in'))
-        { 
-            redirect('login');
-        }
+		if (!$this->session->userdata('logged_in')) {
+			redirect('login');
+		}
 		$this->load->model('M_Tabel6', 'tabel6');
 		$this->load->model('M_user', 'user');
 		$this->load->model('M_Global', 'global');
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
-
 	}
 
 	public function index()
@@ -70,6 +68,22 @@ class C_Home extends CI_Controller
 
 		$this->load->view('layout/V_Require');
 		$this->load->view('V_UnggahBukti2', $data);
+		$this->load->view('layout/V_Footer');
+	}
+	public function loadUnggahBukti3()
+	{
+		$idKriteria 			= $this->input->post('idKriteria');
+		$x 						= $this->global->getKriteria($idKriteria)->row_array();
+		$data['kriteria'] 		= $x['subKriteria'];
+		$data['keterangan'] 	= $this->input->post('keterangan');
+		$data['id'] 			= $this->input->post('id');
+		$data['idKriteria'] 	= $this->input->post('idKriteria');
+		$data['TS'] 			= $this->input->post('TS');
+		$data['stat']			= $this->input->post('stat');
+		$data['kategori']		= $this->global->getKategori()->result_array();
+
+		$this->load->view('layout/V_Require');
+		$this->load->view('V_UnggahBukti3', $data);
 		$this->load->view('layout/V_Footer');
 	}
 

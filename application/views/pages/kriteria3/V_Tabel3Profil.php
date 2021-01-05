@@ -182,8 +182,10 @@
                                 </button>
                             </td>
                             <td>
-                                <form action="<?php echo base_url('/index.php/unggahBukti2') ?>" method="POST">
+                                <form action="<?php echo base_url('/index.php/unggahBukti3') ?>" method="POST">
                                     <input type="hidden" name="TS" value="2">
+                                    <input type="hidden" name="stat[]" value="PS">
+                                    <input type="hidden" name="stat[]" value="PSL">
                                     <input type="hidden" name="keterangan" value="<?php echo $item['NamaDosen'] ?>">
                                     <input type="hidden" name="id" value="<?php echo $item['NamaDosen'] ?>">
                                     <input type="hidden" name="idKriteria" value='312'>
