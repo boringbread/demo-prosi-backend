@@ -504,7 +504,7 @@
                             <td> <?php echo $item['tahun'] ?> </td>
                             <td> <?php echo $item['keterangan'] ?> </td>
                             <?php 
-                                if ($item['JudulLuaran'] !== "Jumlah") {
+                                if ($item['JudulLuaran'] !== "Jumlah" || $item['JudulLuaran'] !== "Paten" || $item['JudulLuaran'] !== "Hak Cipta") {
                                     echo '<td>' .
                                         '<button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`' . base64_encode($item['sumberPembiayaan']) . '`, `' . $item['sumberPembiayaan'] . '`, `' . "322" . '`)">' .
                                             'Lihat Bukti' .
