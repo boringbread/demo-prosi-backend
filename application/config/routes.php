@@ -71,7 +71,7 @@ $route['keuangan'] = 'C_Tabel4/loadView';
 
 $route['kurikulum'] = 'C_Tabel5Kurikulum/loadView';
 $route['Integrasi'] = 'C_Tabel5Integrasi/loadView';
-$route['kepuasan'] = 'C_Tabel5Kepuasan/loadView';
+$route['kepuasanMahasiswa'] = 'C_Tabel5Kepuasan/loadView';
 
 $route['melibatkanMahasiswa'] = 'C_Tabel6/loadView';
 

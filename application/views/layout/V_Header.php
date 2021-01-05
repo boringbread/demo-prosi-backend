@@ -53,7 +53,7 @@
 						<div class="dropdown-menu" id="navbarPendidikan">
 							<a href="<?php echo site_url('kurikulum');?>" class="dropdown-item">a. Kurikulum</a>
 							<a href="<?php echo site_url('Integrasi');?>" class="dropdown-item">b. Integrasi Kegiatan Penelitian/PkM dalam Pembelajaran</a>
-							<a href="<?php echo site_url('kepuasan');?>" class="dropdown-item">c. Kepuasan Mahasiswa</a>
+							<a href="<?php echo site_url('kepuasanMahasiswa');?>" class="dropdown-item">c. Kepuasan Mahasiswa</a>
 						</div>
 					</li>
 					<li class="nav-item">
