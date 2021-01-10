@@ -71,7 +71,17 @@
                     ?>
 
                     <?php
-                    if ($item['jenisPenggunaan'] !== "Biaya Operasional Pendidikan" || $item['jenisPenggunaan'] !== "Jumlah") {
+                    $status = false;
+                    if ($item['jenisPenggunaan'] === "Biaya Operasional Pendidikan") {
+                        $status = true;
+                    }
+                    if ($item['jenisPenggunaan'] === "Jumlah") {
+                        $status = true;
+                    }
+                    if ($item['jenisPenggunaan'] === "Total") {
+                        $status = true;
+                    }
+                    if ($status == false) {
                         echo '<td>' .
                             '<button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`' . base64_encode($item['jenisPenggunaan']) . '`, `' . $item['jenisPenggunaan'] . '`)">
                                 Lihat Bukti
@@ -91,6 +101,7 @@
                             '</form>' .
                             '</td>';
                     }
+                    $status = false;
                     ?>
 
 
