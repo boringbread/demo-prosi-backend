@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/dropzone.min.css') ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/dropzone.css') ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/basic.min.css') ?>">
 
 <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.js') ?>"></script>
@@ -21,13 +21,12 @@
 		</tr>
 	</table>
 
-
 	<input type="hidden" id="idKode" name="id" value="<?php echo $id ?> ">
 	<input type="hidden" id="idKriteria" name="idKriteria" value="<?php echo $idKriteria ?> ">
 
 	<div class="form-group">
 		<label for="deskripsi">Deskripsi Bukti</label>
-		<input type="text" id="deskripsi" name="deskripsi" class="form-control" required="">
+		<input type="text" id="deskripsi" name="deskripsi" required class="form-control" required="">
 	</div>
 
 	<div class="form-group">
@@ -44,11 +43,9 @@
 
 	<div class="form-group">
 		<div class="dropzone">
-
-			<div class="dz-message">
+			<div class="dz-message text-dark">
 				<h3> Klik atau Drop file disini</h3>
 			</div>
-
 		</div>
 	</div>
 
@@ -71,13 +68,17 @@
 		parallelUploads: 1,
 		method: "post",
 		paramName: "userfile",
-		dictInvalidFileType: "Type file ini tidak dizinkan",
+		dictInvalidFileType: "Tipe file ini tidak dizinkan",
 		addRemoveLinks: true,
 	});
 
 	$('#upload').click(function() {
-		foto_upload.options.autoProcessQueue = true;
-		foto_upload.processQueue();
+		if(!document.getElementById('deskripsi').value ||! document.getElementById('jenis').value){
+			alert('Mohon isi Deskripsi dan Jenis bukti');
+		} else {
+			foto_upload.options.autoProcessQueue = true;
+			foto_upload.processQueue();
+		}
 	});
 
 	//Event ketika Memulai mengupload
@@ -95,6 +96,7 @@
 		console.log(a);
 		//Menmpersiapkan token untuk masing masing foto
 	});
+	
 	foto_upload.on("queuecomplete", function() {
 		//Redirect URL
 		document.getElementById('done').style.display = 'block';

@@ -148,7 +148,7 @@
                                     <input type="hidden" name="keterangan" value="<?php echo "TS" . ${'ts'.$i}[0] ?>">
                                     <input type="hidden" name="id" value="<?php echo ${'ts'.$i}[0] ?>">
                                     <input type="hidden" name="idKriteria" value='841'>
-                                    <button class="btn btn-primary" type="submit">
+                                    <button class="btn btn-primary <?php echo $this->session->user_role == 1 ? '"' : 'not-allowed disabled" disabled' ?> type="submit">
                                         Unggah Bukti
                                     </button>
                                 </form>
@@ -255,7 +255,7 @@
                                     <input type="hidden" name="keterangan" value="<?php echo "TS" . ${'ts'.$i}[0] ?>">
                                     <input type="hidden" name="id" value="<?php echo ${'ts'.$i}[0] ?>">
                                     <input type="hidden" name="idKriteria" value='842'>
-                                    <button class="btn btn-primary" type="submit">
+                                    <button class="btn btn-primary <?php echo $this->session->user_role == 1 ? '"' : 'not-allowed disabled" disabled' ?> type="submit">
                                         Unggah Bukti
                                     </button>
                                 </form>

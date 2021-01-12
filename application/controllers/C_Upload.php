@@ -58,7 +58,7 @@ class C_Upload extends CI_Controller
 
 		$config['upload_path']   = FCPATH . 'upload/' . $kriteria . "/";
 		$config['allowed_types'] = '*';
-		$config['file_name'] = $kategori . '_' . $idData . '_(' . $iterator . ')';
+		$config['file_name'] = $kategori . '_' . trim($idData) . '_(' . $iterator . ')';
 		$this->load->library('upload', $config);
 		$this->upload->initialize($config);
 		$path = base_url() . "upload/" . $kriteria . "/";
@@ -90,7 +90,7 @@ class C_Upload extends CI_Controller
 
 		$config['upload_path']   = FCPATH . 'upload/' . $kriteria . "/";
 		$config['allowed_types'] = '*';
-		$config['file_name'] = $TS . '_' . $kategori . '_' . $idData . '_(' . $iterator . ')';
+		$config['file_name'] = $TS . '_' . $kategori . '_' . trim($idData) . '_(' . $iterator . ')';
 		$this->load->library('upload', $config);
 		$this->upload->initialize($config);
 		$path = base_url() . "upload/" . $kriteria . "/";
@@ -123,7 +123,7 @@ class C_Upload extends CI_Controller
 
 		$config['upload_path']   = FCPATH . 'upload/' . $kriteria . "/";
 		$config['allowed_types'] = '*';
-		$config['file_name'] = $stat . '_' . $TS . '_' . $kategori . '_' . $idData . '_(' . $iterator . ')';
+		$config['file_name'] = $stat . '_' . $TS . '_' . $kategori . '_' . trim($idData) . '_(' . $iterator . ')';
 		$this->load->library('upload', $config);
 		$this->upload->initialize($config);
 		$path = base_url() . "upload/" . $kriteria . "/";

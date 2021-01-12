@@ -1,6 +1,4 @@
 <script>
-    // getData();
-
     function getData(id, judul) {
         var judul = judul.bold();
         $("#bukti-header").html(judul);
@@ -95,9 +93,7 @@
                             '<input type="hidden" name="keterangan" value="' . $item['jenisPenggunaan'] . '">' .
                             '<input type="hidden" name="id" value="' . $item['jenisPenggunaan'] . '">' .
                             '<input type="hidden" name="idKriteria" value="4">' .
-                            '<button class="btn btn-primary" type="submit">
-                                    Unggah Bukti
-                                </button>' .
+                            '<button class="btn btn-primary'. (($this->session->user_role == 1) ? '' : ' not-allowed disabled" disabled' ) .' type="submit">' .
                             '</form>' .
                             '</td>';
                     }

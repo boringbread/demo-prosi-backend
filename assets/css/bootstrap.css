@@ -41,6 +41,12 @@
   box-sizing: border-box;
 }
 
+.not-allowed {cursor: not-allowed;}
+
+.dropzone .dz-preview .dz-error-message {
+  top: 150px!important;
+}
+
 html {
   font-family: sans-serif;
   line-height: 1.15;

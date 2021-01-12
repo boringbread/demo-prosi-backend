@@ -102,7 +102,7 @@
                                     <input type="hidden" name="keterangan" value="<?php echo $item['NamaDosen'] ?>">
                                     <input type="hidden" name="id" value="<?php echo $item['Nomor'] ?>">
                                     <input type="hidden" name="idKriteria" value="321">
-                                    <button class="btn btn-primary" type="submit">
+                                    <button class="btn btn-primary <?php echo $this->session->user_role == 1 ? '"' : 'not-allowed disabled" disabled' ?> type="submit">
                                         Unggah Bukti
                                     </button>
                                 </form>
@@ -162,7 +162,7 @@
                                             '<input type="hidden" name="keterangan" value="' . $item['sumberPembiayaan'] . '">' .
                                             '<input type="hidden" name="id" value="' . $item['sumberPembiayaan'] . '">' .
                                             '<input type="hidden" name="idKriteria" value="322"> ' .
-                                            '<button class="btn btn-primary" type="submit">' .
+                                            '<button class="btn btn-primary'. (($this->session->user_role == 1) ? '' : ' not-allowed disabled" disabled' ) .' type="submit">' .
                                                 'Unggah Bukti' .
                                             '</button>' .
                                         '</form>' .
@@ -226,7 +226,7 @@
                                             '<input type="hidden" name="keterangan" value="' . $item['sumberPembiayaan'] . '">' .
                                             '<input type="hidden" name="id" value="' . $item['sumberPembiayaan'] . '">' .
                                             '<input type="hidden" name="idKriteria" value="323"> ' .
-                                            '<button class="btn btn-primary" type="submit">' .
+                                            '<button class="btn btn-primary'. (($this->session->user_role == 1) ? '' : ' not-allowed disabled" disabled' ) .' type="submit">' .
                                                 'Unggah Bukti' .
                                             '</button>' .
                                         '</form>' .
@@ -292,7 +292,7 @@
                                             '<input type="hidden" name="keterangan" value="' . $item['jenisPublikasi'] . '">' .
                                             '<input type="hidden" name="id" value="' . $item['jenisPublikasi'] . '">' .
                                             '<input type="hidden" name="idKriteria" value="3241"> ' .
-                                            '<button class="btn btn-primary" type="submit">' .
+                                            '<button class="btn btn-primary'. (($this->session->user_role == 1) ? '' : ' not-allowed disabled" disabled' ) .' type="submit">' .
                                                 'Unggah Bukti' .
                                             '</button>' .
                                         '</form>' .
@@ -351,7 +351,7 @@
                                             '<input type="hidden" name="keterangan" value="' . $item['jenisPublikasi'] . '">' .
                                             '<input type="hidden" name="id" value="' . $item['jenisPublikasi'] . '">' .
                                             '<input type="hidden" name="idKriteria" value="3242"> ' .
-                                            '<button class="btn btn-primary" type="submit">' .
+                                            '<button class="btn btn-primary'. (($this->session->user_role == 1) ? '' : ' not-allowed disabled" disabled' ) .' type="submit">' .
                                                 'Unggah Bukti' .
                                             '</button>' .
                                         '</form>' .
@@ -410,7 +410,7 @@
                                             '<input type="hidden" name="keterangan" value="' . $item['jenisPublikasi'] . '">' .
                                             '<input type="hidden" name="id" value="' . $item['jenisPublikasi'] . '">' .
                                             '<input type="hidden" name="idKriteria" value="3243"> ' .
-                                            '<button class="btn btn-primary" type="submit">' .
+                                            '<button class="btn btn-primary'. (($this->session->user_role == 1) ? '' : ' not-allowed disabled" disabled' ) .' type="submit">' .
                                                 'Unggah Bukti' .
                                             '</button>' .
                                         '</form>' .
@@ -462,7 +462,7 @@
                                     <input type="hidden" name="keterangan" value="<?php echo $item['JudulArtikel'] ?>">
                                     <input type="hidden" name="id" value="<?php echo $item['JudulArtikel'] ?>">
                                     <input type="hidden" name="idKriteria" value="325">
-                                    <button class="btn btn-primary" type="submit">
+                                    <button class="btn btn-primary <?php echo $this->session->user_role == 1 ? '"' : 'not-allowed disabled" disabled' ?> type="submit">
                                         Unggah Bukti
                                     </button>
                                 </form>
@@ -526,7 +526,7 @@
                                         '<input type="hidden" name="keterangan" value="' . $item['JudulLuaran'] . '">' .
                                         '<input type="hidden" name="id" value="' . $item['JudulLuaran'] . '">' .
                                         '<input type="hidden" name="idKriteria" value="3b6"> ' .
-                                        '<button class="btn btn-primary" type="submit">' .
+                                        '<button class="btn btn-primary'. (($this->session->user_role == 1) ? '' : ' not-allowed disabled" disabled' ) .' type="submit">' .
                                             'Unggah Bukti' .
                                         '</button>' .
                                     '</form>' .
@@ -576,8 +576,6 @@
     </div>
 
     <script>
-        // getData();
-
         function getData(id, judul, subsection) {
             var judul = judul.bold();
             $("#bukti-header").html(judul);
