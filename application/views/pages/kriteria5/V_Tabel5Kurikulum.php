@@ -99,7 +99,7 @@
                                 <input type="hidden" name="keterangan" value="<?php echo $item['kodeMatakuliah'] ?>">
                                 <input type="hidden" name="id" value="<?php echo $item['idMatakuliah'] ?>">
                                 <input type="hidden" name="idKriteria" value="51">
-                                <button class="btn btn-primary" type="submit">
+                                <button class="btn btn-primary <?php echo $this->session->user_role == 1 ? '"' : 'not-allowed disabled" disabled' ?> type="submit">
                                     Unggah Bukti
                                 </button>
                             </form>

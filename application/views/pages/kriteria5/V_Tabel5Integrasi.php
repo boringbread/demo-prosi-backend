@@ -59,7 +59,7 @@
                             <input type="hidden" name="keterangan" value="<?php echo $item['JudulPenelitian'] ?>">
                             <input type="hidden" name="id" value="<?php echo $item['JudulPenelitian'] ?>">
                             <input type="hidden" name="idKriteria" value="52">
-                            <button class="btn btn-primary" type="submit">
+                            <button class="btn btn-primary <?php echo $this->session->user_role == 1 ? '"' : 'not-allowed disabled" disabled' ?> type="submit">
                                 Unggah Bukti
                             </button>
                         </form>

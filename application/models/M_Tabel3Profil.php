@@ -9,6 +9,7 @@
             $this->db->select('namaB');
             $this->db->select('deskripsi');
             $this->db->select('pathFile');
+            $this->db->select('idRecord');
             $this->db->from('DosenTetapUPPS_TD');
             $this->db->join('bukti', 'DosenTetapUPPS_TD.NIDN = bukti.idRecord', 'inner');
             $this->db->where('NIDN', $NIDN);
@@ -21,6 +22,7 @@
             $this->db->select('namaB');
             $this->db->select('deskripsi');
             $this->db->select('pathFile');
+            $this->db->select('idRecord');
             $this->db->from('bukti');
             $this->db->where('idRecord', $idRecord);
             $this->db->where('idSubKriteria', '312');
@@ -33,6 +35,7 @@
             $this->db->select('namaB');
             $this->db->select('deskripsi');
             $this->db->select('pathFile');
+            $this->db->select('idRecord');
             $this->db->from('bukti');
             $this->db->where('idRecord', $idRecord);
             $this->db->where('idSubKriteria', '313');
@@ -45,6 +48,7 @@
             $this->db->select('namaB');
             $this->db->select('deskripsi');
             $this->db->select('pathFile');
+            $this->db->select('idRecord');
             $this->db->from('bukti');
             $this->db->where('idRecord', $idRecord);
             $this->db->where('idSubKriteria', '314');

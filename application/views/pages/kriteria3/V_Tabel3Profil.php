@@ -114,7 +114,7 @@
                                     <input type="hidden" name="keterangan" value="<?php echo $item['NamaDosen'] ?>">
                                     <input type="hidden" name="id" value="<?php echo $item['NIDN'] ?>">
                                     <input type="hidden" name="idKriteria" value="311">
-                                    <button class="btn btn-primary" type="submit">
+                                    <button class="btn btn-primary <?php echo $this->session->user_role == 1 ? '"' : 'not-allowed disabled" disabled' ?> type="submit">
                                         Unggah Bukti
                                     </button>
                                 </form>
@@ -177,7 +177,7 @@
                             <td><?php echo $item['Rata2b'] ?></td>
                             <td><?php echo $item['Rata2_semua'] ?></td>
                             <td>
-                                <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo base64_encode($item['NamaDosen']) ?>`, `<?php echo $item['NamaDosen'] ?>`, `<?php echo '312' ?>`)">
+                                <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo ($item['Nomor']) ?>`, `<?php echo $item['NamaDosen'] ?>`, `<?php echo '312' ?>`)">
                                     Lihat Bukti
                                 </button>
                             </td>
@@ -187,9 +187,9 @@
                                     <input type="hidden" name="stat[]" value="PS">
                                     <input type="hidden" name="stat[]" value="PSL">
                                     <input type="hidden" name="keterangan" value="<?php echo $item['NamaDosen'] ?>">
-                                    <input type="hidden" name="id" value="<?php echo $item['NamaDosen'] ?>">
+                                    <input type="hidden" name="id" value="<?php echo $item['Nomor'] ?>">
                                     <input type="hidden" name="idKriteria" value='312'>
-                                    <button class="btn btn-primary" type="submit">
+                                    <button class="btn btn-primary <?php echo $this->session->user_role == 1 ? '"' : 'not-allowed disabled" disabled' ?> type="submit">
                                         Unggah Bukti
                                     </button>
                                 </form>
@@ -257,7 +257,7 @@
                                     <input type="hidden" name="keterangan" value="<?php echo $item['Nama'] ?>">
                                     <input type="hidden" name="id" value="<?php echo $item['NIK'] ?>">
                                     <input type="hidden" name="idKriteria" value="313">
-                                    <button class="btn btn-primary" type="submit">
+                                    <button class="btn btn-primary <?php echo $this->session->user_role == 1 ? '"' : 'not-allowed disabled" disabled' ?> type="submit">
                                         Unggah Bukti
                                     </button>
                                 </form>
@@ -307,16 +307,16 @@
                             <td><?php echo $item['MataKuliahPSYangDiampu'] ?></td>
                             <td><?php echo ($item['KesesuaianBidangKeahlian'] ? "&#10003" : "-") ?></td>
                             <td>
-                                <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo base64_encode($item['NamaDosen']) ?>`, `<?php echo $item['NamaDosen'] ?>`, `<?php echo '314' ?>`)">
+                                <button class="btn btn-success" data-toggle="modal" data-target="#lihatBukti" onClick="getData(`<?php echo ($item['Nomor']) ?>`, `<?php echo $item['NamaDosen'] ?>`, `<?php echo '314' ?>`)">
                                     Lihat Bukti
                                 </button>
                             </td>
                             <td>
                                 <form action="<?php echo base_url('/index.php/unggahBukti') ?>" method="POST">
                                     <input type="hidden" name="keterangan" value="<?php echo $item['NamaDosen'] ?>">
-                                    <input type="hidden" name="id" value="<?php echo $item['NamaDosen'] ?>">
+                                    <input type="hidden" name="id" value="<?php echo $item['Nomor'] ?>">
                                     <input type="hidden" name="idKriteria" value="314">
-                                    <button class="btn btn-primary" type="submit">
+                                    <button class="btn btn-primary <?php echo $this->session->user_role == 1 ? '"' : 'not-allowed disabled" disabled' ?> type="submit">
                                         Unggah Bukti
                                     </button>
                                 </form>

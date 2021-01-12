@@ -38,15 +38,14 @@
                     $data = $this->tabelProfil->get_bukti_tabel($index)->result_array();
                     break;
                 case '312':
-                    $namaDosen = base64_decode($index);
-                    $data = $this->tabelProfil->get_bukti_tabel_3a2($namaDosen)->result_array();
+                    // $namaDosen = base64_decode($index);
+                    $data = $this->tabelProfil->get_bukti_tabel_3a2($index)->result_array();
                     break;
                 case '313':
                     $data = $this->tabelProfil->get_bukti_tabel_3a3($index)->result_array();
                     break;
                 case '314':
-                    $namaDosen = base64_decode($index);
-                    $data = $this->tabelProfil->get_bukti_tabel_3a4($namaDosen)->result_array();
+                    $data = $this->tabelProfil->get_bukti_tabel_3a4($index)->result_array();
                     break;
                 default:
                     break;
