@@ -73,7 +73,7 @@
                             <input type="hidden" name="TS" value="6">
                             <input type="hidden" name="keterangan" value="<?php echo $item['tahunMasuk'] ?>">
                             <input type="hidden" name="id" value="<?php echo $item['tahunMasuk'] ?>">
-                            <input type="hidden" name="idKriteria" value="4">
+                            <input type="hidden" name="idKriteria" value="83">
                             <button class="btn btn-primary <?php echo $this->session->user_role == 1 ? '"' : 'not-allowed disabled" disabled' ?> type=" submit">
                                 Unggah Bukti
                             </button>
