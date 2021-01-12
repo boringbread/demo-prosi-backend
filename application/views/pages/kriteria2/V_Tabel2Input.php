@@ -14,7 +14,7 @@
                     baris += '<tr>' +
                         '<td>' + data.result[i].deskripsi + '</td>' +
                         '<td>' + data.result[i].namaB + '</td>' +
-                        '<td><a href="' + data.result[i].pathFile + '" target=`_blank`>' + data.result[i].deskripsi + '</a></td>' +
+                        '<td><a href="' + data.result[i].pathFile + '" target=`_blank`>' + data.result[i].namaB + '</a></td>' +
                         '</tr>'
                 }
                 $('#bukti-isi').html(baris);
@@ -73,7 +73,7 @@
 							<input type="hidden" name="keterangan" value="<?php echo $item['tahun'] ?>">
 							<input type="hidden" name="id" value="<?php echo $item['tahun'] ?>">
 							<input type="hidden" name="idKriteria" value="21">
-							<button class="btn btn-primary" type="submit">
+							<button class="btn btn-primary <?php echo $this->session->user_role == 1 ? '"' : 'not-allowed disabled" disabled' ?> type="submit">
 								Unggah Bukti
 							</button>			
 						</form>
