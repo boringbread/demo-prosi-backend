@@ -10,14 +10,15 @@ class C_Login extends CI_Controller
 	}
 
     public function loadView() {
-        $this->load->view('layout/V_Require');
-		$this->load->view('V_Login');
-		$this->load->view('layout/V_Footer');
+			$this->load->view('layout/V_Require');
+			$this->load->view('V_Login');
+			$this->load->view('layout/V_Footer');
     }
 
     public function login(){
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
+		// $user_role = $this->input->post('userRole');
 
 		$result = $this->user->getUserData($username);
 
@@ -34,7 +35,8 @@ class C_Login extends CI_Controller
 
 			$array = array(
 				'logged_in' => 'true',
-				'username' => $username
+				'username' => $username,
+				'user_role' => $result['0']['userRole']
 			);
 
 			$this->session->set_userdata( $array );

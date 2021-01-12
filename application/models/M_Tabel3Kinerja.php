@@ -10,6 +10,7 @@
             $this->db->from('bukti');
             $this->db->where('idRecord', $idRecord);
             $this->db->where('idSubKriteria', '321');
+            $this->db->order_by("namaB", "desc");
             $result = $this->db->get();
             
             return $result; 
@@ -20,6 +21,7 @@
             $this->db->from('bukti');
             $this->db->where('idRecord', $idRecord);
             $this->db->where('idSubKriteria', '322');
+            $this->db->order_by("namaB", "desc");
             $result = $this->db->get();
             
             return $result; 
@@ -30,6 +32,7 @@
             $this->db->from('bukti');
             $this->db->where('idRecord', $idRecord);
             $this->db->where('idSubKriteria', '323');
+            $this->db->order_by("namaB", "desc");
             $result = $this->db->get();
             
             return $result; 
@@ -40,6 +43,7 @@
             $this->db->from('bukti');
             $this->db->where('idRecord', $idRecord);
             $this->db->where('idSubKriteria', '3241');
+            $this->db->order_by("namaB", "desc");
             $result = $this->db->get();
             
             return $result; 
@@ -50,6 +54,7 @@
             $this->db->from('bukti');
             $this->db->where('idRecord', $idRecord);
             $this->db->where('idSubKriteria', '3242');
+            $this->db->order_by("namaB", "desc");
             $result = $this->db->get();
             
             return $result; 
@@ -60,6 +65,7 @@
             $this->db->from('bukti');
             $this->db->where('idRecord', $idRecord);
             $this->db->where('idSubKriteria', '3243');
+            $this->db->order_by("namaB", "desc");
             $result = $this->db->get();
             
             return $result; 
@@ -70,6 +76,7 @@
             $this->db->from('bukti');
             $this->db->where('idRecord', $idRecord);
             $this->db->where('idSubKriteria', '325');
+            $this->db->order_by("namaB", "desc");
             $result = $this->db->get();
             
             return $result; 
@@ -79,6 +86,7 @@
             $this->db->select('*');
             $this->db->from('Penelitian');
             $this->db->where('idPenelitian', $id);
+            $this->db->order_by("namaB", "desc");
             $result = $this->db->get();
             
             return $result;
