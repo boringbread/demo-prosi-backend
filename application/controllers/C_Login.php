@@ -51,14 +51,15 @@ class C_Login extends CI_Controller
 		}
 	}
 
+	// public function generatePass(){
+	// 	echo password_hash('aksesor123!', PASSWORD_BCRYPT);
+	// 	echo password_verify('Aksesor123!','')
+	// }
+
 	public function logout(){
-		
 		$this->session->sess_destroy();
-		
-		
 		redirect('/','refresh');
 		
-		 
 	}
 }
 

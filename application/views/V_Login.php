@@ -30,7 +30,7 @@
                 <?php echo form_open('C_Login/login'); ?>
                     <div class="form-group">
                         <label for="username">Email</label>
-                        <input type="email" class="form-control" id="username" name="username" aria-describedby="emailHelp">
+                        <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp">
                     </div>
                     <div class="form-group">
                         <label for="password">Kata Sandi</label>

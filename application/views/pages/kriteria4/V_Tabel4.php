@@ -94,6 +94,8 @@
                             '<input type="hidden" name="id" value="' . $item['jenisPenggunaan'] . '">' .
                             '<input type="hidden" name="idKriteria" value="4">' .
                             '<button class="btn btn-primary'. (($this->session->user_role == 1) ? '' : ' not-allowed disabled" disabled' ) .' type="submit">' .
+                            'Unggah Bukti </button>' .
+
                             '</form>' .
                             '</td>';
                     }

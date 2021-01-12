@@ -57,7 +57,7 @@
 			</a>
 		</div>
 		<div class="col-md-3 mb-3">
-			<a href="" class="mx-4">
+			<a href="<?php echo site_url('capaian'); ?>" class="mx-4">
 				<div class="border rounded py-5">
 					<h3 class="text-primary">Kriteria 8</h3>
 					<span class="text-dark">Luaran & Capaian Tridharma</span>

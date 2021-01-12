@@ -38,7 +38,7 @@ class C_Tabel8Publikasi extends CI_Controller
                     $data = $this->tabel->get_bukti_tabel_karyaIlmiah($id)->result_array();
                     break;
                 case 863:
-                    $data = $this->tabel->get_bukti_tabel_karyaIlmiah($id)->result_array();
+                    $data = $this->tabel->get_bukti_tabel_luaran($id)->result_array();
                     break;
                 default:
                     break;
