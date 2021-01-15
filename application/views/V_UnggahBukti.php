@@ -63,6 +63,7 @@
 
 	var foto_upload = new Dropzone(".dropzone", {
 		autoProcessQueue: false,
+		acceptedFiles: 'image/jpeg,image/png,image/gif,image/jpg,application/pdf,file/docx,file/doc,file/xlx,file/xls,file/ppt,file/pptx ',
 		url: "<?php echo base_url('index.php/C_Upload/proses_upload') ?>",
 		maxFilesize: 10,
 		parallelUploads: 1,
@@ -73,7 +74,7 @@
 	});
 
 	$('#upload').click(function() {
-		if(!document.getElementById('deskripsi').value ||! document.getElementById('jenis').value){
+		if (!document.getElementById('deskripsi').value || !document.getElementById('jenis').value) {
 			alert('Mohon isi Deskripsi dan Jenis bukti');
 		} else {
 			foto_upload.options.autoProcessQueue = true;
@@ -96,7 +97,7 @@
 		console.log(a);
 		//Menmpersiapkan token untuk masing masing foto
 	});
-	
+
 	foto_upload.on("queuecomplete", function() {
 		//Redirect URL
 		document.getElementById('done').style.display = 'block';
