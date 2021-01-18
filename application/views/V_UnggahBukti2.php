@@ -79,7 +79,7 @@
 
 	var foto_upload = new Dropzone(".dropzone", {
 		autoProcessQueue: false,
-		acceptedFiles: 'image/jpeg,image/png,image/gif,image/jpg,application/pdf,file/docx,file/doc,file/xlx,file/xls,file/ppt,file/pptx ',
+		acceptedFiles: 'image/jpeg,image/png,image/gif,image/jpg,application/pdf,file/docx,file/doc,file/xlx,file/xls,file/ppt,.pptx ',
 		url: "<?php echo base_url('index.php/C_Upload/proses_upload2') ?>",
 		maxFilesize: 10,
 		parallelUploads: 1,
